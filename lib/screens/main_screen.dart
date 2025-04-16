@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_day/constants.dart';
 import '../widgets/day_night_switch_widget.dart';
+import '../widgets/habits_list_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -13,7 +14,13 @@ class MainScreen extends StatelessWidget {
         width: size.width,
         height: size.height,
         color: kBlack,
-        child: Center(child: DaySwitchWidget()),
+        child: Column(
+            children: [
+              const SizedBox(height: 40,),
+              DaySwitchWidget(),
+              Expanded(child: HabitsListWidget())
+            ]
+        ),
       ),
     );
   }
