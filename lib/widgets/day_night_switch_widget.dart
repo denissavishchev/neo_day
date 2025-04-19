@@ -17,23 +17,23 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
 
   Timer? timer;
 
-  // @override
-  // void initState() {
-  //   final data = Provider.of<MainProvider>(context, listen: false);
-  //   data.initDay();
-  //   data.updateTimer();
-  //   timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-  //     setState(() {
-  //       data.updateTimer();
-  //     });
-  //   });
-  //   super.initState();
-  // }
-  // @override
-  // void dispose() {
-  //   timer!.cancel();
-  //   super.dispose();
-  // }
+  @override
+  void initState() {
+    final data = Provider.of<MainProvider>(context, listen: false);
+    data.initDay();
+    data.updateTimer();
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      setState(() {
+        data.updateTimer();
+      });
+    });
+    super.initState();
+  }
+  @override
+  void dispose() {
+    timer!.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

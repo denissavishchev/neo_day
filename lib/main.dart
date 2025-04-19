@@ -10,6 +10,7 @@ Future main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(HabitsModelAdapter());
   await Hive.openBox<HabitsModel>('habit');
+  await Hive.openBox('day');
   runApp(const MyApp());
 }
 
