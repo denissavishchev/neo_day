@@ -43,7 +43,6 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
           return AnimatedContainer(
             duration: const Duration(milliseconds: 500),
             padding: const EdgeInsets.all(1),
-            margin: const EdgeInsets.all(10),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [

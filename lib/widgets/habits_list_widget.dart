@@ -5,7 +5,7 @@ import '../constants.dart';
 import '../main_provider.dart';
 import '../models/boxes.dart';
 import '../models/habits_model.dart';
-import 'horizontal_switch_button_widget.dart';
+import 'task_switch_button_widget.dart';
 
 class HabitsListWidget extends StatelessWidget {
   const HabitsListWidget({super.key});
@@ -36,7 +36,7 @@ class HabitsListWidget extends StatelessWidget {
                                     padding: const EdgeInsets.fromLTRB(18, 6, 18, 12),
                                     decoration: BoxDecoration(
                                         color: kNavy.withValues(alpha: 0.3),
-                                        borderRadius: const BorderRadius.all(Radius.circular(4))
+                                        borderRadius: const BorderRadius.all(Radius.circular(24))
                                     ),
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -79,55 +79,55 @@ class HabitsListWidget extends StatelessWidget {
                                                 }),
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                        Column(
-                                          children: [
-                                            HorizontalSwitchButtonWidget(
-                                              onTap: () => data.switchHabit(box, index, habits),
-                                              checked: habits[index].status,
-                                              index: index,),
-                                            const SizedBox(height: 4),
+                                            const SizedBox(height: 8,),
                                             Row(
+                                              spacing: 40,
                                               children: [
-                                                Container(
-                                                  margin: const EdgeInsets.only(right: 4),
-                                                  width: 12,
-                                                  height: 12,
-                                                  decoration: BoxDecoration(
-                                                      color: kGreen,
-                                                      borderRadius: const BorderRadius.all(Radius.circular(3)),
-                                                      border: Border.all(width: 1, color: kBlack)
-                                                  ),
+                                                Row(
+                                                  children: [
+                                                    Container(
+                                                      margin: const EdgeInsets.only(right: 4),
+                                                      width: 12,
+                                                      height: 12,
+                                                      decoration: BoxDecoration(
+                                                          color: kGreen,
+                                                          borderRadius: const BorderRadius.all(Radius.circular(3)),
+                                                          border: Border.all(width: 1, color: kBlack)
+                                                      ),
+                                                    ),
+                                                    const Text('- ', style: kTextStyle,),
+                                                    Text(data.ones.toString(), style: kTextStyle,),
+                                                    const Text(' / ', style: kTextStyle,),
+                                                    Container(
+                                                      margin: const EdgeInsets.only(right: 4),
+                                                      width: 12,
+                                                      height: 12,
+                                                      decoration: BoxDecoration(
+                                                          color: kNavy.withValues(alpha: 0.2),
+                                                          borderRadius: const BorderRadius.all(Radius.circular(3)),
+                                                          border: Border.all(width: 1, color: kBlack)
+                                                      ),
+                                                    ),
+                                                    const Text('- ', style: kTextStyle,),
+                                                    Text(data.zeros.toString(), style: kTextStyle,),
+                                                  ],
                                                 ),
-                                                const Text('- ', style: kTextStyle,),
-                                                Text(data.ones.toString(), style: kTextStyle,),
-                                                const Text(' / ', style: kTextStyle,),
-                                                Container(
-                                                  margin: const EdgeInsets.only(right: 4),
-                                                  width: 12,
-                                                  height: 12,
-                                                  decoration: BoxDecoration(
-                                                      color: kNavy.withValues(alpha: 0.2),
-                                                      borderRadius: const BorderRadius.all(Radius.circular(3)),
-                                                      border: Border.all(width: 1, color: kBlack)
-                                                  ),
-                                                ),
-                                                const Text('- ', style: kTextStyle,),
-                                                Text(data.zeros.toString(), style: kTextStyle,),
-                                              ],
-                                            ),
-                                            const SizedBox(height: 4),
-                                            Row(
-                                              children: [
-                                                Text(data.convertedLength.toString(), style: kTextStyle,),
-                                                const Text(' / ', style: kTextStyle,),
-                                                Text(habits[index].days.toString(), style: kTextStyle,),
-                                                const Text(' days', style: kTextStyle,),
+                                                Row(
+                                                  children: [
+                                                    Text(data.convertedLength.toString(), style: kTextStyle,),
+                                                    const Text(' / ', style: kTextStyle,),
+                                                    Text(habits[index].days.toString(), style: kTextStyle,),
+                                                    const Text(' days', style: kTextStyle,),
+                                                  ],
+                                                )
                                               ],
                                             ),
                                           ],
                                         ),
+                                        TaskSwitchButtonWidget(
+                                          onTap: () => data.switchHabit(box, index, habits),
+                                          checked: habits[index].status,
+                                          index: index,),
                                       ],
                                     ),
                                   ),

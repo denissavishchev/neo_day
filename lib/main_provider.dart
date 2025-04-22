@@ -21,6 +21,7 @@ class MainProvider extends ChangeNotifier {
   int convertedLength = 0;
   int zeros = 0;
   int ones = 0;
+  bool isMotivation = false;
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -29,6 +30,7 @@ class MainProvider extends ChangeNotifier {
       await box.put('startTime', DateTime.now().toString());
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
     }else{
+      isMotivation = false;
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
@@ -95,7 +97,7 @@ class MainProvider extends ChangeNotifier {
     box.deleteAt(index);
   }
 
-  void updateTimer() async{
+  void updateTimer(){
     final duration = box.get('startTime') == null
         ? DateTime.now().difference(DateTime.now())
         : DateTime.now().difference(DateTime.parse(box.get('startTime').toString()));
@@ -112,7 +114,7 @@ class MainProvider extends ChangeNotifier {
     return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
   }
 
-  void initDay() async{
+  void initDay(){
     if(box.get('startTime') == null){
       isDay = false;
     }else{
@@ -121,7 +123,6 @@ class MainProvider extends ChangeNotifier {
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day');
     }
-
   }
 
   Future<void>showToAddHabit(context)async {
@@ -181,6 +182,11 @@ class MainProvider extends ChangeNotifier {
               }
           );
         });
+  }
+
+  void showMotivation(){
+    isMotivation = true;
+    notifyListeners();
   }
 
 }

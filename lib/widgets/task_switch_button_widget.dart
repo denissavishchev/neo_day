@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 import '../constants.dart';
 import '../main_provider.dart';
 
-class HorizontalSwitchButtonWidget extends StatelessWidget {
-  const HorizontalSwitchButtonWidget({
+class TaskSwitchButtonWidget extends StatelessWidget {
+  const TaskSwitchButtonWidget({
     super.key,
     required this.onTap,
     required this.checked,
@@ -17,14 +17,13 @@ class HorizontalSwitchButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
     return Consumer<MainProvider>(
         builder: (context, data, _){
           return GestureDetector(
             onTap: onTap,
             child: Container(
-              width: 80,
-              height: 32,
+              width: 60,
+              height: 80,
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
               decoration: BoxDecoration(
@@ -43,11 +42,11 @@ class HorizontalSwitchButtonWidget extends StatelessWidget {
               ),
               child: AnimatedAlign(
                 duration: const Duration(milliseconds: 200),
-                alignment: checked ? Alignment.topRight : Alignment.centerLeft,
+                alignment: checked ? Alignment.topCenter : Alignment.bottomCenter,
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
-                  width: size.height * 0.06,
-                  height: size.height * 0.08,
+                  width: 54,
+                  height: 34,
                   decoration: BoxDecoration(
                       border: Border.all(
                           color: checked ? kGreen : kBlue,
