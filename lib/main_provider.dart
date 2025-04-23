@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:neo_day/widgets/languages/language.dart';
 import 'constants.dart';
 import 'models/boxes.dart';
 import 'models/habits_model.dart';
@@ -22,6 +23,7 @@ class MainProvider extends ChangeNotifier {
   int zeros = 0;
   int ones = 0;
   bool isMotivation = false;
+  String selectedLanguage = 'English - UK';
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -188,6 +190,11 @@ class MainProvider extends ChangeNotifier {
 
   void showMotivation(){
     isMotivation = true;
+    notifyListeners();
+  }
+
+  void setLanguage(Language value, context){
+    selectedLanguage = value.toString();
     notifyListeners();
   }
 

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import '../widgets/day_button.dart';
 import '../widgets/day_night_switch_widget.dart';
 import '../widgets/habits_list_widget.dart';
+import '../widgets/languages/language_widget.dart';
 import '../widgets/motivation_widget.dart';
 
 class MainScreen extends StatelessWidget {
@@ -29,7 +30,7 @@ class MainScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         DayButton(icon: Icons.note_alt, onTap: () {  },),
-                        DayButton(icon: Icons.settings, onTap: () {  },),
+                        LanguageWidget(),
                         DayButton(icon: Icons.history, onTap: () {  },),
                         DayButton(icon: Icons.add, onTap: () => data.showToAddHabit(context),)
                       ],

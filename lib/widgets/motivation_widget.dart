@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../constants.dart';
@@ -20,9 +21,9 @@ class MotivationWidget extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    MotivationButton(text: 'Quote', onTap: () => data.showMotivation(),),
-                    MotivationButton(text: 'Advice', onTap: () {  },),
-                    MotivationButton(text: 'Joke', onTap: () {  },)
+                    MotivationButton(text: 'quote'.tr(), onTap: () => data.showMotivation(),),
+                    MotivationButton(text: 'advice'.tr(), onTap: () {  },),
+                    MotivationButton(text: 'joke'.tr(), onTap: () {  },)
                   ],
                 ),
                 AnimatedPositioned(
