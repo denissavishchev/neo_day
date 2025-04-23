@@ -16,35 +16,52 @@ class MotivationWidget extends StatelessWidget {
         builder: (context, data, _){
           return Visibility(
             visible: data.isDay,
-            child: Stack(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MotivationButton(text: 'quote'.tr(), onTap: () => data.showMotivation(),),
-                    MotivationButton(text: 'advice'.tr(), onTap: () {  },),
-                    MotivationButton(text: 'joke'.tr(), onTap: () {  },)
-                  ],
+            child: Container(
+              width: size.width,
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(18)),
+                boxShadow: [
+                  BoxShadow(
+                  color: kBlue.withValues(alpha: 0.5),
                 ),
-                AnimatedPositioned(
-                  duration: Duration(milliseconds: 300),
-                  top: 0,
-                  bottom: 0,
-                  right: data.isMotivation ? 0 : -size.width,
-                  width: size.width - 36,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: kBlue,
-                      borderRadius: BorderRadius.all(Radius.circular(12))
-                    ),
-                    child: Center(
-                      child: Text('Motivation Text',
-                        style: kTextStyle,
+                const BoxShadow(
+                  color: kGrey,
+                  spreadRadius: -4.0,
+                  blurRadius: 4.0,
+                ),
+              ],
+              ),
+              child: Stack(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      MotivationButton(text: 'quote'.tr(), onTap: () => data.showMotivation(),),
+                      MotivationButton(text: 'advice'.tr(), onTap: () {  },),
+                      MotivationButton(text: 'joke'.tr(), onTap: () {  },)
+                    ],
+                  ),
+                  AnimatedPositioned(
+                    duration: Duration(milliseconds: 300),
+                    top: 0,
+                    bottom: 0,
+                    right: data.isMotivation ? 0 : -size.width,
+                    width: size.width - 36,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: kBlue,
+                        borderRadius: BorderRadius.all(Radius.circular(12))
+                      ),
+                      child: Center(
+                        child: Text('Motivation Text',
+                          style: kTextStyle,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         }
@@ -67,7 +84,7 @@ class MotivationButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: size.width * 0.25,
-        height: 60,
+        height: 40,
         decoration: BoxDecoration(
             color: kBlue,
             borderRadius: BorderRadius.all(Radius.circular(12))
