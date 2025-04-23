@@ -61,10 +61,11 @@ class MotivationButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 120,
+        width: size.width * 0.25,
         height: 60,
         decoration: BoxDecoration(
             color: kBlue,

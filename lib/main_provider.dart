@@ -119,7 +119,9 @@ class MainProvider extends ChangeNotifier {
       isDay = false;
     }else{
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
-      endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
+      endTime = box.get('endTime') == null
+          ? ''
+          :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day');
     }
