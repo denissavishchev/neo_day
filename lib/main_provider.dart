@@ -24,6 +24,7 @@ class MainProvider extends ChangeNotifier {
   int ones = 0;
   bool isMotivation = false;
   String selectedLanguage = 'English - UK';
+  int motivationIndex = 0;
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -195,6 +196,11 @@ class MainProvider extends ChangeNotifier {
 
   void setLanguage(Language value, context){
     selectedLanguage = value.toString();
+    notifyListeners();
+  }
+
+  void switchMotivationIndex() {
+    motivationIndex = motivationIndex == 0 ? 1 : 0;
     notifyListeners();
   }
 
