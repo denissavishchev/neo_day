@@ -58,10 +58,7 @@ class MotivationWidget extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Text(data.motivationText == 'quote'
-            ? 'stars'.tr()
-            : data.motivationText == 'advice'
-            ? 'cactus'.tr() : 'horoscope'.tr(),
+        child: Text(data.motivationText.tr(),
           style: kTextStyle,),
       ),
     );

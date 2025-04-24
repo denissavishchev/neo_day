@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:neo_day/widgets/languages/language.dart';
@@ -5,6 +6,7 @@ import 'constants.dart';
 import 'models/boxes.dart';
 import 'models/habits_model.dart';
 import 'package:intl/intl.dart';
+import 'dart:math';
 
 class MainProvider extends ChangeNotifier {
 
@@ -24,7 +26,7 @@ class MainProvider extends ChangeNotifier {
   int ones = 0;
   String selectedLanguage = 'English - UK';
   int motivationIndex = 0;
-  String motivationText = '';
+  String motivationText = 'quote';
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -191,7 +193,7 @@ class MainProvider extends ChangeNotifier {
 
   void showMotivation(String text){
     motivationIndex = 1;
-    motivationText = text;
+    motivationText = '$text${Random().nextInt(30)}';
     notifyListeners();
   }
 
