@@ -19,8 +19,8 @@ class MotivationWidget extends StatelessWidget {
             crossFadeState: data.motivationIndex == 0
                 ? CrossFadeState.showFirst
                 : CrossFadeState.showSecond,
-            firstChild: _buildRedContainer(size, MainProvider()),
-            secondChild: _buildGreenContainer(size),
+            firstChild: _buildFirstContainer(size, data),
+            secondChild: _buildSecondContainer(size, data),
             sizeCurve: Curves.easeInOut,
           ),
         );
@@ -28,34 +28,41 @@ class MotivationWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildRedContainer(Size size, MainProvider data) {
+  Widget _buildFirstContainer(Size size, MainProvider data) {
     return Container(
       margin: const EdgeInsets.all(8),
       width: size.width,
-      height: 100,
+      height: 55,
       decoration: const BoxDecoration(
         color: kRed,
         borderRadius: BorderRadius.all(Radius.circular(18)),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          MotivationButton(text: 'quote'.tr(), onTap: () => data.showMotivation(),),
-          MotivationButton(text: 'advice'.tr(), onTap: () {  },),
-          MotivationButton(text: 'joke'.tr(), onTap: () {  },)
+          MotivationButton(text: 'quote'.tr(), onTap: () => data.showMotivation('quote'),),
+          MotivationButton(text: 'advice'.tr(), onTap: () => data.showMotivation('advice'),),
+          MotivationButton(text: 'joke'.tr(), onTap: () => data.showMotivation('joke'),)
         ],
       ),
     );
   }
 
-  Widget _buildGreenContainer(Size size) {
+  Widget _buildSecondContainer(Size size, MainProvider data) {
     return Container(
       margin: const EdgeInsets.all(8),
       width: size.width,
-      height: 250,
       decoration: const BoxDecoration(
-        color: kGreen,
+        color: kBlue,
         borderRadius: BorderRadius.all(Radius.circular(18)),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Text(data.motivationText == 'quote'
+            ? 'stars'.tr()
+            : data.motivationText == 'advice'
+            ? 'cactus'.tr() : 'horoscope'.tr(),
+          style: kTextStyle,),
       ),
     );
   }

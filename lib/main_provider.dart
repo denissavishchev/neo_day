@@ -22,9 +22,9 @@ class MainProvider extends ChangeNotifier {
   int convertedLength = 0;
   int zeros = 0;
   int ones = 0;
-  bool isMotivation = false;
   String selectedLanguage = 'English - UK';
   int motivationIndex = 0;
+  String motivationText = '';
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -33,7 +33,7 @@ class MainProvider extends ChangeNotifier {
       await box.put('startTime', DateTime.now().toString());
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
     }else{
-      isMotivation = false;
+      motivationIndex = 0;
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
@@ -189,8 +189,14 @@ class MainProvider extends ChangeNotifier {
         });
   }
 
-  void showMotivation(){
-    isMotivation = true;
+  void showMotivation(String text){
+    motivationIndex = 1;
+    motivationText = text;
+    notifyListeners();
+  }
+
+  void hideMotivation(){
+    motivationIndex = 0;
     notifyListeners();
   }
 
@@ -199,9 +205,5 @@ class MainProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void switchMotivationIndex() {
-    motivationIndex = motivationIndex == 0 ? 1 : 0;
-    notifyListeners();
-  }
 
 }

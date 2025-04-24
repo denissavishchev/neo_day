@@ -26,6 +26,7 @@ class HabitsListWidget extends StatelessWidget {
                         builder: (context, box, _){
                           final habits = box.values.toList().cast<HabitsModel>();
                           return ListView.builder(
+                            padding: const EdgeInsets.only(top: 2, bottom: 32),
                               itemCount: habits.length,
                               itemBuilder: (context, index){
                                 return GestureDetector(
