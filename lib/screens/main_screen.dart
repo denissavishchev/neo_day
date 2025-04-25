@@ -6,6 +6,7 @@ import '../widgets/day_button.dart';
 import '../widgets/day_night_switch_widget.dart';
 import '../widgets/habits_list_widget.dart';
 import '../widgets/languages/language_widget.dart';
+import '../widgets/languages/night_widget.dart';
 import '../widgets/motivation_widget.dart';
 
 class MainScreen extends StatelessWidget {
@@ -37,7 +38,10 @@ class MainScreen extends StatelessWidget {
                     ),
                     DaySwitchWidget(),
                     MotivationWidget(),
-                    Expanded(child: HabitsListWidget())
+                    Expanded(
+                        child: data.isDay
+                         ? HabitsListWidget()
+                         : NightWidget())
                   ]
               ),
             );
@@ -46,6 +50,8 @@ class MainScreen extends StatelessWidget {
     );
   }
 }
+
+
 
 
 

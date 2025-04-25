@@ -25,7 +25,6 @@ class MainProvider extends ChangeNotifier {
   int zeros = 0;
   int ones = 0;
   String selectedLanguage = 'English - UK';
-  int motivationIndex = 0;
   String motivationText = 'quote';
 
   void switchDay(context) async {
@@ -35,7 +34,7 @@ class MainProvider extends ChangeNotifier {
       await box.put('startTime', DateTime.now().toString());
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
     }else{
-      motivationIndex = 0;
+      motivationText = 'quote';
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
@@ -129,6 +128,7 @@ class MainProvider extends ChangeNotifier {
           :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day');
+      motivationText = box.get('motivationText') ?? 'quote';
     }
   }
 
@@ -192,13 +192,14 @@ class MainProvider extends ChangeNotifier {
   }
 
   void showMotivation(String text){
-    motivationIndex = 1;
     motivationText = '$text${Random().nextInt(30)}';
+    box.put('motivationText', motivationText);
     notifyListeners();
   }
 
   void hideMotivation(){
-    motivationIndex = 0;
+    motivationText = 'quote';
+    box.put('motivationText', 'quote');
     notifyListeners();
   }
 

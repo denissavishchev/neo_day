@@ -16,7 +16,7 @@ class MotivationWidget extends StatelessWidget {
           visible: data.isDay,
           child: AnimatedCrossFade(
             duration: const Duration(milliseconds: 220),
-            crossFadeState: data.motivationIndex == 0
+            crossFadeState: data.motivationText == 'quote'
                 ? CrossFadeState.showFirst
                 : CrossFadeState.showSecond,
             firstChild: _buildFirstContainer(size, data),
