@@ -26,6 +26,8 @@ class MainProvider extends ChangeNotifier {
   int ones = 0;
   String selectedLanguage = 'English - UK';
   String motivationText = 'quote';
+  int totalTasks = 0;
+  int doneTasks = 0;
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -52,6 +54,8 @@ class MainProvider extends ChangeNotifier {
         progressHabitBox.add(h.progress);
         statusHabitBox.add(h.status);
       }
+      totalTasks = 0;
+      doneTasks = 0;
       for(var i = 0; i < nameHabitBox.length; i++){
         Hive.box<HabitsModel>('habit').putAt(i, HabitsModel()
           ..name = nameHabitBox[i]
@@ -62,6 +66,13 @@ class MainProvider extends ChangeNotifier {
               ? progressHabitBox[i]
               : progressHabitBox[i] + (statusHabitBox[i] ? '1' : '0')
         );
+        String tasks = progressHabitBox[i].length == daysHabitBox[i]
+            ? progressHabitBox[i]
+            : progressHabitBox[i] + (statusHabitBox[i] ? '1' : '0');
+        totalTasks = Hive.box<HabitsModel>('habit').values.length;
+        if(tasks.substring(tasks.length - 1) == '1') {
+          doneTasks++;
+        }
       }
     }
     notifyListeners();
