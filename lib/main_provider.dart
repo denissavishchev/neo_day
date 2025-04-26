@@ -11,6 +11,11 @@ import 'dart:math';
 class MainProvider extends ChangeNotifier {
 
   final habitTextController = TextEditingController();
+  final notesTextControllerOne = TextEditingController();
+  final notesTextControllerTwo = TextEditingController();
+  final notesTextControllerThree = TextEditingController();
+  final notesPageController = PageController();
+  final GlobalKey<ScaffoldState> notesKey = GlobalKey<ScaffoldState>();
 
   Box box = Hive.box('day');
 
@@ -223,5 +228,29 @@ class MainProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future saveNote(String note, int index) async{
+    switch(index){
+      case 0:
+        await box.put('note0', note);
+        break;
+      case 1:
+        await box.put('note1', note);
+        break;
+      case 2:
+        await box.put('note2', note);
+        break;
+    }
+    notifyListeners();
+  }
+
+  Future readNote() async{
+    notesTextControllerOne.text = await box.get('note0') ?? '';
+    notesTextControllerTwo.text = await box.get('note1') ?? '';
+    notesTextControllerThree.text = await box.get('note2') ?? '';
+  }
+  
+  void switchNote(int page){
+    notesPageController.jumpToPage(page);
+  }
 
 }
