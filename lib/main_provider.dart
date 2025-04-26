@@ -35,12 +35,14 @@ class MainProvider extends ChangeNotifier {
       await box.put('day', true);
       await box.put('startTime', DateTime.now().toString());
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
-    }else{
       motivationText = 'quote';
+    }else{
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
       previousDayDuration = box.get('previousDayDuration').toString();
+      await box.put('doneTasks', doneTasks);
+      await box.put('totalTasks', totalTasks);
       await box.put('day', false);
       final nameHabitBox = [];
       final startHabitBox = [];
@@ -140,6 +142,8 @@ class MainProvider extends ChangeNotifier {
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day');
       motivationText = box.get('motivationText') ?? 'quote';
+      totalTasks = box.get('totalTasks') ?? 0;
+      doneTasks = box.get('doneTasks') ?? 0;
     }
   }
 

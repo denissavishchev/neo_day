@@ -24,6 +24,7 @@ class NightWidget extends StatelessWidget {
                   ),
                   Text('last day tasks: ${data.doneTasks}/${data.totalTasks}', style: kTextStyle,),
                   Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
+                  Text('last day ended at: ${data.endTime}', style: kTextStyle,),
                   Text('Quality of the last day: Good', style: kTextStyle,),
                   Text('Mood of the last day: Good', style: kTextStyle,),
                   const SizedBox(height: 50,),

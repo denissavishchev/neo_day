@@ -9,8 +9,21 @@ import '../widgets/languages/language_widget.dart';
 import '../widgets/languages/night_widget.dart';
 import '../widgets/motivation_widget.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
+  @override
+  State<MainScreen> createState() => _MainScreenState();
+}
+
+class _MainScreenState extends State<MainScreen> {
+
+  @override
+  void initState() {
+    final data = Provider.of<MainProvider>(context, listen: false);
+    data.initDay();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

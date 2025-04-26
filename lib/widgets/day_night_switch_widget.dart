@@ -20,7 +20,6 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
   @override
   void initState() {
     final data = Provider.of<MainProvider>(context, listen: false);
-    data.initDay();
     data.updateTimer();
     timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
