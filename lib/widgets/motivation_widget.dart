@@ -30,7 +30,6 @@ class MotivationWidget extends StatelessWidget {
 
   Widget _buildFirstContainer(Size size, MainProvider data) {
     return Container(
-      margin: const EdgeInsets.all(8),
       width: size.width,
       height: 55,
       decoration: const BoxDecoration(
@@ -50,7 +49,6 @@ class MotivationWidget extends StatelessWidget {
 
   Widget _buildSecondContainer(Size size, MainProvider data) {
     return Container(
-      margin: const EdgeInsets.all(8),
       width: size.width,
       decoration: const BoxDecoration(
         color: kBlue,

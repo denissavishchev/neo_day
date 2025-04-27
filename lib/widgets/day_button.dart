@@ -15,13 +15,13 @@ class DayButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 60,
-        height: 60,
+        width: 50,
+        height: 40,
         decoration: BoxDecoration(
             color: kBlue,
             borderRadius: BorderRadius.all(Radius.circular(12))
         ),
-        child: Icon(icon, color: kWhite, size: 40,),
+        child: Icon(icon, color: kWhite, size: 35,),
       ),
     );
   }

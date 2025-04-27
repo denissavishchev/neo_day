@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   color: kBlack,
                   child: Column(
-                      spacing: 20,
+                      spacing: 12,
                       children: [
                         const SizedBox(height: 40,),
                         Row(

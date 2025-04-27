@@ -26,26 +26,7 @@ class NightWidget extends StatelessWidget {
                   Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
                   Text('last day ended at: ${data.endTime}', style: kTextStyle,),
                   const SizedBox(height: 24,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(5, (i){
-                      final isOn = i < data.selectedStars;
-                      return GestureDetector(
-                        onTap: () => data.selectStars(i),
-                        child: Icon(Icons.star,
-                            color: isOn ? kTangerine : kWhite,
-                            size: 40,
-                            shadows: [
-                              BoxShadow(
-                                  color: kWhite,
-                                  blurRadius: 9,
-                                  spreadRadius: 6,
-                                  offset: Offset(0.5, 0.5)
-                              )
-                            ]),
-                      );
-                    }),
-                  ),
+                  RatingWidget(),
                   const SizedBox(height: 24,),
                   ElevatedButton(
                       onPressed: (){},
@@ -58,6 +39,39 @@ class NightWidget extends StatelessWidget {
                   right: 0,
                   child: Lottie.asset('assets/images/panda.json', width: size.width)),
             ],
+          );
+        }
+    );
+  }
+}
+
+class RatingWidget extends StatelessWidget {
+  const RatingWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<MainProvider>(
+        builder: (context, data, _){
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(5, (i){
+              return GestureDetector(
+                onTap: () => data.selectStars(i),
+                child: Icon(Icons.star,
+                    color: i < data.selectedStars ? kTangerine : kWhite,
+                    size: 50,
+                    shadows: [
+                      BoxShadow(
+                          color: i < data.selectedStars ? kWhite : kTangerine,
+                          blurRadius: 9,
+                          spreadRadius: 6,
+                          offset: Offset(1, 1)
+                      ),
+                    ]),
+              );
+            }),
           );
         }
     );

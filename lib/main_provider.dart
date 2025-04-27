@@ -261,7 +261,7 @@ class MainProvider extends ChangeNotifier {
   }
 
   void selectStars(int stars){
-    if (selectedStars == stars + 1){
+    if (stars == 0 && selectedStars == stars + 1){
       selectedStars = 0;
     }else{
       selectedStars = stars + 1;

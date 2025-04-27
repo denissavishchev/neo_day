@@ -55,7 +55,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
             ),
             child: AnimatedContainer(
               width: size.width * 0.9,
-              height: 120,
+              height: 110,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.all(Radius.circular(60)),
