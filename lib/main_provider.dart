@@ -33,6 +33,7 @@ class MainProvider extends ChangeNotifier {
   String motivationText = 'quote';
   int totalTasks = 0;
   int doneTasks = 0;
+  int selectedStars = 0;
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -251,6 +252,15 @@ class MainProvider extends ChangeNotifier {
   
   void switchNote(int page){
     notesPageController.jumpToPage(page);
+  }
+
+  void selectStars(int stars){
+    if (selectedStars == stars + 1){
+      selectedStars = 0;
+    }else{
+      selectedStars = stars + 1;
+    }
+    notifyListeners();
   }
 
 }

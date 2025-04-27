@@ -19,7 +19,7 @@ class NotepadWidget extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 50),
               decoration: BoxDecoration(
-                  color: kGreen,
+                  color: kBlue,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(18),
                       bottomRight: Radius.circular(18)
@@ -38,26 +38,41 @@ class NotepadWidget extends StatelessWidget {
                             children: [
                               TextButton(
                                   onPressed: () => data.switchNote(0),
-                                  child: Text('1')
+                                  child: Text('1', style: kTextStyle,)
                               ),
                               TextButton(
                                   onPressed: () => data.switchNote(1),
-                                  child: Text('2')
+                                  child: Text('2', style: kTextStyle,)
                               ),
                               TextButton(
                                   onPressed: () => data.switchNote(2),
-                                  child: Text('3')
+                                  child: Text('3', style: kTextStyle,)
                               ),
                             ],
                           ),
                         ),
                         const Spacer(),
-                        IconButton(
-                          icon: const Icon(Icons.close),
-                          onPressed: () => data.notesKey.currentState?.closeDrawer(),
+                        Container(
+                          width: 50,
+                          height: 50,
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [kGreen.withValues(alpha: 0.6), kBlue.withValues(alpha: 0.6)],
+                                begin: Alignment.topRight,
+                                end: Alignment.bottomLeft
+                              ),
+                              borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(18)
+                              )
+                          ),
+                          child: IconButton(
+                            icon: const Icon(Icons.close, color: kWhite,),
+                            onPressed: () => data.notesKey.currentState?.closeDrawer(),
+                          ),
                         ),
                       ],
                     ),
+                    const SizedBox(height: 12,),
                     SizedBox(
                       width: size.width,
                       height: size.height * 0.35,

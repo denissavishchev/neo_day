@@ -25,9 +25,40 @@ class NightWidget extends StatelessWidget {
                   Text('last day tasks: ${data.doneTasks}/${data.totalTasks}', style: kTextStyle,),
                   Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
                   Text('last day ended at: ${data.endTime}', style: kTextStyle,),
-                  Text('Quality of the last day: Good', style: kTextStyle,),
-                  Text('Mood of the last day: Good', style: kTextStyle,),
-                  const SizedBox(height: 50,),
+                  const SizedBox(height: 24,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(5, (i){
+                      final isOn = i < data.selectedStars;
+                      return GestureDetector(
+                        onTap: () => data.selectStars(i),
+                        child: isOn
+                            ? Icon(Icons.star,
+                            color: kTangerine,
+                            size: 40,
+                            shadows: const [
+                              BoxShadow(
+                                  color: kWhite,
+                                  blurRadius: 9,
+                                  spreadRadius: 6,
+                                  offset: Offset(0.5, 0.5)
+                              )
+                            ])
+                        : Icon(Icons.star,
+                            color: kWhite,
+                            size: 40,
+                            shadows: const [
+                              BoxShadow(
+                                  color: kWhite,
+                                  blurRadius: 9,
+                                  spreadRadius: 6,
+                                  offset: Offset(0.5, 0.5)
+                              )
+                            ]),
+                      );
+                    }),
+                  ),
+                  const SizedBox(height: 24,),
                   ElevatedButton(
                       onPressed: (){},
                       child: Text('Go to sleep...')
