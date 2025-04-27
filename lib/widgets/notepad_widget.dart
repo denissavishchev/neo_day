@@ -36,18 +36,9 @@ class NotepadWidget extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              TextButton(
-                                  onPressed: () => data.switchNote(0),
-                                  child: Text('1', style: kTextStyle,)
-                              ),
-                              TextButton(
-                                  onPressed: () => data.switchNote(1),
-                                  child: Text('2', style: kTextStyle,)
-                              ),
-                              TextButton(
-                                  onPressed: () => data.switchNote(2),
-                                  child: Text('3', style: kTextStyle,)
-                              ),
+                              NoteButton(index: 0,),
+                              NoteButton(index: 1,),
+                              NoteButton(index: 2,),
                             ],
                           ),
                         ),
@@ -57,12 +48,13 @@ class NotepadWidget extends StatelessWidget {
                           height: 50,
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: [kGreen.withValues(alpha: 0.6), kBlue.withValues(alpha: 0.6)],
+                                colors: [kGreen.withValues(alpha: 0.55), kBlue.withValues(alpha: 0.4)],
                                 begin: Alignment.topRight,
                                 end: Alignment.bottomLeft
                               ),
                               borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(18)
+                                  topRight: Radius.circular(18),
+                                  bottomLeft: Radius.circular(18),
                               )
                           ),
                           child: IconButton(
@@ -77,6 +69,7 @@ class NotepadWidget extends StatelessWidget {
                       width: size.width,
                       height: size.height * 0.35,
                       child: PageView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           controller: data.notesPageController,
                           itemCount: 3,
                           itemBuilder: (context, index){
@@ -93,18 +86,11 @@ class NotepadWidget extends StatelessWidget {
                                       : index == 1
                                       ? data.notesTextControllerTwo
                                       : data.notesTextControllerThree,
-                                  cursorColor: kRed,
+                                  cursorColor: kGreen,
                                   keyboardType: TextInputType.multiline,
                                   maxLines: null,
-                                  style: const TextStyle(color: kRed, fontWeight: FontWeight.w500),
-                                  decoration: const InputDecoration(
-                                    enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.red)
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(color: Colors.red)
-                                    ),
-                                  ),
+                                  style: kTextStyle,
+                                  decoration: textFieldDecoration,
                                   onChanged: (value) => data.saveNote(value, index),
                                 ),
                               ),
@@ -114,6 +100,35 @@ class NotepadWidget extends StatelessWidget {
                     )
                   ]
               ),
+            ),
+          );
+        }
+    );
+  }
+}
+
+class NoteButton extends StatelessWidget {
+  const NoteButton({
+    super.key,
+    required this.index,
+  });
+
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<MainProvider>(
+        builder: (context, data, _){
+          return Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                border: Border.all(color: data.selectedNote == index ? kGreen : Colors.transparent, width: 2)
+            ),
+            child: TextButton(
+                onPressed: () => data.switchNote(index),
+                child: Text('${index + 1}', style: data.selectedNote == index ? kGreenTextStyle : kTextStyle,)
             ),
           );
         }

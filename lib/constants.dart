@@ -18,29 +18,19 @@ const kTextStyle = TextStyle(
     fontWeight: FontWeight.bold
 );
 
-const orangeTextFieldDecoration = InputDecoration(
-  // hintStyle: kTextStyle,
-  enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kBlack)
-  ),
-  focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kBlack)
-  ),
-  focusedErrorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kRed)
-  ),
-  errorBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kRed)
-  ),
+const kGreenTextStyle = TextStyle(
+    color: kGreen,
+    fontSize: 16,
+    fontWeight: FontWeight.bold
 );
 
 const textFieldDecoration = InputDecoration(
   // hintStyle: kTextStyle,
   enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kWhite)
+      borderSide: BorderSide(color: kGreen)
   ),
   focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: kWhite)
+      borderSide: BorderSide(color: kGreen)
   ),
   focusedErrorBorder: OutlineInputBorder(
       borderSide: BorderSide(color: kRed)

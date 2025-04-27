@@ -49,10 +49,7 @@ class _MainScreenState extends State<MainScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             DayButton(icon: Icons.note_alt,
-                                onTap: () {
-                                  data.readNote();
-                                  data.notesKey.currentState?.openDrawer();
-                            }),
+                                onTap: () => data.readNote()),
                             LanguageWidget(),
                             DayButton(icon: Icons.history, onTap: () {  },),
                             DayButton(icon: Icons.add, onTap: () => data.showToAddHabit(context),)

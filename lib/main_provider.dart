@@ -34,6 +34,7 @@ class MainProvider extends ChangeNotifier {
   int totalTasks = 0;
   int doneTasks = 0;
   int selectedStars = 0;
+  int selectedNote = 0;
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -245,13 +246,18 @@ class MainProvider extends ChangeNotifier {
   }
 
   Future readNote() async{
+    selectedNote = 0;
     notesTextControllerOne.text = await box.get('note0') ?? '';
     notesTextControllerTwo.text = await box.get('note1') ?? '';
     notesTextControllerThree.text = await box.get('note2') ?? '';
+    notesKey.currentState?.openDrawer();
   }
   
   void switchNote(int page){
+    selectedNote = page;
     notesPageController.jumpToPage(page);
+    FocusManager.instance.primaryFocus?.unfocus();
+    notifyListeners();
   }
 
   void selectStars(int stars){

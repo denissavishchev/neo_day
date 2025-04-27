@@ -32,22 +32,10 @@ class NightWidget extends StatelessWidget {
                       final isOn = i < data.selectedStars;
                       return GestureDetector(
                         onTap: () => data.selectStars(i),
-                        child: isOn
-                            ? Icon(Icons.star,
-                            color: kTangerine,
+                        child: Icon(Icons.star,
+                            color: isOn ? kTangerine : kWhite,
                             size: 40,
-                            shadows: const [
-                              BoxShadow(
-                                  color: kWhite,
-                                  blurRadius: 9,
-                                  spreadRadius: 6,
-                                  offset: Offset(0.5, 0.5)
-                              )
-                            ])
-                        : Icon(Icons.star,
-                            color: kWhite,
-                            size: 40,
-                            shadows: const [
+                            shadows: [
                               BoxShadow(
                                   color: kWhite,
                                   blurRadius: 9,
