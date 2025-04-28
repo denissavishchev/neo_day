@@ -9,6 +9,7 @@ import '../widgets/languages/language_widget.dart';
 import '../widgets/night_widget.dart';
 import '../widgets/motivation_widget.dart';
 import '../widgets/notepad_widget.dart';
+import '../widgets/today_target_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -56,6 +57,7 @@ class _MainScreenState extends State<MainScreen> {
                           ],
                         ),
                         DaySwitchWidget(),
+                        TodayTargetWidget(),
                         MotivationWidget(),
                         Expanded(
                             child: data.isDay
@@ -70,6 +72,8 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+
 
 
 

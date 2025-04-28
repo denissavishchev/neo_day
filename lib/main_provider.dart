@@ -5,12 +5,12 @@ import 'package:neo_day/widgets/languages/language.dart';
 import 'constants.dart';
 import 'models/boxes.dart';
 import 'models/habits_model.dart';
-import 'package:intl/intl.dart';
 import 'dart:math';
 
 class MainProvider extends ChangeNotifier {
 
   final habitTextController = TextEditingController();
+  final todayTargetTextController = TextEditingController();
   final notesTextControllerOne = TextEditingController();
   final notesTextControllerTwo = TextEditingController();
   final notesTextControllerThree = TextEditingController();
@@ -35,6 +35,7 @@ class MainProvider extends ChangeNotifier {
   int doneTasks = 0;
   int selectedStars = 0;
   int selectedNote = 0;
+  String todayTarget = '';
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -43,7 +44,9 @@ class MainProvider extends ChangeNotifier {
       await box.put('startTime', DateTime.now().toString());
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
       motivationText = 'quote';
+      showToAddTodayTarget(context);
     }else{
+      todayTarget = '';
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
@@ -149,12 +152,13 @@ class MainProvider extends ChangeNotifier {
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day');
       motivationText = box.get('motivationText') ?? 'quote';
+      todayTarget = box.get('todayTarget') ?? '';
       totalTasks = box.get('totalTasks') ?? 0;
       doneTasks = box.get('doneTasks') ?? 0;
     }
   }
 
-  Future<void>showToAddHabit(context)async {
+  Future<void>showToAddHabit(context) async {
     Size size = MediaQuery.sizeOf(context);
     return showModalBottomSheet(
         context: context,
@@ -202,6 +206,51 @@ class MainProvider extends ChangeNotifier {
                         ElevatedButton(
                             onPressed: (){
                               addHabitToBase();
+                              Navigator.of(context).pop();
+                            },
+                            child: Text('Add')),
+                      ],
+                    )
+                );
+              }
+          );
+        });
+  }
+
+  Future<void>showToAddTodayTarget(context) async {
+    Size size = MediaQuery.sizeOf(context);
+    return showModalBottomSheet(
+        context: context,
+        isDismissible: false,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        builder: (context) {
+          return StatefulBuilder(
+              builder: (context, setState){
+                return Container(
+                    height: size.height * 0.2,
+                    width: size.width,
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    margin: const EdgeInsets.only(bottom: 450),
+                    decoration: const BoxDecoration(
+                      color: kIndigo,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text('addTodayTarget'.tr()),
+                        TextField(
+                          controller: todayTargetTextController,
+                          style: const TextStyle(color: kWhite),
+                          decoration: textFieldDecoration,
+                        ),
+                        ElevatedButton(
+                            onPressed: (){
+                              box.put('todayTarget', todayTargetTextController.text);
+                              todayTarget = todayTargetTextController.text;
+                              todayTargetTextController.clear();
+                              notifyListeners();
                               Navigator.of(context).pop();
                             },
                             child: Text('Add')),
