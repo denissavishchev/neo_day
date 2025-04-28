@@ -22,6 +22,22 @@ class NightWidget extends StatelessWidget {
                     width: size.width,
                     height: 300,
                   ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('last day target: ${data.todayTarget}', style: kTextStyle,),
+                      const SizedBox(width: 4,),
+                      Container(
+                        width: 18,
+                        height: 18,
+                        decoration: BoxDecoration(
+                            color: data.isTodayTarget ? kRed : kBlack.withValues(alpha: 0.8),
+                            borderRadius: BorderRadius.all(Radius.circular(7)),
+                            border: Border.all(color: data.isTodayTarget ? Colors.transparent : kRed, width: 2)
+                        ),
+                      )
+                    ],
+                  ),
                   Text('last day tasks: ${data.doneTasks}/${data.totalTasks}', style: kTextStyle,),
                   Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
                   Text('last day ended at: ${data.endTime}', style: kTextStyle,),

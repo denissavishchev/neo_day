@@ -36,6 +36,7 @@ class MainProvider extends ChangeNotifier {
   int selectedStars = 0;
   int selectedNote = 0;
   String todayTarget = '';
+  bool isTodayTarget = false;
 
   void switchDay(context) async {
     isDay = !isDay;
@@ -44,9 +45,13 @@ class MainProvider extends ChangeNotifier {
       await box.put('startTime', DateTime.now().toString());
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
       motivationText = 'quote';
+      await box.put('motivationText', 'quote');
+      isTodayTarget = false;
+      todayTarget = '';
+      isTodayTarget = false;
+      await box.put('isTodayTarget', false);
       showToAddTodayTarget(context);
     }else{
-      todayTarget = '';
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
@@ -152,6 +157,7 @@ class MainProvider extends ChangeNotifier {
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day');
       motivationText = box.get('motivationText') ?? 'quote';
+      isTodayTarget = box.get('isTodayTarget') ?? false;
       todayTarget = box.get('todayTarget') ?? '';
       totalTasks = box.get('totalTasks') ?? 0;
       doneTasks = box.get('doneTasks') ?? 0;
@@ -250,6 +256,7 @@ class MainProvider extends ChangeNotifier {
                               box.put('todayTarget', todayTargetTextController.text);
                               todayTarget = todayTargetTextController.text;
                               todayTargetTextController.clear();
+                              isTodayTarget = false;
                               notifyListeners();
                               Navigator.of(context).pop();
                             },
@@ -315,6 +322,12 @@ class MainProvider extends ChangeNotifier {
     }else{
       selectedStars = stars + 1;
     }
+    notifyListeners();
+  }
+
+  void switchIsTodayTarget(){
+    isTodayTarget = !isTodayTarget;
+    box.put('isTodayTarget', isTodayTarget);
     notifyListeners();
   }
 

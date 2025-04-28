@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../constants.dart';
 import '../main_provider.dart';
 
@@ -15,7 +14,7 @@ class TodayTargetWidget extends StatelessWidget {
     return Consumer<MainProvider>(
         builder: (context, data, _){
           return Visibility(
-            visible: data.todayTarget != '',
+            visible: data.todayTarget != '' && data.isDay,
             child: Container(
               width: size.width,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
@@ -27,20 +26,24 @@ class TodayTargetWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(data.todayTarget, style: kTextStyle,),
-                  Container(
-                    width: 32,
-                    height: 32,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: kBlue,
-                      borderRadius: BorderRadius.all(Radius.circular(12))
-                    ),
+                  GestureDetector(
+                    onTap: () => data.switchIsTodayTarget(),
                     child: Container(
-                      width: 24,
-                      height: 24,
+                      width: 32,
+                      height: 32,
+                      alignment: Alignment.center,
                       decoration: BoxDecoration(
-                          color: kRed,
-                          borderRadius: BorderRadius.all(Radius.circular(8))
+                        color: kBlack.withValues(alpha: 0.8),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: Container(
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                            color: data.isTodayTarget ? kRed : kBlack.withValues(alpha: 0.8),
+                            borderRadius: BorderRadius.all(Radius.circular(7)),
+                            border: Border.all(color: data.isTodayTarget ? Colors.transparent : kRed, width: 2)
+                        ),
                       ),
                     ),
                   )
