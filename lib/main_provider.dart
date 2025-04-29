@@ -38,6 +38,22 @@ class MainProvider extends ChangeNotifier {
   String todayTarget = '';
   bool isTodayTarget = false;
 
+  List<Color> puzzleColors = List<Color>.filled(30, kRed);
+  bool isPuzzleTaskVisible = false;
+
+  void openPuzzleTask(int index){
+    if(puzzleColors[index] == kRed){
+      isPuzzleTaskVisible = true;
+      puzzleColors[index] = Colors.transparent;
+      notifyListeners();
+    }
+  }
+
+  void hidePuzzleTask(){
+    isPuzzleTaskVisible = false;
+    notifyListeners();
+  }
+
   void switchDay(context) async {
     isDay = !isDay;
     if(isDay){

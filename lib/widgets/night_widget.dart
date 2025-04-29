@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:neo_day/main_provider.dart';
 import 'package:provider/provider.dart';
 import '../constants.dart';
@@ -11,50 +10,98 @@ class NightWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
     return Consumer<MainProvider>(
         builder: (context, data, _){
-          return Stack(
+          return Column(
             children: [
-              Column(
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
-                    width: size.width,
-                    height: 300,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('last day target: ${data.todayTarget}', style: kTextStyle,),
-                      const SizedBox(width: 4,),
-                      Container(
-                        width: 18,
-                        height: 18,
-                        decoration: BoxDecoration(
-                            color: data.isTodayTarget ? kRed : kBlack.withValues(alpha: 0.8),
-                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                            border: Border.all(color: data.isTodayTarget ? Colors.transparent : kRed, width: 2)
-                        ),
-                      )
-                    ],
-                  ),
-                  Text('last day tasks: ${data.doneTasks}/${data.totalTasks}', style: kTextStyle,),
-                  Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
-                  Text('last day ended at: ${data.endTime}', style: kTextStyle,),
-                  const SizedBox(height: 24,),
-                  RatingWidget(),
-                  const SizedBox(height: 24,),
-                  ElevatedButton(
-                      onPressed: (){},
-                      child: Text('Go to sleep...')
+                  Text('last day target: ${data.todayTarget}', style: kTextStyle,),
+                  const SizedBox(width: 4,),
+                  Container(
+                    width: 18,
+                    height: 18,
+                    decoration: BoxDecoration(
+                        color: data.isTodayTarget ? kRed : kBlack.withValues(alpha: 0.8),
+                        borderRadius: BorderRadius.all(Radius.circular(7)),
+                        border: Border.all(color: data.isTodayTarget ? Colors.transparent : kRed, width: 2)
+                    ),
                   )
                 ],
               ),
-              Positioned(
-                  top: -100,
-                  right: 0,
-                  child: Lottie.asset('assets/images/panda.json', width: size.width)),
+              Text('last day tasks: ${data.doneTasks}/${data.totalTasks}', style: kTextStyle,),
+              Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
+              Text('last day ended at: ${data.endTime}', style: kTextStyle,),
+              const SizedBox(height: 24,),
+              RatingWidget(),
+              const SizedBox(height: 24,),
+              PuzzleWidget()
             ],
+          );
+        }
+    );
+  }
+}
+
+class PuzzleWidget extends StatelessWidget {
+  const PuzzleWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
+    return Consumer<MainProvider>(
+        builder: (context, data, _){
+          return Container(
+            width: size.width,
+            height: 250,
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+                color: kWhite,
+                borderRadius: BorderRadius.all(Radius.circular(8))
+            ),
+            child: Stack(
+              children: [
+                SizedBox(
+                    width: size.width,
+                    height: 250,
+                    child: Image.asset('assets/images/forest.jpg', fit: BoxFit.cover,)),
+                Wrap(
+                  children: List.generate(30, ((i){
+                    return GestureDetector(
+                      onTap: () => data.openPuzzleTask(i),
+                      child: Container(
+                        width: (size.width - 36) / 6,
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: data.puzzleColors[i],
+                            border: Border.all(
+                                color: data.puzzleColors[i] == kRed ? kBlack : Colors.transparent,
+                                width: 0.5)
+                        ),
+                      ),
+                    );
+                  })),
+                ),
+                Visibility(
+                  visible: data.isPuzzleTaskVisible,
+                  child: GestureDetector(
+                    onTap: () => data.hidePuzzleTask(),
+                    child: Container(
+                        width: size.width,
+                        height: 250,
+                        clipBehavior: Clip.hardEdge,
+                        decoration: BoxDecoration(
+                            color: kWhite,
+                            borderRadius: BorderRadius.all(Radius.circular(12))
+                        )
+                    ),
+                  ),
+                )
+              ],
+            ),
           );
         }
     );
