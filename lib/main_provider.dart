@@ -38,13 +38,21 @@ class MainProvider extends ChangeNotifier {
   String todayTarget = '';
   bool isTodayTarget = false;
 
-  List<Color> puzzleColors = List<Color>.filled(30, kRed);
+  List puzzleColors = List.filled(30, 0);
   bool isPuzzleTaskVisible = false;
+  int selectedPuzzle = 0;
+  bool isPuzzleToday = false;
+  String puzzlesParts = '';
 
   void openPuzzleTask(int index){
-    if(puzzleColors[index] == kRed){
+    if(puzzleColors[index] == 0 && !isPuzzleToday){
       isPuzzleTaskVisible = true;
-      puzzleColors[index] = Colors.transparent;
+      puzzleColors[index] = 1;
+      selectedPuzzle = index;
+      isPuzzleToday = true;
+      puzzlesParts = puzzleColors.join(',');
+      box.put('isPuzzleToday', isPuzzleToday);
+      box.put('puzzlesParts', puzzlesParts);
       notifyListeners();
     }
   }
@@ -68,6 +76,8 @@ class MainProvider extends ChangeNotifier {
       await box.put('isTodayTarget', false);
       showToAddTodayTarget(context);
     }else{
+      isPuzzleToday = false;
+      await box.put('isPuzzleToday', isPuzzleToday);
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
@@ -172,7 +182,10 @@ class MainProvider extends ChangeNotifier {
           :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day');
-      motivationText = box.get('motivationText') ?? 'quote';
+      isPuzzleToday = box.get('isPuzzleToday') ?? false;
+      puzzleColors = box.get('puzzlesParts') == null
+          ? List<int>.filled(30, 0)
+          : (box.get('puzzlesParts')).split(',').map(int.parse).toList();
       isTodayTarget = box.get('isTodayTarget') ?? false;
       todayTarget = box.get('todayTarget') ?? '';
       totalTasks = box.get('totalTasks') ?? 0;

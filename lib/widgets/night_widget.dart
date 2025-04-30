@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_day/main_provider.dart';
 import 'package:provider/provider.dart';
@@ -76,9 +77,9 @@ class PuzzleWidget extends StatelessWidget {
                         width: (size.width - 36) / 6,
                         height: 50,
                         decoration: BoxDecoration(
-                            color: data.puzzleColors[i],
+                            color: data.puzzleColors[i] == 0 ? kRed : Colors.transparent,
                             border: Border.all(
-                                color: data.puzzleColors[i] == kRed ? kBlack : Colors.transparent,
+                                color: data.puzzleColors[i] == 0 ? kBlack : Colors.transparent,
                                 width: 0.5)
                         ),
                       ),
@@ -92,11 +93,23 @@ class PuzzleWidget extends StatelessWidget {
                     child: Container(
                         width: size.width,
                         height: 250,
+                        padding: const EdgeInsets.all(12),
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
-                            color: kWhite,
-                            borderRadius: BorderRadius.all(Radius.circular(12))
-                        )
+                            color: kBlue,
+                            borderRadius: BorderRadius.all(Radius.circular(8))
+                        ),
+                      child: Column(
+                        spacing: 8,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text('puzzleTitle${data.selectedPuzzle}'.tr(), style: kTextStyle.copyWith(fontSize: 22),),
+                          Text('puzzleQuestion${data.selectedPuzzle}'.tr(), style: kTextStyle,),
+                          Text('puzzleBody${data.selectedPuzzle}'.tr(), style: kTextStyle,),
+                          const Spacer(),
+                          Text('puzzleFooter${data.selectedPuzzle}'.tr(), style: kTextStyle,),
+                        ],
+                      ),
                     ),
                   ),
                 )

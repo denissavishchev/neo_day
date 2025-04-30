@@ -95,6 +95,155 @@
   "joke26": "Doing nothing today — that’s a plan. A bold one.",
   "joke27": "Every day feels like Monday. Except Saturday. Sometimes.",
   "joke28": "Morning is a myth. Especially before 10.",
-  "joke29": "Got out of bed today? Achievement unlocked. Well done."
+  "joke29": "Got out of bed today? Achievement unlocked. Well done.",
 
+  "puzzleTitle0": "Gratitude",
+  "puzzleQuestion0": "What are you grateful for today?",
+  "puzzleBody0": "Find at least one small spark of light in the past day.",
+  "puzzleFooter0": "Your bed is bored. It's time to cuddle with it.",
+
+  "puzzleTitle1": "Color of the day",
+  "puzzleQuestion1": "What color describes your day?",
+  "puzzleBody1": "Color reflects energy, rhythm, inner palette.",
+  "puzzleFooter1": "I did what I could today. Let it end beautifully.",
+
+  "puzzleTitle2": "I did it because...",
+  "puzzleQuestion2": "Add: “I did it because..."",
+  "puzzleBody2": "Find a resource that you leaned.",
+  "puzzleFooter2": "The body is not a machine. It asks for silence, not YouTube.",
+
+  "puzzleTitle3": "A Moment of Light",
+  "puzzleQuestion3": "What made you smile today?",
+  "puzzleBody3": "Remember and mentally relive that moment.",
+  "puzzleFooter3": "Tomorrow you will be grateful to yourself for today's sleep.",
+
+  "puzzleTitle4": "Day Line",
+  "puzzleQuestion4": "Imagine: a day is a line. What is it like?",
+  "puzzleBody4": "Straight, wave, zigzag? Let it tell about your path.",
+  "puzzleFooter4": "The Internet can wait. And your recovery isn't.",
+
+  "puzzleTitle5": "A thought I'm letting go of",
+  "puzzleQuestion5": "What do you want to let go of?",
+  "puzzleBody5": "Just name it. That's enough to let go.",
+  "puzzleFooter5": "The best ideas come to you when you've had enough sleep. Step into the shadows to shine again.",
+
+  "puzzleTitle6": "I'm great because...",
+  "puzzleQuestion6": "Praise yourself. No buts.",
+  "puzzleBody6": "Acknowledge at least one action that deserves a "bravo".",
+  "puzzleFooter6": "Silence is also music. Listen to it before bed.",
+
+  "puzzleTitle7": "Animal of the day",
+  "puzzleQuestion7": "Who were you today - an owl? A fox? turtle?",
+  "puzzleBody7": "Feel your “spirit of the day” — and embrace it.",
+  "puzzleFooter7": "You deserve peace. It’s near. Just close your eyes.",
+
+  "puzzleTitle8": "Mood in one word",
+  "puzzleQuestion8": "One word that describes your state of mind.",
+  "puzzleBody8": "This word is the key to your inner weather.",
+  "puzzleFooter8": "Turn off the lights before the day turns you off.",
+
+  "puzzleTitle9": "Title of the day",
+  "puzzleQuestion9": "What would you call this day if it were a book?",
+  "puzzleBody9": "The title helps draw the line.",
+  "puzzleFooter9": "Take a break. Not everything has to be done before midnight.",
+
+  "puzzleTitle10": "Thank you, body",
+  "puzzleQuestion10": "“Thank you for carrying me through the days.”",
+  "puzzleBody10": "Run your hand over your body in your mind.",
+  "puzzleFooter10": "Give your eyes a break from the screen. Let them look inward.",
+
+  "puzzleTitle11": "A hug from a distance",
+  "puzzleQuestion11": "Who are you hugging in your mind right now?",
+  "puzzleBody11": "Even imaginary warmth changes your state.",
+  "puzzleFooter11": "Tomorrow there will be another opportunity to win. Today is the time to reset.",
+
+  "puzzleTitle12": "A safe place",
+  "puzzleQuestion12": "Imagine a place where you are completely calm.",
+  "puzzleBody12": "Linger there for a few breaths.",
+  "puzzleFooter12": "You are not a robot. Sleep is fuel.",
+
+  "puzzleTitle13": "Weather of the day",
+  "puzzleQuestion13": "What was your internal weather today?",
+  "puzzleBody13": "Cloudy, clear, thunder, rainbow?",
+  "puzzleFooter13": "Peace is also productivity. Don't underestimate rest.",
+
+  "puzzleTitle14": "Overcoming laziness",
+  "puzzleQuestion14": "What did you do that you didn't want to?",
+  "puzzleBody14": "Recognize the power of moving forward.",
+  "puzzleFooter14": "By turning off the day, you turn on self-care.",
+
+  "puzzleTitle15": "Save this moment",
+  "puzzleQuestion15": "What would you like to leave in your memory?",
+  "puzzleBody15": "Take a mental photo.",
+  "puzzleFooter15": "The world can cope without you for a couple of hours. Sleep well.",
+
+  "puzzleTitle16": "I am part of something bigger",
+  "puzzleQuestion16": "What reminded you today that you are not alone?",
+  "puzzleBody16": "Being part of it is also soothing.",
+  "puzzleFooter16": "Lie down. Don't scroll. Don't analyze. Lie down.",
+
+  "puzzleTitle17": "I forgive myself",
+  "puzzleQuestion17": "What can you forgive yourself today?",
+  "puzzleBody17": "Understanding is the first step to lightness.",
+  "puzzleFooter17": "Breathe slowly. Nothing needs to be solved anymore.",
+
+  "puzzleTitle18": "Flower of the day",
+  "puzzleQuestion18": "What flower were you today?",
+  "puzzleBody18": "Everyone blooms otherwise. And that's good.",
+  "puzzleFooter18": "Let the screen go dark. And thoughts become soft.",
+
+  "puzzleTitle19": "10 seconds of silence",
+  "puzzleQuestion19": "What does the silence tell you today?",
+  "puzzleBody19": "Listen. The answer is there too.",
+  "puzzleFooter19": "You won't miss anything important. But you might miss the morning.",
+
+  "puzzleTitle20": "Send warmth",
+  "puzzleQuestion20": "Who do you want to send some goodness to today?",
+  "puzzleBody20": "Even in your thoughts. That's enough.",
+  "puzzleFooter20": "The silence of the night heals more effectively than advice.",
+
+  "puzzleTitle21": "A word for tomorrow",
+  "puzzleQuestion21": "What word will you start your morning with?",
+  "puzzleBody21": "Let it be a small compass.",
+  "puzzleFooter21": "You've done enough. That's enough. Close the day.",
+
+  "puzzleTitle22": "My anchor",
+  "puzzleQuestion22": "What kept you balanced today?",
+  "puzzleBody22": "This is your support. Appreciate them.",
+  "puzzleFooter22": "Tomorrow will be easier if you just fall asleep today.",
+
+  "puzzleTitle23": "Agreed for the day",
+  "puzzleQuestion23": "Can you accept everything today as it was?",
+  "puzzleBody23": "That's also a kind of strength.",
+  "puzzleFooter23": "Sleep is not weakness. It's preparation for power.",
+
+  "puzzleTitle24": "A bridge to tomorrow",
+  "puzzleQuestion24": "What connects today with tomorrow morning?",
+  "puzzleBody24": "Build a bridge. Even a symbolic one.",
+  "puzzleFooter24": "Time to turn off your head. And turn on the pillow.",
+
+  "puzzleTitle25": "Where did life beat today?",
+  "puzzleQuestion25": "In what gesture, thought, or word did life beat today?",
+  "puzzleBody25": "This was your pulse of the day.",
+  "puzzleFooter25": "Do you want to be strong tomorrow? Lie down today.",
+
+  "puzzleTitle26": "I am not alone",
+  "puzzleQuestion26": "When did you feel a connection with others today?",
+  "puzzleBody26": "Even if not physically — you are part of something.",
+  "puzzleFooter26": "Rhythm is not a prison. It's your anchor.",
+
+  "puzzleTitle27": "A hammock for the soul",
+  "puzzleQuestion27": "What does your resting space look like?",
+  "puzzleBody27": "Suspended between 'already' and 'not yet.'",
+  "puzzleFooter27": "You don't have to earn your rest. You already earn it.",
+
+  "puzzleTitle28": "I am enough",
+  "puzzleQuestion28": "What says 'I am enough 'to you today?'",
+  "puzzleBody28": "This sentence is also a blanket.",
+  "puzzleFooter28": "Let the morning be the beginning, not the continuation of the night.",
+
+  "puzzleTitle29": "I just keep going",
+  "puzzleQuestion29": "What are you ending the day with? What do you want to take next?",
+  "puzzleBody29": "This isn't the end. Just your next step.",
+  "puzzleFooter29": "You can just sleep. That's enough."
 }

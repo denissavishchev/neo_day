@@ -95,6 +95,156 @@
   "joke26": "Nic nie robić dziś — to plan. Ambitny plan.",
   "joke27": "Każdy dzień jak poniedziałek. Oprócz soboty. Czasami.",
   "joke28": "Poranek to mit. Zwłaszcza przed 10.",
-  "joke29": "Wstałeś dziś? Już osiągnięcie. Brawo."
+  "joke29": "Wstałeś dziś? Już osiągnięcie. Brawo.",
+
+  "puzzleTitle0": "Wdzięczność",
+  "puzzleQuestion0": "Za co dziś jesteś wdzięczny?",
+  "puzzleBody0": "Znajdź chociaż jedną małą iskierkę światła w tym dniu.",
+  "puzzleFooter0": "Twoje łóżko tęskni. Czas się z nim przytulić.",
+
+  "puzzleTitle1": "Kolor dnia",
+  "puzzleQuestion1": "Jakim kolorem byłby Twój dzień?",
+  "puzzleBody1": "Kolor oddaje energię, rytm i wewnętrzną paletę.",
+  "puzzleFooter1": "Dzień zrobił, co mógł. Pozwól mu się pięknie zakończyć.",
+
+  "puzzleTitle2": "Poradziłem sobie, bo…",
+  "puzzleQuestion2": "Dokończ: „Poradziłem sobie, bo…”",
+  "puzzleBody2": "Znajdź zasób, na którym się dziś oparłeś.",
+  "puzzleFooter2": "Ciało to nie maszyna. Prosi o ciszę, nie o YouTube.",
+
+  "puzzleTitle3": "Moment światła",
+  "puzzleQuestion3": "Co dziś wywołało Twój uśmiech?",
+  "puzzleBody3": "Przypomnij sobie i przeżyj to jeszcze raz w myślach.",
+  "puzzleFooter3": "Jutro podziękujesz sobie za dzisiejszy sen.",
+
+  "puzzleTitle4": "Linia dnia",
+  "puzzleQuestion4": "Wyobraź sobie: dzień to linia. Jaka ona była?",
+  "puzzleBody4": "Prosta, fala, zygzak? Niech opowie o Twojej drodze.",
+  "puzzleFooter4": "Internet może poczekać. Twoja regeneracja — nie.",
+
+  "puzzleTitle5": "Myśl, którą puszczasz wolno",
+  "puzzleQuestion5": "Jaką jedną myśl możesz dziś odpuścić?",
+  "puzzleBody5": "Nazwij ją. To wystarczy, by ją puścić.",
+  "puzzleFooter5": "Najlepsze pomysły przychodzą do wyspanych umysłów.",
+
+  "puzzleTitle6": "Jestem z siebie dumny, bo…",
+  "puzzleQuestion6": "Co dziś zrobiłeś dobrze, nawet jeśli to drobiazg?",
+  "puzzleBody6": "Nawet mały krok zasługuje na uznanie.",
+  "puzzleFooter6": "Cisza to też muzyka. Posłuchaj jej przed snem.",
+
+  "puzzleTitle7": "Zwierzę dnia",
+  "puzzleQuestion7": "Jakie zwierzę dziś najlepiej Cię opisuje?",
+  "puzzleBody7": "Odnajdź swój dzisiejszy rytm i przyjmij go.",
+  "puzzleFooter7": "Zasłużyłeś na spokój. On jest blisko. Po prostu zamknij oczy.",
+
+  "puzzleTitle8": "Słowo wieczoru",
+  "puzzleQuestion8": "Jakie jedno słowo oddaje Twój nastrój?",
+  "puzzleBody8": "Słowa są lustrem stanu. Nazwij swój.",
+  "puzzleFooter8": "Zgaś światło, zanim dzień zgaśnie Ciebie.",
+
+  "puzzleTitle9": "Tytuł dnia",
+  "puzzleQuestion9": "Jak zatytułowałbyś dzisiejszy dzień?",
+  "puzzleBody9": "Tytuł zamyka opowieść. Ułatwia odejście dalej.",
+  "puzzleFooter9": "Zrób pauzę. Nie wszystko trzeba kończyć dziś.",
+
+  "puzzleTitle10": "Dziękuję ciału",
+  "puzzleQuestion10": "Jak Twoje ciało wspierało Cię dziś?",
+  "puzzleBody10": "Poczuj wdzięczność dla tej codziennej pracy.",
+  "puzzleFooter10": "Daj oczom odpocząć od ekranu. Niech spojrzą do środka.",
+
+  "puzzleTitle11": "Myślowe przytulenie",
+  "puzzleQuestion11": "Kogo dziś (choćby w myślach) chciałbyś przytulić?",
+  "puzzleBody11": "Taka czułość zmienia Twój wieczór.",
+  "puzzleFooter11": "Jutro będzie czas na kolejne zwycięstwa. Dziś — na regenerację.",
+
+  "puzzleTitle12": "Bezpieczna przestrzeń",
+  "puzzleQuestion12": "Jak wygląda Twoje miejsce spokoju?",
+  "puzzleBody12": "Zatrzymaj się tam na kilka oddechów.",
+  "puzzleFooter12": "Nie jesteś robotem. Sen to Twoje paliwo.",
+
+  "puzzleTitle13": "Wewnętrzna pogoda",
+  "puzzleQuestion13": "Jaką pogodę miało dziś Twoje wnętrze?",
+  "puzzleBody13": "Zachmurzenie, blask, burza czy cisza?",
+  "puzzleFooter13": "Spokój też jest produktywny. Nie umniejszaj mu.",
+
+  "puzzleTitle14": "Wygrałem z niechęcią",
+  "puzzleQuestion14": "Co zrobiłeś dziś mimo niechęci?",
+  "puzzleBody14": "Zasługuje na uznanie. To Twój krok naprzód.",
+  "puzzleFooter14": "Wyłączając dzień, włączasz troskę o siebie.",
+
+  "puzzleTitle15": "Chwila do zapamiętania",
+  "puzzleQuestion15": "Jakie jedno wspomnienie z dziś warto zachować?",
+  "puzzleBody15": "Zrób mu miejsce w środku.",
+  "puzzleFooter15": "Świat poradzi sobie bez Ciebie przez kilka godzin. Śpij spokojnie.",
+
+  "puzzleTitle16": "Jestem częścią czegoś większego",
+  "puzzleQuestion16": "Co przypomniało Ci dziś, że nie jesteś sam?",
+  "puzzleBody16": "Bycie częścią to też ukojenie.",
+  "puzzleFooter16": "Połóż się. Nie scrolluj. Nie analizuj. Połóż się.",
+
+  "puzzleTitle17": "Wybaczam sobie",
+  "puzzleQuestion17": "Co dziś możesz sobie wybaczyć?",
+  "puzzleBody17": "Zrozumienie to pierwszy krok do lekkości.",
+  "puzzleFooter17": "Oddychaj wolno. Już nic nie trzeba rozwiązywać.",
+
+  "puzzleTitle18": "Kwiat dnia",
+  "puzzleQuestion18": "Jakim kwiatem dziś byłeś?",
+  "puzzleBody18": "Każdy rozkwita inaczej. I to jest dobre.",
+  "puzzleFooter18": "Niech ekran zgaśnie. A myśli staną się miękkie.",
+
+  "puzzleTitle19": "10 sekund ciszy",
+  "puzzleQuestion19": "Co mówi Ci dziś cisza?",
+  "puzzleBody19": "Posłuchaj. Tam też jest odpowiedź.",
+  "puzzleFooter19": "Nie przegapisz nic ważnego. Ale możesz przegapić poranek.",
+
+  "puzzleTitle20": "Wyślij ciepło",
+  "puzzleQuestion20": "Komu dziś chcesz przesłać trochę dobra?",
+  "puzzleBody20": "Nawet w myślach. To wystarczy.",
+  "puzzleFooter20": "Nocna cisza leczy skuteczniej niż rady.",
+
+  "puzzleTitle21": "Słowo na jutro",
+  "puzzleQuestion21": "Jakim słowem rozpoczniesz swój poranek?",
+  "puzzleBody21": "Niech to będzie mały kompas.",
+  "puzzleFooter21": "Zrobiłeś wystarczająco. Już wystarczy. Zamknij dzień.",
+
+  "puzzleTitle22": "Moja kotwica",
+  "puzzleQuestion22": "Co Cię dziś trzymało w równowadze?",
+  "puzzleBody22": "To Twoje oparcie. Doceniaj je.",
+  "puzzleFooter22": "Jutro będzie łatwiej, jeśli dziś po prostu zaśniesz.",
+
+  "puzzleTitle23": "Zgoda na dzień",
+  "puzzleQuestion23": "Czy potrafisz dziś przyjąć wszystko takim, jakim było?",
+  "puzzleBody23": "To też rodzaj siły.",
+  "puzzleFooter23": "Sen to nie słabość. To przygotowanie do mocy.",
+
+  "puzzleTitle24": "Most do jutra",
+  "puzzleQuestion24": "Co łączy dziś z jutrzejszym porankiem?",
+  "puzzleBody24": "Zbuduj most. Nawet symboliczny.",
+  "puzzleFooter24": "Czas wyłączyć głowę. I włączyć poduszkę.",
+
+  "puzzleTitle25": "Gdzie dziś biło życie?",
+  "puzzleQuestion25": "W jakim geście, myśli lub słowie dziś tętniło życie?",
+  "puzzleBody25": "To był Twój puls dnia.",
+  "puzzleFooter25": "Chcesz być silny jutro? Połóż się dziś.",
+
+  "puzzleTitle26": "Nie jestem sam",
+  "puzzleQuestion26": "Kiedy dziś poczułeś połączenie z innymi?",
+  "puzzleBody26": "Nawet jeśli nie fizycznie — jesteś częścią czegoś.",
+  "puzzleFooter26": "Rytm nie jest więzieniem. To Twoja kotwica.",
+
+  "puzzleTitle27": "Hamak dla duszy",
+  "puzzleQuestion27": "Jak wygląda Twoja przestrzeń do odpoczynku?",
+  "puzzleBody27": "Zawieszona między „już” i „jeszcze nie”.",
+  "puzzleFooter27": "Nie musisz zasługiwać na odpoczynek. Już na niego zasłużyłeś.",
+
+  "puzzleTitle28": "Jestem wystarczający",
+  "puzzleQuestion28": "Co dziś mówi Ci: „Jestem wystarczający”?",
+  "puzzleBody28": "To zdanie też jest kołdrą.",
+  "puzzleFooter28": "Niech poranek będzie początkiem, nie ciągiem dalszym nocy.",
+
+  "puzzleTitle29": "Po prostu idę dalej",
+  "puzzleQuestion29": "Z czym kończysz ten dzień? Co chcesz zabrać dalej?",
+  "puzzleBody29": "To nie koniec. Po prostu Twój krok dalej.",
+  "puzzleFooter29": "Możesz po prostu spać. To wystarczy."
 
 }
