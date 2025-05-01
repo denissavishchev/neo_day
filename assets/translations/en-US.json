@@ -3,6 +3,7 @@
   "advice": "Advice",
   "joke": "Joke",
   "addTodayTarget": "Add today target",
+  "bodyEnergy": "Body energy (day {})",
 
   "quote0": "You can do more than you think.",
   "quote1": "Every small action is a step toward a big goal.",
@@ -108,7 +109,7 @@
   "puzzleFooter1": "I did what I could today. Let it end beautifully.",
 
   "puzzleTitle2": "I did it because...",
-  "puzzleQuestion2": "Add: “I did it because..."",
+  "puzzleQuestion2": "Add: 'I did it because...'",
   "puzzleBody2": "Find a resource that you leaned.",
   "puzzleFooter2": "The body is not a machine. It asks for silence, not YouTube.",
 
@@ -129,7 +130,7 @@
 
   "puzzleTitle6": "I'm great because...",
   "puzzleQuestion6": "Praise yourself. No buts.",
-  "puzzleBody6": "Acknowledge at least one action that deserves a "bravo".",
+  "puzzleBody6": "Acknowledge at least one action that deserves a 'bravo'.",
   "puzzleFooter6": "Silence is also music. Listen to it before bed.",
 
   "puzzleTitle7": "Animal of the day",
@@ -245,5 +246,95 @@
   "puzzleTitle29": "I just keep going",
   "puzzleQuestion29": "What are you ending the day with? What do you want to take next?",
   "puzzleBody29": "This isn't the end. Just your next step.",
-  "puzzleFooter29": "You can just sleep. That's enough."
+  "puzzleFooter29": "You can just sleep. That's enough.",
+
+  "start0": "I am strong because I move.",
+  "task0": "Do 10 squats with a straight back. No rush.",
+
+  "start1": "My body is my engine. I'm starting it.",
+  "task1": "Do 5 push-ups. On the floor, from knees or wall — whatever works for you.",
+
+  "start2": "Every morning is a chance to grow stronger.",
+  "task2": "March in place with high knees — 20 steps, alternating legs.",
+
+  "start3": "Strength is a skill. I train it.",
+  "task3": "Hold a plank on your elbows for 30 seconds. Engage your core.",
+
+  "start4": "I choose activation.",
+  "task4": "Do 10 jumping jacks or light jumps on the spot.",
+
+  "start5": "I'm not lazy — I'm evolving.",
+  "task5": "Do 8 forward lunges — 4 per leg, slow and steady.",
+
+  "start6": "Waking up — I wake up my strength too.",
+  "task6": "Do 15 squats with hands behind your head (throne pose).",
+
+  "start7": "Discipline is self-care.",
+  "task7": "Run in place for 20 seconds, lifting knees high.",
+
+  "start8": "Power lies in habit. I'm building it now.",
+  "task8": "Do 10 incline push-ups using a couch or chair.",
+
+  "start9": "I can do more than I think.",
+  "task9": "Mountain climbers: 20 seconds, knees toward chest in plank position.",
+
+  "start10": "I activate energy in my body.",
+  "task10": "10 hip circles each direction + 10 light jumps.",
+
+  "start11": "Movement is my fuel.",
+  "task11": "Do 5 slow squats, then 5 fast ones. Feel the contrast.",
+
+  "start12": "I'm in alliance with my body, not at war.",
+  "task12": "1 minute walking plank or downward dog movement.",
+
+  "start13": "I start my day with my body, not my phone.",
+  "task13": "30 seconds of simulated jump rope — light and rhythmic.",
+
+  "start14": "I choose power, not grogginess.",
+  "task14": "8 slow push-ups. Focus on quality, not speed.",
+
+  "start15": "I start with impact — and the day feels it.",
+  "task15": "10 side lunges — 5 per leg, hands on hips.",
+
+  "start16": "I am in my body. I am focused.",
+  "task16": "15 leg swings forward and backward — around 5–7 per leg.",
+
+  "start17": "Energy isn't coffee. It's movement.",
+  "task17": "Do 20 seconds of burpees — skip the jump if needed.",
+
+  "start18": "I enter the day like an athlete — even for 1 minute.",
+  "task18": "30 seconds of fast forward bends with claps under knees.",
+
+  "start19": "I choose power over sleepiness.",
+  "task19": "Do 10 push-ups + 10 squats — one full circuit.",
+
+  "start20": "I command my body — and myself.",
+  "task20": "Do 10 big arm circles forward and backward with breath awareness.",
+
+  "start21": "I'm not waking up — I'm rising.",
+  "task21": "20 seconds of jumping jacks or knee lifts with claps.",
+
+  "start22": "I feel my body — I am awake.",
+  "task22": "10 backward lunges — 5 per leg, keep your balance.",
+
+  "start23": "My muscles wake up with me.",
+  "task23": "5 push-ups + 5-second plank — repeat twice.",
+
+  "start24": "Morning is for momentum, not snoozing.",
+  "task24": "20 seconds of mini jumps forward and back over an invisible line.",
+
+  "start25": "I begin with action, not delay.",
+  "task25": "10 squats with an overhead clap at the top of each.",
+
+  "start26": "Every rep is a deposit into strength.",
+  "task26": "30 seconds of jump turns — 180° each time.",
+
+  "start27": "My muscles are my anchors.",
+  "task27": "Do 10 hip lifts while lying on your back — knees bent, arms at sides.",
+
+  "start28": "Move — and it gets easier.",
+  "task28": "Jog in place for 30 seconds. Stay focused on your breath.",
+
+  "start29": "My body knows: this day is mine.",
+  "task29": "1-minute routine: 10 squats → 5 push-ups → 10 leg swings."
 }

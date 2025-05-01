@@ -3,6 +3,7 @@
   "advice": "Rada",
   "joke": "Żart",
   "addTodayTarget": "Dodaj dzisiejszy cel",
+  "bodyEnergy": "Energia ciała (dzień {})",
 
   "quote0": "Możesz więcej, niż myślisz.",
   "quote1": "Każde małe działanie to krok do wielkiego celu.",
@@ -245,6 +246,95 @@
   "puzzleTitle29": "Po prostu idę dalej",
   "puzzleQuestion29": "Z czym kończysz ten dzień? Co chcesz zabrać dalej?",
   "puzzleBody29": "To nie koniec. Po prostu Twój krok dalej.",
-  "puzzleFooter29": "Możesz po prostu spać. To wystarczy."
+  "puzzleFooter29": "Możesz po prostu spać. To wystarczy.",
 
+  "start0": "Jestem silny, bo się ruszam.",
+  "task0": "Zrób 10 przysiadów z prostymi plecami. Bez pośpiechu.",
+
+  "start1": "Ciało to mój silnik. Uruchamiam go.",
+  "task1": "Zrób 5 pompek. Na podłodze, z kolan lub przy ścianie — jak Ci wygodnie.",
+
+  "start2": "Każdy poranek to szansa, by stać się silniejszym.",
+  "task2": "Zrób 20 unoszeń kolan w marszu w miejscu, na zmianę lewa/prawa.",
+
+  "start3": "Siła to umiejętność. Ćwiczę ją.",
+  "task3": "30 sekund pozycji deski na łokciach. Utrzymuj napięcie ciała.",
+
+  "start4": "Wybieram aktywność.",
+  "task4": "Zrób 10 podskoków lub pajacyków.",
+
+  "start5": "Nie jestem leniwy — rozwijam się.",
+  "task5": "Zrób 8 wolnych wykroków do przodu — po 4 na każdą nogę.",
+
+  "start6": "Budząc się, budzę też swoją siłę.",
+  "task6": "Zrób 15 przysiadów z rękami za głową (pozycja „tron”).",
+
+  "start7": "Dyscyplina to troska o siebie.",
+  "task7": "Bieg w miejscu przez 20 sekund z wysokim unoszeniem kolan.",
+
+  "start8": "Siła tkwi w nawyku. Tworzę go teraz.",
+  "task8": "Zrób 10 pompek opierając się o kanapę lub krzesło.",
+
+  "start9": "Mogę więcej, niż myślę.",
+  "task9": "20 sekund pozycji „wspinacz”: kolana do klatki w podporze.",
+
+  "start10": "Aktywuję energię w ciele.",
+  "task10": "10 obrotów biodrami w każdą stronę + 10 podskoków.",
+
+  "start11": "Ruch to moje paliwo.",
+  "task11": "Zrób 5 wolnych przysiadów, a potem 5 szybkich.",
+
+  "start12": "Jestem w sojuszu z ciałem, nie w walce.",
+  "task12": "1 minuta chodzenia w pozycji deski lub psa z głową w dół.",
+
+  "start13": "Zaczynam dzień ciałem, nie telefonem.",
+  "task13": "30 sekund lekkich podskoków — bez skakanki.",
+
+  "start14": "Wybieram siłę, nie ospałość.",
+  "task14": "8 wolnych pompek. Liczy się jakość, nie ilość.",
+
+  "start15": "Zaczynam mocno — i dzień to czuje.",
+  "task15": "10 wykroków w bok (po 5 na stronę).",
+
+  "start16": "Jestem w ciele. Jestem skupiony.",
+  "task16": "15 wymachów nogą do przodu i tyłu — po 5–7 na każdą.",
+
+  "start17": "Energia to nie kawa. To ruch.",
+  "task17": "20 sekund burpee — bez wyskoku, jeśli wolisz.",
+
+  "start18": "Wchodzę w dzień jak sportowiec — choćby na minutę.",
+  "task18": "30 sekund energicznych skłonów z klaśnięciem pod kolanami.",
+
+  "start19": "Wybieram moc, nie senność.",
+  "task19": "Zrób 10 pompek + 10 przysiadów — jeden obwód.",
+
+  "start20": "Zarządzam ciałem — więc sobą.",
+  "task20": "10 obrotów ramionami w przód i w tył — szeroko i z oddechem.",
+
+  "start21": "Nie tylko się budzę. Wstaję.",
+  "task21": "20 sekund pajacyków lub kroków z klaśnięciem.",
+
+  "start22": "Czuję ciało — więc jestem przebudzony.",
+  "task22": "10 wykroków do tyłu — po 5 na nogę.",
+
+  "start23": "Moje mięśnie budzą się ze mną.",
+  "task23": "5 pompek + 5 sekund deski — dwa razy.",
+
+  "start24": "Poranek to rozpęd, nie drzemka.",
+  "task24": "20 sekund podskoków przód–tył przez wyimaginowaną linię.",
+
+  "start25": "Zaczynam dzień od działania, nie odwlekania.",
+  "task25": "10 przysiadów z klaśnięciem nad głową przy każdym powtórzeniu.",
+
+  "start26": "Każde powtórzenie to inwestycja w siłę.",
+  "task26": "30 sekund podskoków z obrotem o 180 stopni.",
+
+  "start27": "Mięśnie to moje kotwice.",
+  "task27": "10 uniesień bioder leżąc — ręce wzdłuż, nogi ugięte.",
+
+  "start28": "Rusz się — i zrobi się lżej.",
+  "task28": "30 sekund biegu w miejscu z koncentracją na oddechu.",
+
+  "start29": "Moje ciało wie: ten dzień będzie mój.",
+  "task29": "1-minutowy obwód: 10 przysiadów → 5 pompek → 10 wymachów nogą."
 }

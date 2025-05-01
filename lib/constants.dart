@@ -24,6 +24,12 @@ const kGreenTextStyle = TextStyle(
     fontWeight: FontWeight.bold
 );
 
+const kBlackTextStyle = TextStyle(
+    color: kBlack,
+    fontSize: 16,
+    fontWeight: FontWeight.bold
+);
+
 const textFieldDecoration = InputDecoration(
   // hintStyle: kTextStyle,
   enabledBorder: OutlineInputBorder(

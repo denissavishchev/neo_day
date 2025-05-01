@@ -44,6 +44,8 @@ class MainProvider extends ChangeNotifier {
   bool isPuzzleToday = false;
   String puzzlesParts = '';
 
+  int dayTaskCount = 0;
+
   void openPuzzleTask(int index){
     if(puzzleColors[index] == 0 && !isPuzzleToday){
       isPuzzleTaskVisible = true;
@@ -62,6 +64,29 @@ class MainProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  void initDay(){
+    if(box.get('startTime') == null){
+      isDay = false;
+    }else{
+      startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
+      endTime = box.get('endTime') == null
+          ? ''
+          :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
+      previousDayDuration = box.get('previousDayDuration').toString();
+      isDay = box.get('day');
+      isPuzzleToday = box.get('isPuzzleToday') ?? false;
+      puzzleColors = box.get('puzzlesParts') == null
+          ? List<int>.filled(30, 0)
+          : (box.get('puzzlesParts')).split(',').map(int.parse).toList();
+      motivationText = box.get('motivationText');
+      isTodayTarget = box.get('isTodayTarget') ?? false;
+      todayTarget = box.get('todayTarget') ?? '';
+      totalTasks = box.get('totalTasks') ?? 0;
+      doneTasks = box.get('doneTasks') ?? 0;
+      dayTaskCount = box.get('dayTaskCount') ?? 0;
+    }
+  }
+
   void switchDay(context) async {
     isDay = !isDay;
     if(isDay){
@@ -76,6 +101,12 @@ class MainProvider extends ChangeNotifier {
       await box.put('isTodayTarget', false);
       showToAddTodayTarget(context);
     }else{
+      if(dayTaskCount < 30){
+        dayTaskCount++;
+      }else{
+        dayTaskCount = 0;
+      }
+      await box.put('dayTaskCount', dayTaskCount);
       isPuzzleToday = false;
       await box.put('isPuzzleToday', isPuzzleToday);
       await box.put('endTime', DateTime.now().toString());
@@ -170,27 +201,6 @@ class MainProvider extends ChangeNotifier {
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
     return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
-  }
-
-  void initDay(){
-    if(box.get('startTime') == null){
-      isDay = false;
-    }else{
-      startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
-      endTime = box.get('endTime') == null
-          ? ''
-          :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
-      previousDayDuration = box.get('previousDayDuration').toString();
-      isDay = box.get('day');
-      isPuzzleToday = box.get('isPuzzleToday') ?? false;
-      puzzleColors = box.get('puzzlesParts') == null
-          ? List<int>.filled(30, 0)
-          : (box.get('puzzlesParts')).split(',').map(int.parse).toList();
-      isTodayTarget = box.get('isTodayTarget') ?? false;
-      todayTarget = box.get('todayTarget') ?? '';
-      totalTasks = box.get('totalTasks') ?? 0;
-      doneTasks = box.get('doneTasks') ?? 0;
-    }
   }
 
   Future<void>showToAddHabit(context) async {
