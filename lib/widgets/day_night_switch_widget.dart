@@ -54,7 +54,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
               borderRadius: const BorderRadius.all(Radius.circular(60)),
             ),
             child: AnimatedContainer(
-              width: size.width * 0.9,
+              width: size.width,
               height: 110,
               alignment: Alignment.center,
               decoration: BoxDecoration(

@@ -73,12 +73,12 @@ class MainProvider extends ChangeNotifier {
           ? ''
           :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       previousDayDuration = box.get('previousDayDuration').toString();
-      isDay = box.get('day');
+      isDay = box.get('day') ?? false;
       isPuzzleToday = box.get('isPuzzleToday') ?? false;
       puzzleColors = box.get('puzzlesParts') == null
           ? List<int>.filled(30, 0)
           : (box.get('puzzlesParts')).split(',').map(int.parse).toList();
-      motivationText = box.get('motivationText');
+      motivationText = box.get('motivationText') ?? 'quote';
       isTodayTarget = box.get('isTodayTarget') ?? false;
       todayTarget = box.get('todayTarget') ?? '';
       totalTasks = box.get('totalTasks') ?? 0;
@@ -108,6 +108,7 @@ class MainProvider extends ChangeNotifier {
       }
       await box.put('dayTaskCount', dayTaskCount);
       isPuzzleToday = false;
+      isPuzzleTaskVisible = false;
       await box.put('isPuzzleToday', isPuzzleToday);
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));

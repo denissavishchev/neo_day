@@ -19,8 +19,12 @@ class HabitsListWidget extends StatelessWidget {
             child: Column(
               children: [
                 Expanded(
-                  child: SizedBox(
+                  child: Container(
                     width: size.width,
+                    clipBehavior: Clip.hardEdge,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(18))
+                    ),
                     child: ValueListenableBuilder<Box<HabitsModel>>(
                         valueListenable: Boxes.addHabitToBase().listenable(),
                         builder: (context, box, _){
