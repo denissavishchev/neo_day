@@ -41,12 +41,12 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
         builder: (context, data, _){
           return AnimatedContainer(
             duration: const Duration(milliseconds: 500),
-            padding: const EdgeInsets.all(1),
+            padding: const EdgeInsets.all(2),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [
-                    Colors.grey.withValues(alpha: 0.9),
-                    const Color(0xffdcdcdc).withValues(alpha: 0.7)
+                    data.isDay ? kWhite.withValues(alpha: 0.6) : kGrey.withValues(alpha: 0.6),
+                    data.isDay ? kWhite : kGrey
                   ],
                   begin: data.isDay ? Alignment.centerRight : Alignment.centerLeft,
                   end: data.isDay ? Alignment.centerLeft : Alignment.centerRight

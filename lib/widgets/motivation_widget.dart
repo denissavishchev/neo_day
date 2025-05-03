@@ -32,9 +32,10 @@ class MotivationWidget extends StatelessWidget {
     return Container(
       width: size.width,
       height: 55,
-      decoration: const BoxDecoration(
-        color: kRed,
+      decoration: BoxDecoration(
+        color: kBlack,
         borderRadius: BorderRadius.all(Radius.circular(18)),
+        border: Border.all(color: kWhite, width: 2)
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -50,9 +51,11 @@ class MotivationWidget extends StatelessWidget {
   Widget _buildSecondContainer(Size size, MainProvider data) {
     return Container(
       width: size.width,
-      decoration: const BoxDecoration(
-        color: kBlue,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: kBlack,
         borderRadius: BorderRadius.all(Radius.circular(18)),
+        border: Border.all(color: kWhite, width: 2)
       ),
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -80,10 +83,10 @@ class MotivationButton extends StatelessWidget {
         width: size.width * 0.25,
         height: 40,
         decoration: BoxDecoration(
-            color: kBlue,
+            color: kWhite,
             borderRadius: BorderRadius.all(Radius.circular(12))
         ),
-        child: Center(child: Text(text, style: kTextStyle)),
+        child: Center(child: Text(text, style: kBlackTextStyle)),
       ),
     );
   }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../constants.dart';
 
 class DayButton extends StatelessWidget {
@@ -18,10 +17,10 @@ class DayButton extends StatelessWidget {
         width: 50,
         height: 40,
         decoration: BoxDecoration(
-            color: kBlue,
+            color: kWhite,
             borderRadius: BorderRadius.all(Radius.circular(12))
         ),
-        child: Icon(icon, color: kWhite, size: 35,),
+        child: Icon(icon, color: kBlack, size: 35,),
       ),
     );
   }

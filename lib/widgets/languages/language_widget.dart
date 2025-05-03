@@ -23,7 +23,7 @@ class LanguageWidget extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
-                border: Border.all(color: kBlue, width: 2)
+                border: Border.all(color: kWhite, width: 2)
               ),
               child: FlagWidget(
                   country:

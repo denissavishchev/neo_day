@@ -40,20 +40,17 @@ class HabitsListWidget extends StatelessWidget {
                                     margin: const EdgeInsets.only(bottom: 4),
                                     padding: const EdgeInsets.fromLTRB(18, 6, 18, 12),
                                     decoration: BoxDecoration(
-                                        color: kNavy.withValues(alpha: 0.3),
+                                        color: kGrey,
                                         borderRadius: const BorderRadius.all(Radius.circular(24))
                                     ),
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
                                         Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(habits[index].name,
-                                              style: const TextStyle(
-                                                  color: kWhite,
-                                                  fontWeight: FontWeight.bold,
-                                                  fontSize: 18
-                                              ),),
+                                              style: kBlackTextStyle. copyWith(fontSize: 20),),
                                             const SizedBox(height: 8,),
                                             SizedBox(
                                               width: 240,
@@ -73,10 +70,10 @@ class HabitsListWidget extends StatelessWidget {
                                                     height: 12,
                                                     decoration: BoxDecoration(
                                                         color: converted[i] == 1
-                                                            ? kGreen
+                                                            ? kTangerine
                                                             : converted[i] == 0
-                                                            ? kNavy.withValues(alpha: 0.2)
-                                                            : kIndigo.withValues(alpha: 0.2),
+                                                            ? kWhite
+                                                            : kGrey,
                                                         borderRadius: const BorderRadius.all(Radius.circular(3)),
                                                         border: Border.all(width: 1, color: kBlack)
                                                     ),
@@ -95,34 +92,34 @@ class HabitsListWidget extends StatelessWidget {
                                                       width: 12,
                                                       height: 12,
                                                       decoration: BoxDecoration(
-                                                          color: kGreen,
+                                                          color: kTangerine,
                                                           borderRadius: const BorderRadius.all(Radius.circular(3)),
                                                           border: Border.all(width: 1, color: kBlack)
                                                       ),
                                                     ),
-                                                    const Text('- ', style: kTextStyle,),
-                                                    Text(data.ones.toString(), style: kTextStyle,),
-                                                    const Text(' / ', style: kTextStyle,),
+                                                    const Text('- ', style: kBlackTextStyle,),
+                                                    Text(data.ones.toString(), style: kBlackTextStyle,),
+                                                    const Text(' / ', style: kBlackTextStyle,),
                                                     Container(
                                                       margin: const EdgeInsets.only(right: 4),
                                                       width: 12,
                                                       height: 12,
                                                       decoration: BoxDecoration(
-                                                          color: kNavy.withValues(alpha: 0.2),
+                                                          color: kWhite,
                                                           borderRadius: const BorderRadius.all(Radius.circular(3)),
                                                           border: Border.all(width: 1, color: kBlack)
                                                       ),
                                                     ),
-                                                    const Text('- ', style: kTextStyle,),
-                                                    Text(data.zeros.toString(), style: kTextStyle,),
+                                                    const Text('- ', style: kBlackTextStyle,),
+                                                    Text(data.zeros.toString(), style: kBlackTextStyle,),
                                                   ],
                                                 ),
                                                 Row(
                                                   children: [
-                                                    Text(data.convertedLength.toString(), style: kTextStyle,),
-                                                    const Text(' / ', style: kTextStyle,),
-                                                    Text(habits[index].days.toString(), style: kTextStyle,),
-                                                    const Text(' days', style: kTextStyle,),
+                                                    Text(data.convertedLength.toString(), style: kBlackTextStyle,),
+                                                    const Text(' / ', style: kBlackTextStyle,),
+                                                    Text(habits[index].days.toString(), style: kBlackTextStyle,),
+                                                    const Text(' days', style: kBlackTextStyle,),
                                                   ],
                                                 )
                                               ],

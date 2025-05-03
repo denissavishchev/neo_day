@@ -19,8 +19,9 @@ class TodayTargetWidget extends StatelessWidget {
               width: size.width,
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
               decoration: BoxDecoration(
-                color: kRed,
+                color: kBlack,
                 borderRadius: BorderRadius.all(Radius.circular(18)),
+                  border: Border.all(color: kWhite, width: 2)
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,15 +35,15 @@ class TodayTargetWidget extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: kBlack.withValues(alpha: 0.8),
-                        borderRadius: BorderRadius.all(Radius.circular(10))
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                          border: Border.all(color: kWhite, width: 2)
                       ),
                       child: Container(
-                        width: 24,
-                        height: 24,
+                        width: 22,
+                        height: 22,
                         decoration: BoxDecoration(
-                            color: data.isTodayTarget ? kRed : kBlack.withValues(alpha: 0.8),
-                            borderRadius: BorderRadius.all(Radius.circular(7)),
-                            border: Border.all(color: data.isTodayTarget ? Colors.transparent : kRed, width: 2)
+                            color: data.isTodayTarget ? kWhite : kBlack.withValues(alpha: 0.8),
+                            borderRadius: BorderRadius.all(Radius.circular(6)),
                         ),
                       ),
                     ),

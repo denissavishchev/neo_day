@@ -49,11 +49,11 @@ class TaskSwitchButtonWidget extends StatelessWidget {
                   height: 34,
                   decoration: BoxDecoration(
                       border: Border.all(
-                          color: checked ? kGreen : kBlue,
+                          color: checked ? kTangerine : kBlue,
                           width: 1),
                       boxShadow: [
                         BoxShadow(
-                            color: checked ? kGreen.withValues(alpha: 0.1) : kBlack.withValues(alpha: 0.2),
+                            color: checked ? kTangerine.withValues(alpha: 0.1) : kBlack.withValues(alpha: 0.2),
                             spreadRadius: 2,
                             blurRadius: 2,
                             offset: const Offset(0, 2)
@@ -71,7 +71,7 @@ class TaskSwitchButtonWidget extends StatelessWidget {
                   ),
                   child: Center(
                     child: AnimatedCrossFade(
-                      firstChild: const Icon(Icons.circle, color: kGreen, size: 18,),
+                      firstChild: const Icon(Icons.circle, color: kTangerine, size: 18,),
                       secondChild: const Icon(Icons.circle, color: kBlue, size: 18,),
                       crossFadeState: checked ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                       duration: const Duration(milliseconds: 100),
