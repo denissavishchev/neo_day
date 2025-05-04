@@ -128,7 +128,7 @@ class NoteButton extends StatelessWidget {
             ),
             child: TextButton(
                 onPressed: () => data.switchNote(index),
-                child: Text('${index + 1}', style: data.selectedNote == index ? kGreenTextStyle : kTextStyle,)
+                child: Text('${index + 1}', style: data.selectedNote == index ? kTangerineTextStyle : kTextStyle,)
             ),
           );
         }

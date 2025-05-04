@@ -18,8 +18,8 @@ const kTextStyle = TextStyle(
     fontWeight: FontWeight.bold
 );
 
-const kGreenTextStyle = TextStyle(
-    color: kGreen,
+const kTangerineTextStyle = TextStyle(
+    color: kTangerine,
     fontSize: 16,
     fontWeight: FontWeight.bold
 );

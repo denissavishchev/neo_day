@@ -99,7 +99,9 @@ class MainProvider extends ChangeNotifier {
       todayTarget = '';
       isTodayTarget = false;
       await box.put('isTodayTarget', false);
-      showToAddTodayTarget(context);
+      Future.delayed(Duration(seconds: 1), () async {
+        await showToAddTodayTarget(context);
+      });
     }else{
       if(dayTaskCount < 30){
         dayTaskCount++;

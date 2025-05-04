@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../main_provider.dart';
 import '../constants.dart';
@@ -39,106 +40,105 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
     Size size = MediaQuery.sizeOf(context);
     return Consumer<MainProvider>(
         builder: (context, data, _){
-          return AnimatedContainer(
-            duration: const Duration(milliseconds: 500),
-            padding: const EdgeInsets.all(2),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [
-                    data.isDay ? kWhite.withValues(alpha: 0.6) : kGrey.withValues(alpha: 0.6),
-                    data.isDay ? kWhite : kGrey
-                  ],
-                  begin: data.isDay ? Alignment.centerRight : Alignment.centerLeft,
-                  end: data.isDay ? Alignment.centerLeft : Alignment.centerRight
-              ),
-              borderRadius: const BorderRadius.all(Radius.circular(60)),
-            ),
-            child: AnimatedContainer(
-              width: size.width,
-              height: 110,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(60)),
-                image: DecorationImage(
-                    image: AssetImage('assets/images/${data.isDay ? 'day' : 'night'}.png'),
-                    fit: BoxFit.fill
+          return Stack(
+            alignment: Alignment.center,
+            children: [
+              AnimatedContainer(
+                width: size.width,
+                height: 110,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.all(Radius.circular(60)),
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/${data.isDay ? 'day' : 'night'}.png'),
+                      fit: BoxFit.fill
+                  ),
                 ),
-              ),
-              duration: const Duration(milliseconds: 500),
-              child: Stack(
-                children: [
-                  Positioned(
-                      top: 14,
-                      left: size.width * 0.1,
-                      child: AnimatedOpacity(
-                          opacity: data.isDay ? 0 : 1,
-                          duration: Duration(milliseconds: data.isDay ? 200 : 500),
-                          curve: Curves.easeInCubic,
-                          child: Text(data.endTime == ''
-                              ? ''
-                              : 'The previous day lasted ${data.previousDayDuration}\nand ended at ${data.endTime}',
-                            style: const TextStyle(color: kRed, fontWeight: FontWeight.bold),))),
-                  Positioned(
-                      bottom: 14,
-                      left: size.width * 0.1,
-                      child:
-                      AnimatedOpacity(
-                          opacity: data.isDay ? 0 : 1,
-                          duration: Duration(milliseconds: data.isDay ? 200 : 500),
-                          curve: Curves.easeInCubic,
-                          child: const Text('Start your new day',
-                            style: TextStyle(color: kRed, fontWeight: FontWeight.bold),))),
-                  Positioned(
-                      top: 14,
-                      left: size.width * 0.3,
-                      child: AnimatedOpacity(
-                          opacity: data.isDay ? 1 : 0,
-                          duration: Duration(milliseconds: data.isDay ? 600 : 200),
-                          curve: Curves.easeInCubic,
-                          child: Text('Your day started at ${data.startTime}',
-                            style: const TextStyle(color: kBlue, fontWeight: FontWeight.bold),))),
-                  Positioned(
-                      bottom: 14,
-                      left: size.width * 0.3,
-                      child:
-                      AnimatedOpacity(
-                          opacity: data.isDay ? 1 : 0,
-                          duration: Duration(milliseconds: data.isDay ? 600 : 200),
-                          curve: Curves.easeInCubic,
-                          child: Text('Day duration: ${data.dayDuration}',
-                            style: const TextStyle(color: kBlack, fontWeight: FontWeight.bold),))),
-                  AnimatedAlign(
-                    duration: const Duration(milliseconds: 500),
-                    alignment: data.isDay ? Alignment.centerLeft : Alignment.centerRight,
-                    child: GestureDetector(
-                      onLongPress: () => data.switchDay(context),
-                      child: Container(
-                        width: 80,
-                        height: 80,
-                        margin: const EdgeInsets.symmetric(horizontal: 20),
-                        clipBehavior: Clip.hardEdge,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.all(Radius.circular(60)),
-                          boxShadow: [
-                            BoxShadow(
-                                color: kBlack.withValues(alpha: 0.1),
-                                spreadRadius: 2,
-                                blurRadius: 1
-                            )
-                          ],
-                        ),
-                        child: AnimatedCrossFade(
-                          firstChild: Image.asset('assets/images/sun.png'),
-                          secondChild: Image.asset('assets/images/moon.png'),
-                          crossFadeState: data.isDay ? CrossFadeState.showFirst : CrossFadeState.showSecond,
-                          duration: const Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
+                child: Stack(
+                  children: [
+                    Positioned(
+                        top: 14,
+                        left: size.width * 0.1,
+                        child: AnimatedOpacity(
+                            opacity: data.isDay ? 0 : 1,
+                            duration: Duration(milliseconds: data.isDay ? 200 : 500),
+                            curve: Curves.easeInCubic,
+                            child: Text(data.endTime == ''
+                                ? ''
+                                : 'Your previous day lasted ${data.previousDayDuration}\nand ended at ${data.endTime}',
+                              style: kTangerineTextStyle,))),
+                    Positioned(
+                        bottom: 14,
+                        left: size.width * 0.1,
+                        child:
+                        AnimatedOpacity(
+                            opacity: data.isDay ? 0 : 1,
+                            duration: Duration(milliseconds: data.isDay ? 200 : 500),
+                            curve: Curves.easeInCubic,
+                            child: const Text('Start your new day',
+                              style: kTangerineTextStyle,))),
+                    Positioned(
+                        top: 14,
+                        left: size.width * 0.3,
+                        child: AnimatedOpacity(
+                            opacity: data.isDay ? 1 : 0,
+                            duration: Duration(milliseconds: data.isDay ? 600 : 200),
+                            curve: Curves.easeInCubic,
+                            child: Text('Your day started at ${data.startTime}',
+                              style: kBlackTextStyle,))),
+                    Positioned(
+                        bottom: 14,
+                        left: size.width * 0.3,
+                        child:
+                        AnimatedOpacity(
+                            opacity: data.isDay ? 1 : 0,
+                            duration: Duration(milliseconds: data.isDay ? 600 : 200),
+                            curve: Curves.easeInCubic,
+                            child: Text('Day duration: ${data.dayDuration}',
+                              style: kBlackTextStyle,))),
+                    AnimatedAlign(
+                      duration: const Duration(milliseconds: 500),
+                      alignment: data.isDay ? Alignment.centerLeft : Alignment.centerRight,
+                      child: GestureDetector(
+                        onLongPress: () => data.switchDay(context),
+                        child: Container(
+                          width: 80,
+                          height: 80,
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          clipBehavior: Clip.hardEdge,
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(Radius.circular(60)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: kBlack.withValues(alpha: 0.1),
+                                  spreadRadius: 2,
+                                  blurRadius: 1
+                              )
+                            ],
+                          ),
+                          child: AnimatedCrossFade(
+                            firstChild: Image.asset('assets/images/sun.png'),
+                            secondChild: Image.asset('assets/images/moon.png'),
+                            crossFadeState: data.isDay ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                            duration: const Duration(milliseconds: 500),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+              IgnorePointer(
+                child: SizedBox(
+                  height: 110,
+                  child: SvgPicture.asset('assets/images/innerStripe.svg',
+                    fit: BoxFit.fill,
+                    colorFilter: const ColorFilter.mode(kBlack, BlendMode.srcIn),
+                  ),
+                ),
+              ),
+            ],
           );
         }
     );
