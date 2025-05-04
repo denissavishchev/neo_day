@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:neo_day/constants.dart';
 import 'package:neo_day/main_provider.dart';
 import 'package:provider/provider.dart';
-import '../widgets/day_button.dart';
 import '../widgets/day_night_switch_widget.dart';
-import '../widgets/habits_list_widget.dart';
-import '../widgets/languages/language_widget.dart';
-import '../widgets/night_widget.dart';
-import '../widgets/motivation_widget.dart';
+import '../widgets/day_widgets/habits_list_widget.dart';
+import '../widgets/night_widgets/night_widget.dart';
+import '../widgets/day_widgets/motivation_widget.dart';
 import '../widgets/notepad_widget.dart';
-import '../widgets/start_task_widget.dart';
-import '../widgets/today_target_widget.dart';
+import '../widgets/day_widgets/start_task_widget.dart';
+import '../widgets/day_widgets/today_target_widget.dart';
+import '../widgets/day_widgets/top_widget.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -44,23 +43,17 @@ class _MainScreenState extends State<MainScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 18.0),
                   color: kBlack,
                   child: Column(
-                      spacing: 12,
                       children: [
-                        const SizedBox(height: 40,),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            DayButton(icon: Icons.note_alt,
-                                onTap: () => data.readNote()),
-                            LanguageWidget(),
-                            DayButton(icon: Icons.history, onTap: () {  },),
-                            DayButton(icon: Icons.add, onTap: () => data.showToAddHabit(context),)
-                          ],
-                        ),
+                        const SizedBox(height: 48,),
+                        TopWidget(),
                         DaySwitchWidget(),
+                        const SizedBox(height: 12,),
                         TodayTargetWidget(),
+                        const SizedBox(height: 12,),
                         MotivationWidget(),
+                        const SizedBox(height: 12,),
                         StartTaskWidget(),
+                        const SizedBox(height: 12,),
                         Expanded(
                             child: data.isDay
                                 ? HabitsListWidget()
@@ -74,15 +67,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-

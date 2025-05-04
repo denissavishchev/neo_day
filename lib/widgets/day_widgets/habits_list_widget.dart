@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
-import '../constants.dart';
-import '../main_provider.dart';
-import '../models/boxes.dart';
-import '../models/habits_model.dart';
+import '../../constants.dart';
+import '../../main_provider.dart';
+import '../../models/boxes.dart';
+import '../../models/habits_model.dart';
 import 'task_switch_button_widget.dart';
 
 class HabitsListWidget extends StatelessWidget {
@@ -50,7 +51,7 @@ class HabitsListWidget extends StatelessWidget {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(habits[index].name,
-                                              style: kBlackTextStyle. copyWith(fontSize: 20),),
+                                              style: kBlackTextStyle. copyWith(fontSize: 32.sp),),
                                             const SizedBox(height: 8,),
                                             SizedBox(
                                               width: 240,
@@ -97,9 +98,9 @@ class HabitsListWidget extends StatelessWidget {
                                                           border: Border.all(width: 1, color: kBlack)
                                                       ),
                                                     ),
-                                                    const Text('- ', style: kBlackTextStyle,),
+                                                    Text('- ', style: kBlackTextStyle,),
                                                     Text(data.ones.toString(), style: kBlackTextStyle,),
-                                                    const Text(' / ', style: kBlackTextStyle,),
+                                                    Text(' / ', style: kBlackTextStyle,),
                                                     Container(
                                                       margin: const EdgeInsets.only(right: 4),
                                                       width: 12,
@@ -110,16 +111,16 @@ class HabitsListWidget extends StatelessWidget {
                                                           border: Border.all(width: 1, color: kBlack)
                                                       ),
                                                     ),
-                                                    const Text('- ', style: kBlackTextStyle,),
+                                                    Text('- ', style: kBlackTextStyle,),
                                                     Text(data.zeros.toString(), style: kBlackTextStyle,),
                                                   ],
                                                 ),
                                                 Row(
                                                   children: [
                                                     Text(data.convertedLength.toString(), style: kBlackTextStyle,),
-                                                    const Text(' / ', style: kBlackTextStyle,),
+                                                    Text(' / ', style: kBlackTextStyle,),
                                                     Text(habits[index].days.toString(), style: kBlackTextStyle,),
-                                                    const Text(' days', style: kBlackTextStyle,),
+                                                    Text(' days', style: kBlackTextStyle,),
                                                   ],
                                                 )
                                               ],

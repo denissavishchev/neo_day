@@ -76,7 +76,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                             opacity: data.isDay ? 0 : 1,
                             duration: Duration(milliseconds: data.isDay ? 200 : 500),
                             curve: Curves.easeInCubic,
-                            child: const Text('Start your new day',
+                            child: Text('Start your new day',
                               style: kTangerineTextStyle,))),
                     Positioned(
                         top: 14,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../constants.dart';
-import '../main_provider.dart';
+import '../../constants.dart';
+import '../../main_provider.dart';
 
 class TaskSwitchButtonWidget extends StatelessWidget {
   const TaskSwitchButtonWidget({

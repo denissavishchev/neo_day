@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 const kBlue = Color(0xff104c64);
 const kGrey = Color(0xffc9dfdc);
@@ -12,21 +13,28 @@ const kIndigo = Color(0xff0d0d55);
 const kNavy = Color(0xff24e0ff);
 const kGreen = Color(0xffe2e603);
 
-const kTextStyle = TextStyle(
+TextStyle kTextStyle = TextStyle(
     color: kWhite,
-    fontSize: 16,
+    fontSize: 24.sp,
     fontWeight: FontWeight.bold
 );
 
-const kTangerineTextStyle = TextStyle(
+TextStyle kTangerineTextStyle = TextStyle(
     color: kTangerine,
-    fontSize: 16,
+    fontSize: 24.sp,
     fontWeight: FontWeight.bold
 );
 
-const kBlackTextStyle = TextStyle(
+TextStyle kBlackTextStyle = TextStyle(
     color: kBlack,
-    fontSize: 16,
+    fontSize: 24.sp,
+    fontWeight: FontWeight.bold
+);
+
+TextStyle kBigTextStyle = TextStyle(
+    color: kWhite,
+    fontSize: 80.sp,
+    height: 1,
     fontWeight: FontWeight.bold
 );
 
