@@ -32,36 +32,34 @@ class _MainScreenState extends State<MainScreen> {
     Size size = MediaQuery.sizeOf(context);
     return Consumer<MainProvider>(
         builder: (context, data, _){
-          return Scaffold(
-              key: data.notesKey,
-              drawer: NotepadWidget(),
-              body: GestureDetector(
-                onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                child: Container(
-                  width: size.width,
-                  height: size.height,
-                  padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                  color: kBlack,
-                  child: Column(
-                      children: [
-                        const SizedBox(height: 48,),
-                        TopWidget(),
-                        DaySwitchWidget(),
-                        const SizedBox(height: 12,),
-                        TodayTargetWidget(),
-                        const SizedBox(height: 12,),
-                        MotivationWidget(),
-                        const SizedBox(height: 12,),
-                        StartTaskWidget(),
-                        const SizedBox(height: 12,),
-                        Expanded(
-                            child: data.isDay
-                                ? HabitsListWidget()
-                                : NightWidget())
-                      ]
+          return SafeArea(
+            child: Scaffold(
+                key: data.notesKey,
+                drawer: NotepadWidget(),
+                body: GestureDetector(
+                  onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+                  child: Container(
+                    width: size.width,
+                    height: size.height,
+                    padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                    color: kBlack,
+                    child: Column(
+                      spacing: 12,
+                        children: [
+                          TopWidget(),
+                          DaySwitchWidget(),
+                          TodayTargetWidget(),
+                          MotivationWidget(),
+                          StartTaskWidget(),
+                          Expanded(
+                              child: data.isDay
+                                  ? HabitsListWidget()
+                                  : NightWidget())
+                        ]
+                    ),
                   ),
-                ),
-              )
+                )
+            ),
           );
         }
     );
