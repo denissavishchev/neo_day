@@ -51,7 +51,7 @@ class HabitsListWidget extends StatelessWidget {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             Text(habits[index].name,
-                                              style: kBlackTextStyle. copyWith(fontSize: 32.sp),),
+                                              style: kBlackTextStyle.copyWith(fontSize: 32.sp),),
                                             const SizedBox(height: 8,),
                                             SizedBox(
                                               width: 240,
@@ -127,7 +127,11 @@ class HabitsListWidget extends StatelessWidget {
                                             ),
                                           ],
                                         ),
-                                        TaskSwitchButtonWidget(
+                                        habits[index].days == habits[index].progress.length
+                                            ? GestureDetector(
+                                            onTap: () => data.addHabitHistoryToBase(box, index, habits),
+                                            child: const Icon(Icons.history, color: kTangerine, size: 32,))
+                                            : TaskSwitchButtonWidget(
                                           onTap: () => data.switchHabit(box, index, habits),
                                           checked: habits[index].status,
                                           index: index,),

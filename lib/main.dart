@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:neo_day/screens/main_screen.dart';
 import 'package:provider/provider.dart';
 import 'main_provider.dart';
+import 'models/habit_history_model.dart';
 import 'models/habits_model.dart';
 import 'package:hive_flutter/adapters.dart';
 
@@ -11,7 +12,9 @@ Future main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await Hive.initFlutter();
   Hive.registerAdapter(HabitsModelAdapter());
+  Hive.registerAdapter(HabitHistoryModelAdapter());
   await Hive.openBox<HabitsModel>('habit');
+  await Hive.openBox<HabitHistoryModel>('habitHistory');
   await Hive.openBox('day');
   await EasyLocalization.ensureInitialized();
   runApp(

@@ -4,6 +4,7 @@ import 'package:hive/hive.dart';
 import 'package:neo_day/widgets/languages/language.dart';
 import 'constants.dart';
 import 'models/boxes.dart';
+import 'models/habit_history_model.dart';
 import 'models/habits_model.dart';
 import 'dart:math';
 
@@ -183,6 +184,20 @@ class MainProvider extends ChangeNotifier {
       ..start = habits[index].start
     );
     notifyListeners();
+  }
+
+  Future addHabitHistoryToBase(Box<HabitsModel> boxDelete, int index, List<HabitsModel> habits) async {
+    final habitHistory = HabitHistoryModel()
+      ..name = habits[index].name
+      ..startTime = habits[index].start
+      ..endTime = (DateTime.parse(habits[index].start).add(Duration(days: habits[index].days))).toString()
+      ..totalDays = habits[index].days.toString()
+      ..goodDays = habits[index].progress.split('').map(int.parse).toList().where((e) => e == 1).length.toString()
+      ..badDays = habits[index].progress.split('').map(int.parse).toList().where((e) => e == 0).length.toString()
+      ..list = habits[index].progress;
+    final box = Boxes.addHabitHistoryToBase();
+    box.add(habitHistory);
+    deleteHabit(boxDelete, index);
   }
 
   Future<void> deleteHabit(Box<HabitsModel> box, int index)async{

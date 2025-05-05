@@ -46,6 +46,7 @@ class _MainScreenState extends State<MainScreen> {
                     child: Column(
                       spacing: 12,
                         children: [
+                          const SizedBox(height: 6,),
                           TopWidget(),
                           DaySwitchWidget(),
                           TodayTargetWidget(),
