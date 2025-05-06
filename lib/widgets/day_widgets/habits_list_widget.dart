@@ -24,7 +24,7 @@ class HabitsListWidget extends StatelessWidget {
                     width: size.width,
                     clipBehavior: Clip.hardEdge,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(18))
+                      borderRadius: BorderRadius.all(Radius.circular(8))
                     ),
                     child: ValueListenableBuilder<Box<HabitsModel>>(
                         valueListenable: Boxes.addHabitToBase().listenable(),
@@ -39,10 +39,10 @@ class HabitsListWidget extends StatelessWidget {
                                   child: Container(
                                     width: size.width,
                                     margin: const EdgeInsets.only(bottom: 4),
-                                    padding: const EdgeInsets.fromLTRB(18, 6, 18, 12),
+                                    padding: const EdgeInsets.fromLTRB(12, 6, 12, 6),
                                     decoration: BoxDecoration(
                                         color: kGrey,
-                                        borderRadius: const BorderRadius.all(Radius.circular(24))
+                                        borderRadius: const BorderRadius.all(Radius.circular(8))
                                     ),
                                     child: Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,10 +54,10 @@ class HabitsListWidget extends StatelessWidget {
                                               style: kBlackTextStyle.copyWith(fontSize: 32.sp),),
                                             const SizedBox(height: 8,),
                                             SizedBox(
-                                              width: 240,
+                                              width: 300,
                                               child: Wrap(
                                                 runAlignment: WrapAlignment.center,
-                                                runSpacing: 4,
+                                                runSpacing: 3,
                                                 children: List.generate(habits[index].days, (i){
                                                   List<int> converted = habits[index].progress.split('')
                                                       .map((v) => int.parse(v)).toList();
@@ -66,7 +66,7 @@ class HabitsListWidget extends StatelessWidget {
                                                   data.zeros = converted.where((e) => e == 0).length;
                                                   data.ones = converted.where((e) => e == 1).length;
                                                   return Container(
-                                                    margin: const EdgeInsets.only(right: 4),
+                                                    margin: const EdgeInsets.only(right: 3),
                                                     width: 12,
                                                     height: 12,
                                                     decoration: BoxDecoration(

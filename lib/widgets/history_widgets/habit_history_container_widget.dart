@@ -30,7 +30,7 @@ class HabitHistoryContainerWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
                   color: kGrey,
-                  borderRadius: const BorderRadius.all(Radius.circular(4)),
+                  borderRadius: const BorderRadius.all(Radius.circular(8)),
                   boxShadow: [
                     BoxShadow(
                         color: kBlack.withValues(alpha: 0.6),
@@ -41,15 +41,17 @@ class HabitHistoryContainerWidget extends StatelessWidget {
                   ],
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Text(history[index].name,
+                      style: kBlackTextStyle.copyWith(fontSize: 32.sp),),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(history[index].name,
-                              style: kBlackTextStyle.copyWith(fontSize: 32.sp),),
+
                             Row(
                               children: [
                                 Text('Total days: ', style: kBlackTextStyle,),
@@ -127,7 +129,7 @@ class HabitHistoryContainerWidget extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      width: 210,
+                      width: 280,
                       child: Wrap(
                         runAlignment: WrapAlignment.center,
                         runSpacing: 1.5,

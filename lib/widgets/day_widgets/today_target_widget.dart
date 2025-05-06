@@ -20,7 +20,7 @@ class TodayTargetWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 4),
               decoration: BoxDecoration(
                 color: kBlack,
-                borderRadius: BorderRadius.all(Radius.circular(18)),
+                borderRadius: BorderRadius.all(Radius.circular(8)),
                   border: Border.all(color: kWhite, width: 2)
               ),
               child: Row(
@@ -35,7 +35,7 @@ class TodayTargetWidget extends StatelessWidget {
                       alignment: Alignment.center,
                       decoration: BoxDecoration(
                         color: kBlack.withValues(alpha: 0.8),
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
                           border: Border.all(color: kWhite, width: 2)
                       ),
                       child: Container(
@@ -43,7 +43,7 @@ class TodayTargetWidget extends StatelessWidget {
                         height: 22,
                         decoration: BoxDecoration(
                             color: data.isTodayTarget ? kWhite : kBlack.withValues(alpha: 0.8),
-                            borderRadius: BorderRadius.all(Radius.circular(6)),
+                            borderRadius: BorderRadius.all(Radius.circular(4)),
                         ),
                       ),
                     ),

@@ -22,7 +22,7 @@ class StartTaskWidget extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 4),
               decoration: BoxDecoration(
                 color: kWhite,
-                borderRadius: BorderRadius.all(Radius.circular(18)),
+                borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
               child: Column(
                 children: [

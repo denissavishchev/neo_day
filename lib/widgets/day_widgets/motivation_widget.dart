@@ -34,7 +34,7 @@ class MotivationWidget extends StatelessWidget {
       height: 55,
       decoration: BoxDecoration(
         color: kBlack,
-        borderRadius: BorderRadius.all(Radius.circular(18)),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
         border: Border.all(color: kWhite, width: 2)
       ),
       child: Row(
@@ -54,7 +54,7 @@ class MotivationWidget extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: kBlack,
-        borderRadius: BorderRadius.all(Radius.circular(18)),
+        borderRadius: BorderRadius.all(Radius.circular(8)),
         border: Border.all(color: kWhite, width: 2)
       ),
       child: Padding(
