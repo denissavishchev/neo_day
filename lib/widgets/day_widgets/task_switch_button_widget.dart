@@ -17,18 +17,19 @@ class TaskSwitchButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
     return Consumer<MainProvider>(
         builder: (context, data, _){
           return GestureDetector(
             onTap: onTap,
             child: Container(
-              width: 60,
-              height: 80,
+              width: size.width * 0.13,
+              height: size.width * 0.18,
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
               decoration: BoxDecoration(
                 border: Border.all(color: kBlack.withValues(alpha: 0.7), width: 1),
-                borderRadius: const BorderRadius.all(Radius.circular(14)),
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 boxShadow: [
                   BoxShadow(
                     color: kBlack.withValues(alpha: 0.3),
@@ -45,8 +46,8 @@ class TaskSwitchButtonWidget extends StatelessWidget {
                 alignment: checked ? Alignment.topCenter : Alignment.bottomCenter,
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
-                  width: 54,
-                  height: 34,
+                  width: size.width * 0.12,
+                  height: size.width * 0.08,
                   decoration: BoxDecoration(
                       border: Border.all(
                           color: checked
@@ -69,7 +70,7 @@ class TaskSwitchButtonWidget extends StatelessWidget {
                           begin: Alignment.bottomRight,
                           end: Alignment.topLeft
                       ),
-                      borderRadius: const BorderRadius.all(Radius.circular(12))
+                      borderRadius: const BorderRadius.all(Radius.circular(8))
                   ),
                   child: Center(
                     child: AnimatedCrossFade(
@@ -100,7 +101,7 @@ class ColorLine extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 30,
-      height: 8,
+      height: 6,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.all(Radius.circular(10)),

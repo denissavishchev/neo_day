@@ -84,7 +84,7 @@ class MotivationButton extends StatelessWidget {
         height: 40,
         decoration: BoxDecoration(
             color: kWhite,
-            borderRadius: BorderRadius.all(Radius.circular(12))
+            borderRadius: BorderRadius.all(Radius.circular(8))
         ),
         child: Center(child: Text(text, style: kBlackTextStyle)),
       ),

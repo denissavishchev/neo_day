@@ -21,12 +21,13 @@ class HabitHistoryContainerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.sizeOf(context);
     return Consumer<MainProvider>(
         builder: (context, data, _){
           return GestureDetector(
             // onLongPress: () => data.deleteHistoryHabit(box, index),
             child: Container(
-                margin: const EdgeInsets.fromLTRB(12, 0, 12, 8),
+                margin: const EdgeInsets.fromLTRB(8, 0, 12, 8),
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
                   color: kGrey,
@@ -51,7 +52,6 @@ class HabitHistoryContainerWidget extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-
                             Row(
                               children: [
                                 Text('Total days: ', style: kBlackTextStyle,),
@@ -59,103 +59,90 @@ class HabitHistoryContainerWidget extends StatelessWidget {
                                   style: kBlackTextStyle,),
                               ],
                             ),
+                            Row(
+                              children: [
+                                Text('Start: ',
+                                  style: kBlackTextStyle,),
+                                Text(DateFormat('dd.MM.yyyy').format(DateTime.parse(history[index].startTime)),
+                                  style: kBlackTextStyle,),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Text('End: ',
+                                  style: kBlackTextStyle,),
+                                Text(DateFormat('dd.MM.yyyy').format(DateTime.parse(history[index].endTime)),
+                                  style: kBlackTextStyle,),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(right: 4),
+                                      width: 12,
+                                      height: 12,
+                                      decoration: BoxDecoration(
+                                          color: kTangerine,
+                                          borderRadius: const BorderRadius.all(Radius.circular(3)),
+                                          border: Border.all(width: 1, color: kBlack)
+                                      ),
+                                    ),
+                                    Text('- ', style: kBlackTextStyle,),
+                                    Text(history[index].goodDays, style: kBlackTextStyle,),
+                                  ],
+                                ),
+                                const SizedBox(width: 12,),
+                                Row(
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(right: 4),
+                                      width: 12,
+                                      height: 12,
+                                      decoration: BoxDecoration(
+                                          color: kWhite,
+                                          borderRadius: const BorderRadius.all(Radius.circular(3)),
+                                          border: Border.all(width: 1, color: kBlack)
+                                      ),
+                                    ),
+                                    Text('- ', style: kBlackTextStyle,),
+                                    Text(history[index].badDays, style: kBlackTextStyle,),
+                                  ],
+                                )
+                              ],
+                            ),
                           ],
                         ),
-                        const Spacer(),
                         SizedBox(
-                          width: 130,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Row(
-                                children: [
-                                  Text('Start: ',
-                                    style: kBlackTextStyle,),
-                                  Text(DateFormat('dd.MM.yyyy').format(DateTime.parse(history[index].startTime)),
-                                    style: kBlackTextStyle,),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Text('End: ',
-                                    style: kBlackTextStyle,),
-                                  Text(DateFormat('dd.MM.yyyy').format(DateTime.parse(history[index].endTime)),
-                                    style: kBlackTextStyle,),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          width: 60,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(right: 4),
-                                    width: 12,
-                                    height: 12,
-                                    decoration: BoxDecoration(
-                                        color: kTangerine,
-                                        borderRadius: const BorderRadius.all(Radius.circular(3)),
-                                        border: Border.all(width: 1, color: kBlack)
-                                    ),
-                                  ),
-                                  Text('- ', style: kBlackTextStyle,),
-                                  Text(history[index].goodDays, style: kBlackTextStyle,),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(right: 4),
-                                    width: 12,
-                                    height: 12,
-                                    decoration: BoxDecoration(
-                                        color: kWhite,
-                                        borderRadius: const BorderRadius.all(Radius.circular(3)),
-                                        border: Border.all(width: 1, color: kBlack)
-                                    ),
-                                  ),
-                                  Text('- ', style: kBlackTextStyle,),
-                                  Text(history[index].badDays, style: kBlackTextStyle,),
-                                ],
-                              )
-                            ],
+                          width: size.width * 0.61,
+                          child: Wrap(
+                            runAlignment: WrapAlignment.center,
+                            runSpacing: 1.5,
+                            children: List.generate(history[index].list.length, (i){
+                              List<int> converted = history[index].list.split('')
+                                  .map((v) => int.parse(v)).toList();
+                              data.convertedLength = history[index].list.length - (history[index].list.length - converted.length);
+                              converted.addAll(List.filled(history[index].list.length - converted.length, 3));
+                              data.zeros = converted.where((e) => e == 0).length;
+                              data.ones = converted.where((e) => e == 1).length;
+                              return Container(
+                                margin: EdgeInsets.only(right: size.width * 0.0033),
+                                width: size.width * 0.026,
+                                height: size.width * 0.026,
+                                decoration: BoxDecoration(
+                                    color: converted[i] == 1
+                                        ? kTangerine
+                                        : kWhite,
+                                    borderRadius: const BorderRadius.all(Radius.circular(3)),
+                                    border: Border.all(width: 1, color: kBlack)
+                                ),
+                              );
+                            }),
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      width: 280,
-                      child: Wrap(
-                        runAlignment: WrapAlignment.center,
-                        runSpacing: 1.5,
-                        children: List.generate(history[index].list.length, (i){
-                          List<int> converted = history[index].list.split('')
-                              .map((v) => int.parse(v)).toList();
-                          data.convertedLength = history[index].list.length - (history[index].list.length - converted.length);
-                          converted.addAll(List.filled(history[index].list.length - converted.length, 3));
-                          data.zeros = converted.where((e) => e == 0).length;
-                          data.ones = converted.where((e) => e == 1).length;
-                          return Container(
-                            margin: const EdgeInsets.only(right: 1.5),
-                            width: 12,
-                            height: 12,
-                            decoration: BoxDecoration(
-                                color: converted[i] == 1
-                                    ? kTangerine
-                                    : kWhite,
-                                borderRadius: const BorderRadius.all(Radius.circular(3)),
-                                border: Border.all(width: 1, color: kBlack)
-                            ),
-                          );
-                        }),
-                      ),
-                    ),
-                    SizedBox(height: 8,)
                   ],
                 )
             ),

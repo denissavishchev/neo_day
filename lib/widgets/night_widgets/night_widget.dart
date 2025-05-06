@@ -24,9 +24,9 @@ class NightWidget extends StatelessWidget {
                     width: 18,
                     height: 18,
                     decoration: BoxDecoration(
-                        color: data.isTodayTarget ? kRed : kBlack.withValues(alpha: 0.8),
+                        color: data.isTodayTarget ? kTangerine : kBlack.withValues(alpha: 0.8),
                         borderRadius: BorderRadius.all(Radius.circular(7)),
-                        border: Border.all(color: data.isTodayTarget ? Colors.transparent : kRed, width: 2)
+                        border: Border.all(color: data.isTodayTarget ? Colors.transparent : kTangerine, width: 2)
                     ),
                   )
                 ],
@@ -77,7 +77,7 @@ class PuzzleWidget extends StatelessWidget {
                         width: (size.width - 36) / 6,
                         height: 50,
                         decoration: BoxDecoration(
-                            color: data.puzzleColors[i] == 0 ? kRed : Colors.transparent,
+                            color: data.puzzleColors[i] == 0 ? kTangerine : Colors.transparent,
                             border: Border.all(
                                 color: data.puzzleColors[i] == 0 ? kBlack : Colors.transparent,
                                 width: 0.5)
@@ -96,7 +96,7 @@ class PuzzleWidget extends StatelessWidget {
                         padding: const EdgeInsets.all(12),
                         clipBehavior: Clip.hardEdge,
                         decoration: BoxDecoration(
-                            color: kBlue,
+                            color: kBlack,
                             borderRadius: BorderRadius.all(Radius.circular(8))
                         ),
                       child: Column(

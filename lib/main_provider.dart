@@ -236,7 +236,7 @@ class MainProvider extends ChangeNotifier {
                     padding: const EdgeInsets.symmetric(horizontal: 18),
                     margin: const EdgeInsets.only(bottom: 250),
                     decoration: const BoxDecoration(
-                      color: kIndigo,
+                      color: kBlack,
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                     ),
                     child: Column(
@@ -246,15 +246,16 @@ class MainProvider extends ChangeNotifier {
                           controller: habitTextController,
                           style: const TextStyle(color: kWhite),
                           decoration: textFieldDecoration,
+                          cursorColor: kWhite,
                         ),
                         Row(
                           children: [
                             Expanded(
                               child: Slider(
                                 divisions: 17,
-                                activeColor: kGreen,
+                                activeColor: kTangerine,
                                 inactiveColor: kWhite,
-                                thumbColor: kGreen,
+                                thumbColor: kTangerine,
                                 value: habitDaySlider,
                                 onChanged: (v) => setState((){
                                   changeHabitDaySlider(v);
@@ -266,12 +267,21 @@ class MainProvider extends ChangeNotifier {
                             Text(habitDaySlider.toStringAsFixed(0), style: kTextStyle,)
                           ],
                         ),
-                        ElevatedButton(
-                            onPressed: (){
-                              addHabitToBase();
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('Add')),
+                        GestureDetector(
+                          onTap: (){
+                            addHabitToBase();
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                            width: 100,
+                            height: 40,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                              border: Border.all(color: kWhite, width: 2)
+                            ),
+                            child: Center(child: Text('add'.tr(), style: kTextStyle,)),
+                          ),
+                        )
                       ],
                     )
                 );
@@ -296,7 +306,7 @@ class MainProvider extends ChangeNotifier {
                     padding: const EdgeInsets.symmetric(horizontal: 18),
                     margin: const EdgeInsets.only(bottom: 450),
                     decoration: const BoxDecoration(
-                      color: kIndigo,
+                      color: kBlack,
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                     ),
                     child: Column(
@@ -307,17 +317,27 @@ class MainProvider extends ChangeNotifier {
                           controller: todayTargetTextController,
                           style: const TextStyle(color: kWhite),
                           decoration: textFieldDecoration,
+                          cursorColor: kWhite,
                         ),
-                        ElevatedButton(
-                            onPressed: (){
-                              box.put('todayTarget', todayTargetTextController.text);
-                              todayTarget = todayTargetTextController.text;
-                              todayTargetTextController.clear();
-                              isTodayTarget = false;
-                              notifyListeners();
-                              Navigator.of(context).pop();
-                            },
-                            child: Text('Add')),
+                        GestureDetector(
+                          onTap: (){
+                            box.put('todayTarget', todayTargetTextController.text);
+                            todayTarget = todayTargetTextController.text;
+                            todayTargetTextController.clear();
+                            isTodayTarget = false;
+                            notifyListeners();
+                            Navigator.of(context).pop();
+                          },
+                          child: Container(
+                            width: 100,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.all(Radius.circular(8)),
+                                border: Border.all(color: kWhite, width: 2)
+                            ),
+                            child: Center(child: Text('add'.tr(), style: kTextStyle,)),
+                          ),
+                        )
                       ],
                     )
                 );

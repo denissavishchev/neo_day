@@ -19,7 +19,7 @@ class NotepadWidget extends StatelessWidget {
             child: Container(
               margin: const EdgeInsets.symmetric(vertical: 50),
               decoration: BoxDecoration(
-                  color: kBlue,
+                  color: kBlack,
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(18),
                       bottomRight: Radius.circular(18)
@@ -32,7 +32,8 @@ class NotepadWidget extends StatelessWidget {
                         Container(
                           width: 250,
                           height: 50,
-                          color: kBlue,
+                          color: kBlack,
+                          padding: const EdgeInsets.only(top: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
@@ -48,7 +49,7 @@ class NotepadWidget extends StatelessWidget {
                           height: 50,
                           decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: [kGreen.withValues(alpha: 0.55), kBlue.withValues(alpha: 0.4)],
+                                colors: [kTangerine, kBlack.withValues(alpha: 0.4)],
                                 begin: Alignment.topRight,
                                 end: Alignment.bottomLeft
                               ),
@@ -86,7 +87,7 @@ class NotepadWidget extends StatelessWidget {
                                       : index == 1
                                       ? data.notesTextControllerTwo
                                       : data.notesTextControllerThree,
-                                  cursorColor: kGreen,
+                                  cursorColor: kTangerine,
                                   keyboardType: TextInputType.multiline,
                                   maxLines: null,
                                   style: kTextStyle,
@@ -124,7 +125,7 @@ class NoteButton extends StatelessWidget {
             height: 40,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: data.selectedNote == index ? kGreen : Colors.transparent, width: 2)
+                border: Border.all(color: data.selectedNote == index ? kTangerine : Colors.transparent, width: 2)
             ),
             child: TextButton(
                 onPressed: () => data.switchNote(index),

@@ -54,7 +54,7 @@ class HabitsListWidget extends StatelessWidget {
                                               style: kBlackTextStyle.copyWith(fontSize: 32.sp),),
                                             const SizedBox(height: 8,),
                                             SizedBox(
-                                              width: 300,
+                                              width: size.width * 0.67,
                                               child: Wrap(
                                                 runAlignment: WrapAlignment.center,
                                                 runSpacing: 3,
@@ -66,9 +66,9 @@ class HabitsListWidget extends StatelessWidget {
                                                   data.zeros = converted.where((e) => e == 0).length;
                                                   data.ones = converted.where((e) => e == 1).length;
                                                   return Container(
-                                                    margin: const EdgeInsets.only(right: 3),
-                                                    width: 12,
-                                                    height: 12,
+                                                    margin: EdgeInsets.only(right: size.width * 0.007),
+                                                    width: size.width * 0.026,
+                                                    height: size.width * 0.026,
                                                     decoration: BoxDecoration(
                                                         color: converted[i] == 1
                                                             ? kTangerine
