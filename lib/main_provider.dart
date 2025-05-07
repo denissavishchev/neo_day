@@ -38,32 +38,7 @@ class MainProvider extends ChangeNotifier {
   int selectedNote = 0;
   String todayTarget = '';
   bool isTodayTarget = false;
-
-  List puzzleColors = List.filled(30, 0);
-  bool isPuzzleTaskVisible = false;
-  int selectedPuzzle = 0;
-  bool isPuzzleToday = false;
-  String puzzlesParts = '';
-
   int dayTaskCount = 0;
-
-  void openPuzzleTask(int index){
-    if(puzzleColors[index] == 0 && !isPuzzleToday){
-      isPuzzleTaskVisible = true;
-      puzzleColors[index] = 1;
-      selectedPuzzle = index;
-      isPuzzleToday = true;
-      puzzlesParts = puzzleColors.join(',');
-      box.put('isPuzzleToday', isPuzzleToday);
-      box.put('puzzlesParts', puzzlesParts);
-      notifyListeners();
-    }
-  }
-
-  void hidePuzzleTask(){
-    isPuzzleTaskVisible = false;
-    notifyListeners();
-  }
 
   void initDay(){
     if(box.get('startTime') == null){
@@ -75,10 +50,6 @@ class MainProvider extends ChangeNotifier {
           :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day') ?? false;
-      isPuzzleToday = box.get('isPuzzleToday') ?? false;
-      puzzleColors = box.get('puzzlesParts') == null
-          ? List<int>.filled(30, 0)
-          : (box.get('puzzlesParts')).split(',').map(int.parse).toList();
       motivationText = box.get('motivationText') ?? 'quote';
       isTodayTarget = box.get('isTodayTarget') ?? false;
       todayTarget = box.get('todayTarget') ?? '';
@@ -104,15 +75,12 @@ class MainProvider extends ChangeNotifier {
         await showToAddTodayTarget(context);
       });
     }else{
-      if(dayTaskCount < 30){
+      if(dayTaskCount < 29){
         dayTaskCount++;
       }else{
         dayTaskCount = 0;
       }
       await box.put('dayTaskCount', dayTaskCount);
-      isPuzzleToday = false;
-      isPuzzleTaskVisible = false;
-      await box.put('isPuzzleToday', isPuzzleToday);
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);

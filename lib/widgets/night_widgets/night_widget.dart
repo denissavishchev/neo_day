@@ -57,62 +57,21 @@ class PuzzleWidget extends StatelessWidget {
         builder: (context, data, _){
           return Container(
             width: size.width,
-            height: 250,
+            height: 150,
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
                 color: kWhite,
                 borderRadius: BorderRadius.all(Radius.circular(8))
             ),
-            child: Stack(
+            child: Column(
+              spacing: 8,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(
-                    width: size.width,
-                    height: 250,
-                    child: Image.asset('assets/images/forest.jpg', fit: BoxFit.cover,)),
-                Wrap(
-                  children: List.generate(30, ((i){
-                    return GestureDetector(
-                      onTap: () => data.openPuzzleTask(i),
-                      child: Container(
-                        width: (size.width - 36) / 6,
-                        height: 50,
-                        decoration: BoxDecoration(
-                            color: data.puzzleColors[i] == 0 ? kTangerine : Colors.transparent,
-                            border: Border.all(
-                                color: data.puzzleColors[i] == 0 ? kBlack : Colors.transparent,
-                                width: 0.5)
-                        ),
-                      ),
-                    );
-                  })),
-                ),
-                Visibility(
-                  visible: data.isPuzzleTaskVisible,
-                  child: GestureDetector(
-                    onTap: () => data.hidePuzzleTask(),
-                    child: Container(
-                        width: size.width,
-                        height: 250,
-                        padding: const EdgeInsets.all(12),
-                        clipBehavior: Clip.hardEdge,
-                        decoration: BoxDecoration(
-                            color: kBlack,
-                            borderRadius: BorderRadius.all(Radius.circular(8))
-                        ),
-                      child: Column(
-                        spacing: 8,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text('puzzleTitle${data.selectedPuzzle}'.tr(), style: kTextStyle.copyWith(fontSize: 22),),
-                          Text('puzzleQuestion${data.selectedPuzzle}'.tr(), style: kTextStyle,),
-                          Text('puzzleBody${data.selectedPuzzle}'.tr(), style: kTextStyle,),
-                          const Spacer(),
-                          Text('puzzleFooter${data.selectedPuzzle}'.tr(), style: kTextStyle,),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
+                Text('puzzleTitle${data.dayTaskCount}'.tr(), style: kBlackTextStyle.copyWith(fontSize: 22),),
+                Text('puzzleQuestion${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
+                Text('puzzleBody${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
+                const Spacer(),
+                Text('puzzleFooter${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
               ],
             ),
           );
