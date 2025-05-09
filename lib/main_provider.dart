@@ -16,6 +16,7 @@ class MainProvider extends ChangeNotifier {
   final notesTextControllerTwo = TextEditingController();
   final notesTextControllerThree = TextEditingController();
   final notesPageController = PageController();
+  final onboardingPageController = PageController(viewportFraction: 0.9);
   final GlobalKey<ScaffoldState> notesKey = GlobalKey<ScaffoldState>();
 
   Box box = Hive.box('day');

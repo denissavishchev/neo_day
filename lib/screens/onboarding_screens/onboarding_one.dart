@@ -26,6 +26,26 @@ class OnboardingOne extends StatelessWidget {
                         children: [
                           const SizedBox(height: 6,),
                           OnboardingDayNightSwitch(),
+                          SizedBox(
+                            height: size.height * 0.65,
+                            child: PageView.builder(
+                              controller: data.onboardingPageController,
+                              itemCount: 3,
+                                itemBuilder: (context, index){
+                                  return Container(
+                                    margin: const EdgeInsets.symmetric(horizontal: 6),
+                                    decoration: BoxDecoration(
+                                      color: data.isDayOnboarding ? kWhite : kBlack,
+                                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                                      border: Border.all(
+                                          color: data.isDayOnboarding ? kBlack : kWhite,
+                                        width: 2
+                                      )
+                                    ),
+                                  );
+                                }
+                            ),
+                          )
                         ]
                     ),
                   ),
