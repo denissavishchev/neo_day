@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neo_day/main_provider.dart';
 import 'package:provider/provider.dart';
 import '../constants.dart';
+import '../screens/onboarding_screens/onboarding_one.dart';
 
 class NotepadWidget extends StatelessWidget {
   const NotepadWidget({
@@ -65,6 +66,12 @@ class NotepadWidget extends StatelessWidget {
                         ),
                       ],
                     ),
+                    const SizedBox(height: 12,),
+                    TextButton(
+                        onPressed: () => Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) =>
+                            const OnboardingOne())),
+                        child: Text('onboarding')),
                     const SizedBox(height: 12,),
                     SizedBox(
                       width: size.width,

@@ -21,6 +21,7 @@ class MainProvider extends ChangeNotifier {
   Box box = Hive.box('day');
 
   bool isDay = true;
+  bool isDayOnboarding = false;
   bool isAddTaskVisible = false;
   String endTime = '';
   String previousDayDuration = '';
@@ -373,6 +374,11 @@ class MainProvider extends ChangeNotifier {
   void switchIsTodayTarget(){
     isTodayTarget = !isTodayTarget;
     box.put('isTodayTarget', isTodayTarget);
+    notifyListeners();
+  }
+
+  void switchDayOnboarding(context) async {
+    isDayOnboarding = !isDayOnboarding;
     notifyListeners();
   }
 
