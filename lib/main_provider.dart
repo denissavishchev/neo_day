@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:neo_day/widgets/button_widget.dart';
 import 'package:neo_day/widgets/languages/language.dart';
 import 'constants.dart';
 import 'models/boxes.dart';
@@ -237,20 +238,12 @@ class MainProvider extends ChangeNotifier {
                             Text(habitDaySlider.toStringAsFixed(0), style: kTextStyle,)
                           ],
                         ),
-                        GestureDetector(
-                          onTap: (){
-                            addHabitToBase();
-                            Navigator.of(context).pop();
-                          },
-                          child: Container(
-                            width: 100,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(8)),
-                              border: Border.all(color: kWhite, width: 2)
-                            ),
-                            child: Center(child: Text('add'.tr(), style: kTextStyle,)),
-                          ),
+                        ButtonWidget(
+                            text: 'add',
+                            onTap: (){
+                              addHabitToBase();
+                              Navigator.of(context).pop();
+                            }
                         )
                       ],
                     )
@@ -289,25 +282,16 @@ class MainProvider extends ChangeNotifier {
                           decoration: textFieldDecoration,
                           cursorColor: kWhite,
                         ),
-                        GestureDetector(
-                          onTap: (){
-                            box.put('todayTarget', todayTargetTextController.text);
-                            todayTarget = todayTargetTextController.text;
-                            todayTargetTextController.clear();
-                            isTodayTarget = false;
-                            notifyListeners();
-                            Navigator.of(context).pop();
-                          },
-                          child: Container(
-                            width: 100,
-                            height: 40,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.all(Radius.circular(8)),
-                                border: Border.all(color: kWhite, width: 2)
-                            ),
-                            child: Center(child: Text('add'.tr(), style: kTextStyle,)),
-                          ),
-                        )
+                        ButtonWidget(
+                          text: 'add',
+                          onTap: () {
+                          box.put('todayTarget', todayTargetTextController.text);
+                          todayTarget = todayTargetTextController.text;
+                          todayTargetTextController.clear();
+                          isTodayTarget = false;
+                          notifyListeners();
+                          Navigator.of(context).pop();
+                        },),
                       ],
                     )
                 );

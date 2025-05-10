@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:neo_day/widgets/button_widget.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
 import '../../main_provider.dart';
 import '../../widgets/onboarding_widgets/onboarding_day_night_switch.dart';
 
-class OnboardingOne extends StatelessWidget {
-  const OnboardingOne({super.key});
+class OnboardingScreen extends StatelessWidget {
+  const OnboardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,9 @@ class OnboardingOne extends StatelessWidget {
                                   );
                                 }
                             ),
-                          )
+                          ),
+                          const SizedBox(height: 6,),
+                          ButtonWidget(text: 'start', onTap: (){})
                         ]
                     ),
                   ),

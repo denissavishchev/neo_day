@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:neo_day/main_provider.dart';
 import 'package:provider/provider.dart';
 import '../constants.dart';
-import '../screens/onboarding_screens/onboarding_one.dart';
+import '../screens/onboarding_screens/onboarding_screen.dart';
 
 class NotepadWidget extends StatelessWidget {
   const NotepadWidget({
@@ -70,7 +70,7 @@ class NotepadWidget extends StatelessWidget {
                     TextButton(
                         onPressed: () => Navigator.pushReplacement(context,
                             MaterialPageRoute(builder: (context) =>
-                            const OnboardingOne())),
+                            const OnboardingScreen())),
                         child: Text('onboarding')),
                     const SizedBox(height: 12,),
                     SizedBox(
