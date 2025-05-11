@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_day/widgets/button_widget.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
 import '../../main_provider.dart';
 import '../../widgets/onboarding_widgets/onboarding_day_night_switch.dart';
+import '../main_screen.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({super.key});
@@ -35,6 +37,7 @@ class OnboardingScreen extends StatelessWidget {
                                 itemBuilder: (context, index){
                                   return Container(
                                     margin: const EdgeInsets.symmetric(horizontal: 6),
+                                    padding: const EdgeInsets.all(12),
                                     decoration: BoxDecoration(
                                       color: data.isDayOnboarding ? kWhite : kBlack,
                                       borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -43,12 +46,30 @@ class OnboardingScreen extends StatelessWidget {
                                         width: 2
                                       )
                                     ),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          data.isDayOnboarding
+                                              ? 'day$index'.tr()
+                                              : 'night$index'.tr(),
+                                          style: data.isDayOnboarding
+                                              ? kBlackTextStyle
+                                              : kTextStyle,
+                                        )
+                                      ],
+                                    ),
                                   );
                                 }
                             ),
                           ),
                           const SizedBox(height: 6,),
-                          ButtonWidget(text: 'start', onTap: (){})
+                          ButtonWidget(
+                              text: 'start',
+                              onTap: () => Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) =>
+                                  const MainScreen()))
+                          )
                         ]
                     ),
                   ),

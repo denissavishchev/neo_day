@@ -5,6 +5,13 @@
   "addTodayTarget": "Add today target",
   "bodyEnergy": "Body energy (day {})",
   "add": "Add",
+  "start": "Start",
+  "day0": "Do, dream, listen, connect,\nCreate, move, choose,\nCollect moments,\nLive with habits that shape who you are,\nBe in rhythm, not in a rush,\nBe yourself — but every day a step closer to your better self.",
+  "day1": "Don’t hype yourself — compose yourself.\nDon’t wait for the perfect moment — just start.\nCheck off what’s done — not for reward, but for movement.\nChoose habit — not chaos.\nWork with what you have. Calmly. With focus.",
+  "day2": "",
+  "night0": "Sleep, restore, dream,\nLet go of worries, breathe deeper,\nBe silent — and hear yourself,\nLet the body heal what the day couldn’t.\nLet the mind slow down,\nLet everything quietly fall into place.",
+  "night1": "Don’t push through. Let go.\nFinish — even if not everything got done.\nGo to bed not because you’re tired, but because you decided to.\nTurn silence into ritual.\nRespect your resource — it’s your tool.",
+  "night2": "",
 
   "quote0": "You can do more than you think.",
   "quote1": "Every small action is a step toward a big goal.",
