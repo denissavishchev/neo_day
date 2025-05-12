@@ -40,6 +40,13 @@ class OnboardingScreen extends StatelessWidget {
                                     padding: const EdgeInsets.all(12),
                                     decoration: BoxDecoration(
                                       color: data.isDayOnboarding ? kWhite : kBlack,
+                                      image: DecorationImage(
+                                          image: AssetImage(
+                                            data.isDayOnboarding
+                                            ? 'assets/images/day$index.jpg'
+                                            : 'assets/images/night$index.jpg',),
+                                        fit: BoxFit.cover,
+                                      ),
                                       borderRadius: BorderRadius.all(Radius.circular(8)),
                                       border: Border.all(
                                           color: data.isDayOnboarding ? kBlack : kWhite,
@@ -49,13 +56,34 @@ class OnboardingScreen extends StatelessWidget {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text(
-                                          data.isDayOnboarding
-                                              ? 'day$index'.tr()
-                                              : 'night$index'.tr(),
-                                          style: data.isDayOnboarding
-                                              ? kBlackTextStyle
-                                              : kTextStyle,
+                                        Container(
+                                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                          decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                  colors: [
+                                                    kWhite.withValues(alpha: 0.8),
+                                                    kGrey.withValues(alpha: 0.6)
+                                                  ],
+                                                begin: Alignment.centerLeft,
+                                                end: Alignment.centerRight,
+                                              ),
+                                              borderRadius: BorderRadius.circular(8),
+                                            border: Border.all(color: kWhite)
+                                          ),
+                                          child: Text(
+                                            data.isDayOnboarding
+                                                ? 'day$index'.tr()
+                                                : 'night$index'.tr(),
+                                            style: kBlackTextStyle.copyWith(
+                                              shadows: [
+                                                Shadow(
+                                                  offset: Offset(1, 1),
+                                                  blurRadius: 4.0,
+                                                  color: kWhite,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         )
                                       ],
                                     ),
