@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_day/widgets/button_widget.dart';
@@ -37,54 +39,81 @@ class OnboardingScreen extends StatelessWidget {
                                 itemBuilder: (context, index){
                                   return Container(
                                     margin: const EdgeInsets.symmetric(horizontal: 6),
-                                    padding: const EdgeInsets.all(12),
+                                    padding: const EdgeInsets.all(2),
                                     decoration: BoxDecoration(
-                                      color: data.isDayOnboarding ? kWhite : kBlack,
-                                      image: DecorationImage(
-                                          image: AssetImage(
-                                            data.isDayOnboarding
-                                            ? 'assets/images/day$index.jpg'
-                                            : 'assets/images/night$index.jpg',),
-                                        fit: BoxFit.cover,
-                                      ),
-                                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                                      border: Border.all(
-                                          color: data.isDayOnboarding ? kBlack : kWhite,
-                                        width: 2
+                                      borderRadius: BorderRadius.circular(8),
+                                      gradient: LinearGradient(
+                                          colors: [
+                                            kWhite,
+                                            kBlack
+                                          ],
+                                        begin: Alignment.bottomCenter,
+                                        end: Alignment.topCenter,
+                                        stops: [0, 0.8]
                                       )
                                     ),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                    child: Stack(
                                       children: [
                                         Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                          padding: const EdgeInsets.all(12),
                                           decoration: BoxDecoration(
-                                              gradient: LinearGradient(
-                                                  colors: [
-                                                    kWhite.withValues(alpha: 0.8),
-                                                    kGrey.withValues(alpha: 0.6)
-                                                  ],
-                                                begin: Alignment.centerLeft,
-                                                end: Alignment.centerRight,
-                                              ),
-                                              borderRadius: BorderRadius.circular(8),
-                                            border: Border.all(color: kWhite)
-                                          ),
-                                          child: Text(
-                                            data.isDayOnboarding
-                                                ? 'day$index'.tr()
-                                                : 'night$index'.tr(),
-                                            style: kBlackTextStyle.copyWith(
-                                              shadows: [
-                                                Shadow(
-                                                  offset: Offset(1, 1),
-                                                  blurRadius: 4.0,
-                                                  color: kWhite,
-                                                ),
-                                              ],
+                                            color: data.isDayOnboarding ? kWhite : kBlack,
+                                            image: DecorationImage(
+                                                image: AssetImage(
+                                                  data.isDayOnboarding
+                                                  ? 'assets/images/day$index.jpg'
+                                                  : 'assets/images/night$index.jpg',),
+                                              fit: BoxFit.cover,
                                             ),
+                                            borderRadius: BorderRadius.all(Radius.circular(8)),
                                           ),
-                                        )
+                                        ),
+                                        Container(
+                                          alignment: Alignment.center,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(8),
+                                          ),
+                                          child: Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              ClipRRect(
+                                                borderRadius: BorderRadius.circular(8),
+                                                child: BackdropFilter(
+                                                  filter: ImageFilter.blur(
+                                                    sigmaX: 4,
+                                                    sigmaY: 4,
+                                                  ),
+                                                  child: Container(
+                                                    width: size.width,
+                                                    padding: const EdgeInsets.symmetric(
+                                                        horizontal: 12, vertical: 6),
+                                                    decoration: BoxDecoration(
+                                                        color: kWhite.withValues(alpha: 0.2),
+                                                        borderRadius: BorderRadius.circular(8),
+                                                        border: Border.all(
+                                                            width: 1,
+                                                            color: kWhite.withValues(alpha: 0.1))
+                                                    ),
+                                                    child: Text(
+                                                      data.isDayOnboarding
+                                                          ? 'day$index'.tr()
+                                                          : 'night$index'.tr(),
+                                                      style: kTextStyle.copyWith(
+                                                        shadows: [
+                                                          Shadow(
+                                                            offset: Offset(1, 1),
+                                                            blurRadius: 4,
+                                                            color: kBlack,
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
                                       ],
                                     ),
                                   );
