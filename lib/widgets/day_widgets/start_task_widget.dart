@@ -26,20 +26,47 @@ class StartTaskWidget extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Stack(
+                  Row(
                     children: [
-                      SizedBox(
-                        width: size.width,
-                        height: 26,
-                        child: SvgPicture.asset('assets/images/stripe.svg',
-                          fit: BoxFit.fill,
-                          colorFilter: const ColorFilter.mode(kBlack, BlendMode.srcIn),
+                      Expanded(
+                        child: Stack(
+                          children: [
+                            SizedBox(
+                              width: size.width,
+                              height: 26,
+                              child: SvgPicture.asset('assets/images/stripe.svg',
+                                fit: BoxFit.fill,
+                                colorFilter: const ColorFilter.mode(kBlack, BlendMode.srcIn),
+                              ),
+                            ),
+                            Center(
+                              child: Text('bodyEnergy'.tr(args: ['${data.dayTaskCount + 1}']),
+                                style: kTextStyle,),
+                            ),
+                          ],
                         ),
                       ),
-                      Center(
-                        child: Text('bodyEnergy'.tr(args: ['${data.dayTaskCount + 1}']),
-                          style: kTextStyle,),
-                      ),
+                      GestureDetector(
+                        onTap: () => data.switchIsStartTask(),
+                        child: Container(
+                          width: 33,
+                          height: 33,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: kWhite,
+                              borderRadius: BorderRadius.all(Radius.circular(8)),
+                              border: Border.all(color: kBlack, width: 3)
+                          ),
+                          child: Container(
+                            width: 23,
+                            height: 23,
+                            decoration: BoxDecoration(
+                              color: data.isStartTask ? kBlack : kWhite,
+                              borderRadius: BorderRadius.all(Radius.circular(4)),
+                            ),
+                          ),
+                        ),
+                      ),const SizedBox(width: 12,),
                     ],
                   ),
                   Padding(
@@ -51,7 +78,26 @@ class StartTaskWidget extends StatelessWidget {
                       ],
                     ),
                   ),
-
+                  const SizedBox(height: 4,),
+                  SizedBox(
+                    width: size.width * 0.5,
+                    child: Wrap(
+                      runAlignment: WrapAlignment.center,
+                      runSpacing: 3,
+                      children: List.generate(30, (i){
+                        return Container(
+                          margin: EdgeInsets.only(right: size.width * 0.007),
+                          width: size.width * 0.026,
+                          height: size.width * 0.026,
+                          decoration: BoxDecoration(
+                              color: kWhite,
+                              borderRadius: const BorderRadius.all(Radius.circular(3)),
+                              border: Border.all(width: 1, color: kBlack)
+                          ),
+                        );
+                      }),
+                    ),
+                  )
                 ],
               ),
             ),

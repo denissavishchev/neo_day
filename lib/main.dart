@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:neo_day/models/start_task_model.dart';
 import 'package:neo_day/screens/main_screen.dart';
 import 'package:provider/provider.dart';
 import 'main_provider.dart';
@@ -13,8 +14,10 @@ Future main() async{
   await Hive.initFlutter();
   Hive.registerAdapter(HabitsModelAdapter());
   Hive.registerAdapter(HabitHistoryModelAdapter());
+  Hive.registerAdapter(StartTaskModelAdapter());
   await Hive.openBox<HabitsModel>('habit');
   await Hive.openBox<HabitHistoryModel>('habitHistory');
+  await Hive.openBox<StartTaskModel>('startTask');
   await Hive.openBox('day');
   await EasyLocalization.ensureInitialized();
   runApp(

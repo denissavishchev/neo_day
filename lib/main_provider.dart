@@ -41,6 +41,7 @@ class MainProvider extends ChangeNotifier {
   int selectedNote = 0;
   String todayTarget = '';
   bool isTodayTarget = false;
+  bool isStartTask = false;
   int dayTaskCount = 0;
 
   void initDay(){
@@ -83,6 +84,7 @@ class MainProvider extends ChangeNotifier {
       }else{
         dayTaskCount = 0;
       }
+      // dayTaskCount = 0;
       await box.put('dayTaskCount', dayTaskCount);
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
@@ -359,6 +361,11 @@ class MainProvider extends ChangeNotifier {
   void switchIsTodayTarget(){
     isTodayTarget = !isTodayTarget;
     box.put('isTodayTarget', isTodayTarget);
+    notifyListeners();
+  }
+  void switchIsStartTask(){
+    isStartTask = !isStartTask;
+    // box.put('isStartTask', isStartTask);
     notifyListeners();
   }
 

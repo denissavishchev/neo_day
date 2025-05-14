@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
@@ -32,6 +33,22 @@ class OnboardingDayNightSwitch extends StatelessWidget {
                 duration: const Duration(milliseconds: 500),
                 child: Stack(
                   children: [
+                    Padding(
+                      padding:
+                          data.isDayOnboarding
+                              ? EdgeInsets.only(right: size.width * 0.1)
+                              : EdgeInsets.only(left: size.width * 0.1),
+                      child: AnimatedAlign(
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn,
+                        alignment: data.isDayOnboarding ? Alignment.centerRight : Alignment.centerLeft,
+                        child: AnimatedCrossFade(
+                        firstChild: Text('switchOnNight'.tr(), style: kBlackTextStyle),
+                        secondChild: Text('switchOnDay'.tr(), style: kTextStyle),
+                        crossFadeState: data.isDayOnboarding ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                        duration: const Duration(milliseconds: 500),
+                      ),),
+                    ),
                     AnimatedAlign(
                       duration: const Duration(milliseconds: 500),
                       alignment: data.isDayOnboarding ? Alignment.centerLeft : Alignment.centerRight,

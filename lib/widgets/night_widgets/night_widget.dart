@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_day/main_provider.dart';
-import 'package:neo_day/widgets/night_widgets/timer_widget.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
 
@@ -39,8 +38,6 @@ class NightWidget extends StatelessWidget {
               RatingWidget(),
               const SizedBox(height: 24,),
               EndTextWidget(),
-              const SizedBox(height: 24,),
-              TimerWidget()
             ],
           );
         }
@@ -60,7 +57,6 @@ class EndTextWidget extends StatelessWidget {
         builder: (context, data, _){
           return Container(
             width: size.width,
-            height: 130,
             clipBehavior: Clip.hardEdge,
             decoration: BoxDecoration(
                 color: kWhite,
@@ -73,8 +69,9 @@ class EndTextWidget extends StatelessWidget {
                 Text('puzzleTitle${data.dayTaskCount}'.tr(), style: kBlackTextStyle.copyWith(fontSize: 22),),
                 Text('puzzleQuestion${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
                 Text('puzzleBody${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
-                const Spacer(),
-                Text('puzzleFooter${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
+                const SizedBox(height: 20,),
+                Text('puzzleFooter${data.dayTaskCount}'.tr(),
+                  style: kBlackTextStyle, textAlign: TextAlign.center,),
               ],
             ),
           );
