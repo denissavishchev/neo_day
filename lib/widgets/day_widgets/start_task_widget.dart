@@ -24,7 +24,7 @@ class StartTaskWidget extends StatelessWidget {
                 color: kWhite,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-              child: data.isStartInProgress
+              child: data.startTask != ''
               ? Column(
                 children: [
                   Row(
@@ -41,7 +41,7 @@ class StartTaskWidget extends StatelessWidget {
                               ),
                             ),
                             Center(
-                              child: Text('bodyEnergy'.tr(args: ['${data.dayTaskCount + 1}']),
+                              child: Text('start${data.startTask}Top'.tr(args: ['${data.dayTaskCount + 1}']),
                                 style: kTextStyle,),
                             ),
                           ],
@@ -74,8 +74,8 @@ class StartTaskWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 18, ),
                     child: Column(
                       children: [
-                        Text('startEnergy${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
-                        Text('taskEnergy${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
+                        Text('start${data.startTask}${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
+                        Text('task${data.startTask}${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
                       ],
                     ),
                   ),
@@ -91,7 +91,9 @@ class StartTaskWidget extends StatelessWidget {
                           width: size.width * 0.026,
                           height: size.width * 0.026,
                           decoration: BoxDecoration(
-                              color: kWhite,
+                              color: data.startTasksCount[i] == '1'
+                                  ? kTangerine
+                                  : kWhite,
                               borderRadius: const BorderRadius.all(Radius.circular(3)),
                               border: Border.all(width: 1, color: kBlack)
                           ),

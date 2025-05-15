@@ -3,7 +3,6 @@
   "advice": "Advice",
   "joke": "Joke",
   "addTodayTarget": "Add today target",
-  "bodyEnergy": "Body energy (day {})",
   "add": "Add",
   "start": "Start",
   "day0": "Do, dream, listen, connect,\nCreate, move, choose,\nCollect moments,\nLive with habits that shape who you are,\nBe in rhythm, not in a rush,\nBe yourself — but every day a step closer to your better self.",
@@ -260,6 +259,7 @@
   "puzzleBody29": "This isn't the end. Just your next step.",
   "puzzleFooter29": "You can just sleep. That's enough.",
 
+  "startEnergyTop": "Body energy (day {})",
   "startEnergyTitle": "Movement isn’t a duty",
   "startEnergyDescription": "it’s a gift to your body and mind. One minute of morning activity is more than exercise: it’s a message to yourself — you’re here, awake, ready. It’s not about workouts, it’s about building a rhythm that fuels discipline, energy, and well-being — one day at a time.",
 
@@ -353,6 +353,7 @@
   "startEnergy29": "My body knows — this day is mine.",
   "taskEnergy29": "Do 1-minute circuit: 10 squats → 5 push-ups → 10 leg swings.",
 
+  "startArtTop": "Creativity Challenge (day {})",
   "startArtTitle": "Creativity isn’t a talent",
   "startArtDescription": "it’s a way of seeing. Just one minute a day can help you notice the extraordinary in the ordinary. When you create — even something small and aimless — you wake up your imagination, your thinking, and your sense of agency. Creativity is the spark that connects you to yourself and the world.",
 
@@ -446,6 +447,7 @@
   "startArt29": "Today I’ll make a tiny miracle.",
   "taskArt29": "Make a card for yourself — draw or write one short sentence.",
 
+  "startEmpathyTop": "Empathy & Self-Worth (day {})",
   "startEmpathyTitle": "Empathy and self-worth",
   "startEmpathyDescription": "are daily practices that deepen your connection with yourself and others. When you learn to feel your emotions without judgment, you begin to accept who you are. And when you're gentle with yourself, it becomes easier to treat others with kindness too. This is not weakness — it's a strength that builds peace, trust, and real emotional resilience.",
 

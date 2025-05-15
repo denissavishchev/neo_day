@@ -45,13 +45,14 @@ class MainProvider extends ChangeNotifier {
   bool isTodayTarget = false;
   bool isStartTask = false;
   int dayTaskCount = 0;
-  bool isStartInProgress = false;
   int selectedStartTask = 0;
+  String startTask = '';
+  String startTasksCount = '';
 
   List<StartTasksModel> startTasks = [
-    StartTasksModel(title: 'startEnergyTitle'.tr(), description: 'startEnergyDescription'.tr()),
-    StartTasksModel(title: 'startEmpathyTitle'.tr(), description: 'startEmpathyDescription'.tr()),
-    StartTasksModel(title: 'startArtTitle'.tr(), description: 'startArtDescription'.tr()),
+    StartTasksModel(top: 'startEnergyTop', title: 'startEnergyTitle', description: 'startEnergyDescription'),
+    StartTasksModel(top: 'startEmpathyTop', title: 'startEmpathyTitle', description: 'startEmpathyDescription'),
+    StartTasksModel(top: 'startArtTop', title: 'startArtTitle', description: 'startArtDescription'),
   ];
 
   void initDay(){
@@ -70,6 +71,9 @@ class MainProvider extends ChangeNotifier {
       totalTasks = box.get('totalTasks') ?? 0;
       doneTasks = box.get('doneTasks') ?? 0;
       dayTaskCount = box.get('dayTaskCount') ?? 0;
+      startTask = box.get('startTask') ?? '';
+      startTasksCount = box.get('startTasksCount') ?? '';
+      isStartTask = box.get('isStartTask') ?? '';
     }
   }
 
@@ -93,6 +97,7 @@ class MainProvider extends ChangeNotifier {
         dayTaskCount++;
       }else{
         dayTaskCount = 0;
+        box.put('startTasksCount', '');
       }
       await box.put('dayTaskCount', dayTaskCount);
       await box.put('endTime', DateTime.now().toString());
@@ -102,6 +107,8 @@ class MainProvider extends ChangeNotifier {
       await box.put('doneTasks', doneTasks);
       await box.put('totalTasks', totalTasks);
       await box.put('day', false);
+      isStartTask = false;
+      box.put('isStartTask', isStartTask);
       final nameHabitBox = [];
       final startHabitBox = [];
       final daysHabitBox = [];
@@ -299,11 +306,26 @@ class MainProvider extends ChangeNotifier {
                                   width: size.width,
                                   margin: const EdgeInsets.only(bottom: 8),
                                   padding: const EdgeInsets.all(12),
-                                  color: selectedStartTask == i ? Colors.blue : Colors.red,
+                                  decoration: BoxDecoration(
+                                    color: selectedStartTask == i ? kWhite : kBlack,
+                                    borderRadius: BorderRadius.all(Radius.circular(8)),
+                                    border: Border.all(
+                                        color: selectedStartTask == i
+                                            ? Colors.transparent : kWhite,
+                                      width: 2
+                                    )
+                                  ),
                                   child: Column(
+                                    spacing: 4,
                                     children: [
-                                      Text(startTasks[i].title),
-                                      Text(startTasks[i].description)
+                                      Text(startTasks[i].title.tr(),
+                                        style: selectedStartTask == i
+                                            ? kBlackTextStyle.copyWith(fontSize: 32.sp)
+                                            : kTextStyle.copyWith(fontSize: 32.sp),),
+                                      Text(startTasks[i].description.tr(),
+                                        style: selectedStartTask == i
+                                        ? kBlackTextStyle
+                                        : kTextStyle,)
                                     ],
                                   ),
                                 ),
@@ -314,8 +336,7 @@ class MainProvider extends ChangeNotifier {
                         ButtonWidget(
                             text: 'add',
                             onTap: (){
-                              // addHabitToBase();
-                              isStartInProgress = true;
+                              createStartTask();
                               notifyListeners();
                               Navigator.of(context).pop();
                             }
@@ -423,6 +444,18 @@ class MainProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future createStartTask() async{
+  await box.put('startTask',
+      startTasks[selectedStartTask].top.substring(5, startTasks[selectedStartTask].top.length - 3));
+  startTask = box.get('startTask');
+  dayTaskCount = 0;
+  isStartTask = false;
+  await box.put('dayTaskCount', dayTaskCount);
+  await box.put('startTasksCount', '0' * 30);
+  startTasksCount = box.get('startTasksCount');
+  notifyListeners();
+  }
+
   void selectStars(int stars){
     if (stars == 0 && selectedStars == stars + 1){
       selectedStars = 0;
@@ -437,9 +470,14 @@ class MainProvider extends ChangeNotifier {
     box.put('isTodayTarget', isTodayTarget);
     notifyListeners();
   }
-  void switchIsStartTask(){
+
+  Future switchIsStartTask() async{
     isStartTask = !isStartTask;
-    // box.put('isStartTask', isStartTask);
+    await box.put('startTasksCount',
+        box.get('startTasksCount').replaceRange(dayTaskCount, dayTaskCount + 1, isStartTask
+            ? '1' : '0'));
+    box.put('isStartTask', isStartTask);
+    startTasksCount = box.get('startTasksCount');
     notifyListeners();
   }
 

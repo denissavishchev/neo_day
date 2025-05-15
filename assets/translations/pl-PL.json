@@ -3,7 +3,6 @@
   "advice": "Rada",
   "joke": "Żart",
   "addTodayTarget": "Dodaj dzisiejszy cel",
-  "bodyEnergy": "Energia ciała (dzień {})",
   "add": "Dodaj",
   "start": "Zaczynamy",
   "day0": "Działaj, marz, słuchaj, rozmawiaj,\nTwórz, ruszaj się, wybieraj,\nZbieraj chwile,\nŻyj nawykami, które tworzą ciebie,\nBądź w rytmie, ale nie w pośpiechu,\nBądź sobą — ale każdego dnia o krok bliżej do lepszego.",
@@ -260,6 +259,7 @@
   "puzzleBody29": "To nie koniec. Po prostu Twój krok dalej.",
   "puzzleFooter29": "Możesz po prostu spać. To wystarczy.",
 
+  "startEnergyTop": "Energia ciała (dzień {})",
   "startEnergyTitle": "Ruch to nie obowiązek",
   "startEnergyDescription": "to prezent dla ciała i umysłu. Minuta porannego wysiłku to więcej niż ćwiczenie: to sygnał, że jesteś obecny, żywy, gotowy działać. Nie chodzi o siłownię, lecz o rytuał, który buduje dyscyplinę, energię i dobre samopoczucie — dzień po dniu.",
 
@@ -353,6 +353,7 @@
   "startEnergy29": "Moje ciało wie: ten dzień będzie mój.",
   "taskEnergy29": "1-minutowy obwód: 10 przysiadów → 5 pompek → 10 wymachów nogą.",
 
+  "startArtTop": "Wyzwanie kreatywności (dzień {})",
   "startArtTitle": "Kreatywność to nie talent",
   "startArtDescription": "to sposób patrzenia. Wystarczy minuta dziennie, by zobaczyć zwykłe rzeczy w niezwykły sposób. Gdy tworzysz — nawet coś małego, bez celu — budzisz swój umysł, wyobraźnię i poczucie sprawczości. Kreatywność to codzienna iskra, która pomaga Ci być bliżej siebie i świata.",
 
@@ -446,6 +447,7 @@
   "startArt29": "Dziś stworzę mały cud.",
   "taskArt29": "Zrób kartkę dla siebie — narysuj lub napisz jedno zdanie.",
 
+  "startEmpathyTop": "Empatia i poczucie własnej wartości (dzień {})",
   "startEmpathyTitle": "Empatia i poczucie własnej wartości",
   "startEmpathyDescription": "to codzienna praktyka, która wzmacnia Twoją relację z samym sobą i z innymi. Gdy uczysz się rozumieć swoje emocje, nie oceniasz ich, tylko akceptujesz. A gdy jesteś delikatny dla siebie, łatwiej Ci być uważnym i życzliwym dla innych. To nie słabość — to siła, która buduje spokój, zaufanie i prawdziwą odporność.",
 
