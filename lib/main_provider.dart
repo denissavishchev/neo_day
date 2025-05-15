@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:neo_day/models/start_tasks_model.dart';
 import 'package:neo_day/widgets/button_widget.dart';
@@ -45,11 +46,12 @@ class MainProvider extends ChangeNotifier {
   bool isStartTask = false;
   int dayTaskCount = 0;
   bool isStartInProgress = false;
+  int selectedStartTask = 0;
 
   List<StartTasksModel> startTasks = [
+    StartTasksModel(title: 'startEnergyTitle'.tr(), description: 'startEnergyDescription'.tr()),
     StartTasksModel(title: 'startEmpathyTitle'.tr(), description: 'startEmpathyDescription'.tr()),
-    StartTasksModel(title: 'startEmpathyTitle'.tr(), description: 'startEmpathyDescription'.tr()),
-    StartTasksModel(title: 'startEmpathyTitle'.tr(), description: 'startEmpathyDescription'.tr()),
+    StartTasksModel(title: 'startArtTitle'.tr(), description: 'startArtDescription'.tr()),
   ];
 
   void initDay(){
@@ -92,7 +94,6 @@ class MainProvider extends ChangeNotifier {
       }else{
         dayTaskCount = 0;
       }
-      // dayTaskCount = 0;
       await box.put('dayTaskCount', dayTaskCount);
       await box.put('endTime', DateTime.now().toString());
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
@@ -284,21 +285,27 @@ class MainProvider extends ChangeNotifier {
                     child: Column(
                       spacing: 18,
                       children: [
+                        const SizedBox(height: 4,),
+                        Text('chooseYourNextChallenge'.tr(), 
+                          style: kTextStyle.copyWith(fontSize: 40.sp),),
                         SizedBox(
-                          height: size.height * 0.8,
+                          height: size.height * 0.72,
                           child: ListView.builder(
                             itemCount: startTasks.length,
                               itemBuilder: (context, i){
-                              return Container(
-                                width: size.width,
-                                // height: 100,
-                                margin: const EdgeInsets.only(bottom: 8),
-                                color: Colors.blue,
-                                child: Column(
-                                  children: [
-                                    Text(startTasks[i].title),
-                                    Text(startTasks[i].description)
-                                  ],
+                              return GestureDetector(
+                                onTap: () => setState(() => selectedStartTask = i),
+                                child: Container(
+                                  width: size.width,
+                                  margin: const EdgeInsets.only(bottom: 8),
+                                  padding: const EdgeInsets.all(12),
+                                  color: selectedStartTask == i ? Colors.blue : Colors.red,
+                                  child: Column(
+                                    children: [
+                                      Text(startTasks[i].title),
+                                      Text(startTasks[i].description)
+                                    ],
+                                  ),
                                 ),
                               );
                               }

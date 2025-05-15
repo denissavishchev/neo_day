@@ -15,6 +15,7 @@
   "switchOnDay": "Włącz dzień — by działać",
   "switchOnNight": "Włącz noc — by odetchnąć",
   "chooseOneOfStartTasks": "Wybierz jedno z 12 wyzwań 30-dniowych — to pierwszy krok, który może zmienić Twój rytm, myśli i sposób, w jaki patrzysz na siebie",
+  "chooseYourNextChallenge": "Wybierz swoje kolejne wyzwanie",
 
   "quote0": "Możesz więcej, niż myślisz.",
   "quote1": "Każde małe działanie to krok do wielkiego celu.",
@@ -259,6 +260,9 @@
   "puzzleBody29": "To nie koniec. Po prostu Twój krok dalej.",
   "puzzleFooter29": "Możesz po prostu spać. To wystarczy.",
 
+  "startEnergyTitle": "Ruch to nie obowiązek",
+  "startEnergyDescription": "to prezent dla ciała i umysłu. Minuta porannego wysiłku to więcej niż ćwiczenie: to sygnał, że jesteś obecny, żywy, gotowy działać. Nie chodzi o siłownię, lecz o rytuał, który buduje dyscyplinę, energię i dobre samopoczucie — dzień po dniu.",
+
   "startEnergy0": "Jestem silny, bo się ruszam.",
   "taskEnergy0": "Zrób 10 przysiadów z prostymi plecami. Bez pośpiechu.",
 
@@ -348,6 +352,9 @@
 
   "startEnergy29": "Moje ciało wie: ten dzień będzie mój.",
   "taskEnergy29": "1-minutowy obwód: 10 przysiadów → 5 pompek → 10 wymachów nogą.",
+
+  "startArtTitle": "Kreatywność to nie talent",
+  "startArtDescription": "to sposób patrzenia. Wystarczy minuta dziennie, by zobaczyć zwykłe rzeczy w niezwykły sposób. Gdy tworzysz — nawet coś małego, bez celu — budzisz swój umysł, wyobraźnię i poczucie sprawczości. Kreatywność to codzienna iskra, która pomaga Ci być bliżej siebie i świata.",
 
   "startArt0": "Tworzę, a nie tylko kończę.",
   "taskArt0": "Narysuj jedną linię — krzywą, przypadkową. Kontynuuj bez myślenia.",
@@ -439,8 +446,8 @@
   "startArt29": "Dziś stworzę mały cud.",
   "taskArt29": "Zrób kartkę dla siebie — narysuj lub napisz jedno zdanie.",
 
-  "startEmpathyTitle": "Empatia i poczucie własnej wartości...",
-  "startEmpathyDescription": "...to codzienna praktyka, która wzmacnia Twoją relację z samym sobą i z innymi. Gdy uczysz się rozumieć swoje emocje, nie oceniasz ich, tylko akceptujesz. A gdy jesteś delikatny dla siebie, łatwiej Ci być uważnym i życzliwym dla innych. To nie słabość — to siła, która buduje spokój, zaufanie i prawdziwą odporność.",
+  "startEmpathyTitle": "Empatia i poczucie własnej wartości",
+  "startEmpathyDescription": "to codzienna praktyka, która wzmacnia Twoją relację z samym sobą i z innymi. Gdy uczysz się rozumieć swoje emocje, nie oceniasz ich, tylko akceptujesz. A gdy jesteś delikatny dla siebie, łatwiej Ci być uważnym i życzliwym dla innych. To nie słabość — to siła, która buduje spokój, zaufanie i prawdziwą odporność.",
 
   "startEmpathy0": "Jestem ważny — po prostu dlatego, że istnieję.",
   "taskEmpathy0": "Spójrz na siebie w lustrze i powiedz: „Zasługuję, by być taki, jaki jestem.”",
