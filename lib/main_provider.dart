@@ -43,6 +43,7 @@ class MainProvider extends ChangeNotifier {
   bool isTodayTarget = false;
   bool isStartTask = false;
   int dayTaskCount = 0;
+  bool isStartInProgress = false;
 
   void initDay(){
     if(box.get('startTime') == null){
@@ -244,6 +245,45 @@ class MainProvider extends ChangeNotifier {
                             text: 'add',
                             onTap: (){
                               addHabitToBase();
+                              Navigator.of(context).pop();
+                            }
+                        )
+                      ],
+                    )
+                );
+              }
+          );
+        });
+  }
+
+  Future<void>showToAddStartTask(context) async {
+    Size size = MediaQuery.sizeOf(context);
+    return showModalBottomSheet(
+        context: context,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        builder: (context) {
+          return StatefulBuilder(
+              builder: (context, setState){
+                return Container(
+                    height: size.height * 0.3,
+                    width: size.width,
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    margin: const EdgeInsets.only(bottom: 250),
+                    decoration: const BoxDecoration(
+                      color: kBlack,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+
+                        ButtonWidget(
+                            text: 'add',
+                            onTap: (){
+                              // addHabitToBase();
+                              isStartInProgress = true;
+                              notifyListeners();
                               Navigator.of(context).pop();
                             }
                         )
