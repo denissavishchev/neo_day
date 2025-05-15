@@ -85,7 +85,7 @@ class StartTaskWidget extends StatelessWidget {
                     child: Wrap(
                       runAlignment: WrapAlignment.center,
                       runSpacing: 3,
-                      children: List.generate(30, (i){
+                      children: List.generate(data.startTasksCount.length, (i){
                         return Container(
                           margin: EdgeInsets.only(right: size.width * 0.007),
                           width: size.width * 0.026,
