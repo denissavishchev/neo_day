@@ -74,8 +74,8 @@ class StartTaskWidget extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 18, ),
                     child: Column(
                       children: [
-                        Text('start${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
-                        Text('task${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
+                        Text('startEnergy${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
+                        Text('taskEnergy${data.dayTaskCount}'.tr(), style: kBlackTextStyle,),
                       ],
                     ),
                   ),

@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
+import 'package:neo_day/models/start_tasks_model.dart';
 import 'package:neo_day/widgets/button_widget.dart';
 import 'package:neo_day/widgets/languages/language.dart';
 import 'constants.dart';
@@ -44,6 +45,12 @@ class MainProvider extends ChangeNotifier {
   bool isStartTask = false;
   int dayTaskCount = 0;
   bool isStartInProgress = false;
+
+  List<StartTasksModel> startTasks = [
+    StartTasksModel(title: 'startEmpathyTitle'.tr(), description: 'startEmpathyDescription'.tr()),
+    StartTasksModel(title: 'startEmpathyTitle'.tr(), description: 'startEmpathyDescription'.tr()),
+    StartTasksModel(title: 'startEmpathyTitle'.tr(), description: 'startEmpathyDescription'.tr()),
+  ];
 
   void initDay(){
     if(box.get('startTime') == null){
@@ -261,23 +268,42 @@ class MainProvider extends ChangeNotifier {
     return showModalBottomSheet(
         context: context,
         backgroundColor: Colors.transparent,
+        isDismissible: false,
         isScrollControlled: true,
         builder: (context) {
           return StatefulBuilder(
               builder: (context, setState){
                 return Container(
-                    height: size.height * 0.3,
+                    height: size.height * 0.9,
                     width: size.width,
                     padding: const EdgeInsets.symmetric(horizontal: 18),
-                    margin: const EdgeInsets.only(bottom: 250),
                     decoration: const BoxDecoration(
                       color: kBlack,
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                     ),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      spacing: 18,
                       children: [
-
+                        SizedBox(
+                          height: size.height * 0.8,
+                          child: ListView.builder(
+                            itemCount: startTasks.length,
+                              itemBuilder: (context, i){
+                              return Container(
+                                width: size.width,
+                                // height: 100,
+                                margin: const EdgeInsets.only(bottom: 8),
+                                color: Colors.blue,
+                                child: Column(
+                                  children: [
+                                    Text(startTasks[i].title),
+                                    Text(startTasks[i].description)
+                                  ],
+                                ),
+                              );
+                              }
+                          ),
+                        ),
                         ButtonWidget(
                             text: 'add',
                             onTap: (){
@@ -286,7 +312,8 @@ class MainProvider extends ChangeNotifier {
                               notifyListeners();
                               Navigator.of(context).pop();
                             }
-                        )
+                        ),
+                        SizedBox(height: size.height * 0.015,)
                       ],
                     )
                 );

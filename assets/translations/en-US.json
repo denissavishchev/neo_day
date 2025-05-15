@@ -259,93 +259,277 @@
   "puzzleBody29": "This isn't the end. Just your next step.",
   "puzzleFooter29": "You can just sleep. That's enough.",
 
-  "start0": "I am strong because I move.",
-  "task0": "Do 10 squats with a straight back. No rush.",
+  "startEnergy0": "I’m strong because I move.",
+  "taskEnergy0": "Do 10 slow squats with a straight back. No rush.",
 
-  "start1": "My body is my engine. I'm starting it.",
-  "task1": "Do 5 push-ups. On the floor, from knees or wall — whatever works for you.",
+  "startEnergy1": "My body is my engine. I start it.",
+  "taskEnergy1": "Do 5 push-ups — from the floor, knees, or wall. Your choice.",
 
-  "start2": "Every morning is a chance to grow stronger.",
-  "task2": "March in place with high knees — 20 steps, alternating legs.",
+  "startEnergy2": "Each morning is a chance to grow stronger.",
+  "taskEnergy2": "March in place, raising your knees to your chest 20 times.",
 
-  "start3": "Strength is a skill. I train it.",
-  "task3": "Hold a plank on your elbows for 30 seconds. Engage your core.",
+  "startEnergy3": "Strength is a skill. I train it.",
+  "taskEnergy3": "Hold an elbow plank for 30 seconds. Stay steady.",
 
-  "start4": "I choose activation.",
-  "task4": "Do 10 jumping jacks or light jumps on the spot.",
+  "startEnergy4": "I choose activity.",
+  "taskEnergy4": "Do 10 jumps or jumping jacks.",
 
-  "start5": "I'm not lazy — I'm evolving.",
-  "task5": "Do 8 forward lunges — 4 per leg, slow and steady.",
+  "startEnergy5": "I’m not lazy — I’m growing.",
+  "taskEnergy5": "Do 8 slow forward lunges — 4 per leg.",
 
-  "start6": "Waking up — I wake up my strength too.",
-  "task6": "Do 15 squats with hands behind your head (throne pose).",
+  "startEnergy6": "As I wake up, I wake up my strength.",
+  "taskEnergy6": "Do 15 squats with hands behind your head (“throne” pose).",
 
-  "start7": "Discipline is self-care.",
-  "task7": "Run in place for 20 seconds, lifting knees high.",
+  "startEnergy7": "Discipline is self-care.",
+  "taskEnergy7": "Run in place for 20 seconds with high knees.",
 
-  "start8": "Power lies in habit. I'm building it now.",
-  "task8": "Do 10 incline push-ups using a couch or chair.",
+  "startEnergy8": "Strength lives in habit. I build it now.",
+  "taskEnergy8": "Do 10 incline push-ups on a sofa or chair.",
 
-  "start9": "I can do more than I think.",
-  "task9": "Mountain climbers: 20 seconds, knees toward chest in plank position.",
+  "startEnergy9": "I can do more than I think.",
+  "taskEnergy9": "20 seconds of mountain climbers — knees to chest.",
 
-  "start10": "I activate energy in my body.",
-  "task10": "10 hip circles each direction + 10 light jumps.",
+  "startEnergy10": "I activate energy in my body.",
+  "taskEnergy10": "Do 10 hip circles each way + 10 light jumps.",
 
-  "start11": "Movement is my fuel.",
-  "task11": "Do 5 slow squats, then 5 fast ones. Feel the contrast.",
+  "startEnergy11": "Movement is my fuel.",
+  "taskEnergy11": "Do 5 slow squats, then 5 fast ones. Feel the contrast.",
 
-  "start12": "I'm in alliance with my body, not at war.",
-  "task12": "1 minute walking plank or downward dog movement.",
+  "startEnergy12": "I’m in alliance with my body, not in battle.",
+  "taskEnergy12": "Walk in plank or down dog position for 1 minute.",
 
-  "start13": "I start my day with my body, not my phone.",
-  "task13": "30 seconds of simulated jump rope — light and rhythmic.",
+  "startEnergy13": "I start with my body, not my phone.",
+  "taskEnergy13": "30 seconds of light bounce-jumps — no rope needed.",
 
-  "start14": "I choose power, not grogginess.",
-  "task14": "8 slow push-ups. Focus on quality, not speed.",
+  "startEnergy14": "I choose strength, not sluggishness.",
+  "taskEnergy14": "Do 8 slow, high-quality push-ups.",
 
-  "start15": "I start with impact — and the day feels it.",
-  "task15": "10 side lunges — 5 per leg, hands on hips.",
+  "startEnergy15": "I start strong — and the day feels it.",
+  "taskEnergy15": "Do 10 side lunges — 5 per side.",
 
-  "start16": "I am in my body. I am focused.",
-  "task16": "15 leg swings forward and backward — around 5–7 per leg.",
+  "startEnergy16": "I’m in my body. I’m focused.",
+  "taskEnergy16": "Do 15 forward-back leg swings — 5–7 per leg.",
 
-  "start17": "Energy isn't coffee. It's movement.",
-  "task17": "Do 20 seconds of burpees — skip the jump if needed.",
+  "startEnergy17": "Energy isn’t coffee. It’s motion.",
+  "taskEnergy17": "Do 20 seconds of burpees — no jump if needed.",
 
-  "start18": "I enter the day like an athlete — even for 1 minute.",
-  "task18": "30 seconds of fast forward bends with claps under knees.",
+  "startEnergy18": "I enter the day like an athlete — even for 1 minute.",
+  "taskEnergy18": "30 seconds of active forward bends with claps under knees.",
 
-  "start19": "I choose power over sleepiness.",
-  "task19": "Do 10 push-ups + 10 squats — one full circuit.",
+  "startEnergy19": "I choose power over sleepiness.",
+  "taskEnergy19": "Do 10 push-ups + 10 squats — 1 round.",
 
-  "start20": "I command my body — and myself.",
-  "task20": "Do 10 big arm circles forward and backward with breath awareness.",
+  "startEnergy20": "I lead my body — and my day.",
+  "taskEnergy20": "Do 10 large arm circles forward and backward. Breathe.",
 
-  "start21": "I'm not waking up — I'm rising.",
-  "task21": "20 seconds of jumping jacks or knee lifts with claps.",
+  "startEnergy21": "I don’t just wake up. I rise.",
+  "taskEnergy21": "20 seconds of jumping jacks or claps while stepping.",
 
-  "start22": "I feel my body — I am awake.",
-  "task22": "10 backward lunges — 5 per leg, keep your balance.",
+  "startEnergy22": "I feel my body — I’m awake.",
+  "taskEnergy22": "Do 10 reverse lunges — 5 per leg.",
 
-  "start23": "My muscles wake up with me.",
-  "task23": "5 push-ups + 5-second plank — repeat twice.",
+  "startEnergy23": "My muscles wake up with me.",
+  "taskEnergy23": "Do 5 push-ups + 5 seconds plank — twice.",
 
-  "start24": "Morning is for momentum, not snoozing.",
-  "task24": "20 seconds of mini jumps forward and back over an invisible line.",
+  "startEnergy24": "The morning is a launch, not a snooze.",
+  "taskEnergy24": "20 seconds of forward-back jumps over an invisible line.",
 
-  "start25": "I begin with action, not delay.",
-  "task25": "10 squats with an overhead clap at the top of each.",
+  "startEnergy25": "I start with action, not delay.",
+  "taskEnergy25": "10 squats with a clap overhead after each.",
 
-  "start26": "Every rep is a deposit into strength.",
-  "task26": "30 seconds of jump turns — 180° each time.",
+  "startEnergy26": "Each rep is an investment in strength.",
+  "taskEnergy26": "30 seconds of jumping with 180° turns.",
 
-  "start27": "My muscles are my anchors.",
-  "task27": "Do 10 hip lifts while lying on your back — knees bent, arms at sides.",
+  "startEnergy27": "My muscles are my anchors.",
+  "taskEnergy27": "Do 10 hip raises while lying down, knees bent.",
 
-  "start28": "Move — and it gets easier.",
-  "task28": "Jog in place for 30 seconds. Stay focused on your breath.",
+  "startEnergy28": "Move — and it gets lighter.",
+  "taskEnergy28": "Run in place for 30 seconds, focus on breath.",
 
-  "start29": "My body knows: this day is mine.",
-  "task29": "1-minute routine: 10 squats → 5 push-ups → 10 leg swings."
+  "startEnergy29": "My body knows — this day is mine.",
+  "taskEnergy29": "Do 1-minute circuit: 10 squats → 5 push-ups → 10 leg swings.",
+
+  "startArt0": "I create, not just complete.",
+  "taskArt0": "Draw one line — messy, random. Keep going without thinking.",
+
+  "startArt1": "I’m a source of ideas, not a consumer.",
+  "taskArt1": "Write down 3 wild ideas. No judgment — just let them be.",
+
+  "startArt2": "My imagination is my compass.",
+  "taskArt2": "Imagine your day as a painting. What color is it?",
+
+  "startArt3": "I allow myself to play.",
+  "taskArt3": "Find a new use for a spoon, sock, or other daily item.",
+
+  "startArt4": "Small things can be creative too.",
+  "taskArt4": "Take a photo of an everyday object from a strange angle.",
+
+  "startArt5": "I begin without knowing the end.",
+  "taskArt5": "Pick 2 random words and write a 2-line story.",
+
+  "startArt6": "Mistakes are turns, not dead ends.",
+  "taskArt6": "Do something 'badly' on purpose — and enjoy the result.",
+
+  "startArt7": "I don’t compare — I express.",
+  "taskArt7": "Write a line about your morning as a poem or rap.",
+
+  "startArt8": "I don’t wait for inspiration. I spark it.",
+  "taskArt8": "Open a random photo and imagine what happened before and after.",
+
+  "startArt9": "Creativity is action, not a muse.",
+  "taskArt9": "Scribble 5 random shapes. Find one that looks like something.",
+
+  "startArt10": "I connect what no one else does.",
+  "taskArt10": "Combine 3 unrelated objects into one weird idea.",
+
+  "startArt11": "My inner child wants to play.",
+  "taskArt11": "Draw a face without lifting your pen off the paper.",
+
+  "startArt12": "Even thoughts can create.",
+  "taskArt12": "Invent 3 new names for a regular cup.",
+
+  "startArt13": "Anything can become an idea.",
+  "taskArt13": "Take a photo of a crack, stain, or shadow — and name what it looks like.",
+
+  "startArt14": "Every day is a canvas.",
+  "taskArt14": "Pick one color for today — wear it, notice it, focus on it.",
+
+  "startArt15": "I express, not explain.",
+  "taskArt15": "Name one emotion and describe it as weather.",
+
+  "startArt16": "Endless forms live inside me.",
+  "taskArt16": "Draw 5 circles and turn each into something unique.",
+
+  "startArt17": "Fantasy is my limitless power.",
+  "taskArt17": "Invent a new animal — what does it look like? How does it sound?",
+
+  "startArt18": "I think beyond patterns.",
+  "taskArt18": "Describe your morning routine as if you were an alien.",
+
+  "startArt19": "Inspiration lives in details.",
+  "taskArt19": "Notice something small in your room you’ve never seen before.",
+
+  "startArt20": "I make meaning from randomness.",
+  "taskArt20": "Open a book to a random page — continue the sentence your way.",
+
+  "startArt21": "My imagination wants to breathe.",
+  "taskArt21": "Close your eyes and walk through an imaginary city. What do you see?",
+
+  "startArt22": "I hear the unusual in the usual.",
+  "taskArt22": "Focus on a sound and imagine where or who it's coming from.",
+
+  "startArt23": "Being weird is good.",
+  "taskArt23": "Invent a silly product and come up with its slogan.",
+
+  "startArt24": "My routine feeds creativity.",
+  "taskArt24": "Write a rhyme or song about brushing your teeth.",
+
+  "startArt25": "I find new in the familiar.",
+  "taskArt25": "Take a favorite quote and rewrite it as if said by a child or a tree.",
+
+  "startArt26": "Creativity is a bridge to myself.",
+  "taskArt26": "Draw a mood map for today — no words, just shapes or colors.",
+
+  "startArt27": "Even thinking can be creative.",
+  "taskArt27": "List 5 titles for books that don’t exist (yet).",
+
+  "startArt28": "Imagination is a friend, not a judge.",
+  "taskArt28": "Do something awkward on purpose — and smile about it.",
+
+  "startArt29": "Today I’ll make a tiny miracle.",
+  "taskArt29": "Make a card for yourself — draw or write one short sentence.",
+
+  "startEmpathyTitle": "Empathy and self-worth...",
+  "startEmpathyDescription": "...are daily practices that deepen your connection with yourself and others. When you learn to feel your emotions without judgment, you begin to accept who you are. And when you're gentle with yourself, it becomes easier to treat others with kindness too. This is not weakness — it's a strength that builds peace, trust, and real emotional resilience.",
+
+  "startEmpathy0": "I matter — simply because I exist.",
+  "taskEmpathy0": "Look at yourself in the mirror and say: “I deserve to be exactly who I am.”",
+
+  "startEmpathy1": "Others struggle, just like I do.",
+  "taskEmpathy1": "Think of someone you clashed with. Imagine what they might be afraid of.",
+
+  "startEmpathy2": "My presence is already a gift.",
+  "taskEmpathy2": "Remember a time you were simply there for someone — without doing anything.",
+
+  "startEmpathy3": "I have the right to rest, just like everyone else.",
+  "taskEmpathy3": "Give yourself one minute of stillness — with no guilt, no tasks.",
+
+  "startEmpathy4": "Empathy isn’t weakness. It’s the courage to understand.",
+  "taskEmpathy4": "Think of someone you don’t understand — and remind yourself you don’t have to. Just acknowledge it.",
+
+  "startEmpathy5": "I feel. That means I’m alive.",
+  "taskEmpathy5": "Name the emotion you’re feeling right now — and let it be there.",
+
+  "startEmpathy6": "I don’t have to be strong all the time.",
+  "taskEmpathy6": "Say out loud: “Sometimes it’s hard. And that’s okay.”",
+
+  "startEmpathy7": "The other is not me — but still a person.",
+  "taskEmpathy7": "Smile at the first person you see today — even in your mind.",
+
+  "startEmpathy8": "I can listen without fixing.",
+  "taskEmpathy8": "Remember a time you simply listened. That was already enough.",
+
+  "startEmpathy9": "My emotions have a right to exist.",
+  "taskEmpathy9": "Write down one emotion you often suppress. Give it a voice.",
+
+  "startEmpathy10": "I am not a comparison — I am a story.",
+  "taskEmpathy10": "Ask yourself: “What chapter am I in today?”",
+
+  "startEmpathy11": "I’m worthy — even in silence.",
+  "taskEmpathy11": "Sit for 1 minute without speaking or doing — without judging yourself for it.",
+
+  "startEmpathy12": "Kindness starts with how I treat myself.",
+  "taskEmpathy12": "Write what you’d say to a friend feeling like you do. Then say it to yourself.",
+
+  "startEmpathy13": "My body is not the enemy. It’s my home.",
+  "taskEmpathy13": "Place your hands on your chest and say: “Thank you for carrying me through every day.”",
+
+  "startEmpathy14": "I’m not just the result. I am the journey.",
+  "taskEmpathy14": "Name one thing you’ve done well in the past 2 days.",
+
+  "startEmpathy15": "Sometimes, just being is enough.",
+  "taskEmpathy15": "Turn off everything for 1 minute and say: “It’s okay to do nothing.”",
+
+  "startEmpathy16": "Words hold power. I choose kind ones.",
+  "taskEmpathy16": "Think of someone — and silently send them a kind thought.",
+
+  "startEmpathy17": "Gentleness is strength, too.",
+  "taskEmpathy17": "Do something softly today. With care. Notice how it feels.",
+
+  "startEmpathy18": "I don’t need to be understood by everyone.",
+  "taskEmpathy18": "Say to yourself: “It’s okay if not everyone gets me.”",
+
+  "startEmpathy19": "I can be an example of gentleness.",
+  "taskEmpathy19": "Care for someone or something today — with one small action.",
+
+  "startEmpathy20": "I’m worthy of support — even from myself.",
+  "taskEmpathy20": "Write down a phrase you long to hear. Then say it to yourself.",
+
+  "startEmpathy21": "My opinion matters — even if it’s not shared.",
+  "taskEmpathy21": "Write your honest view on a topic you often stay silent about.",
+
+  "startEmpathy22": "I don’t have to fix everything.",
+  "taskEmpathy22": "When you hear someone’s pain — just breathe. Don’t rush to solve it.",
+
+  "startEmpathy23": "I can release expectations.",
+  "taskEmpathy23": "Ask yourself: Whose opinion are you holding on to — and can you let it go?",
+
+  "startEmpathy24": "I respect boundaries — mine and others’.",
+  "taskEmpathy24": "Ask yourself: “What don’t I want today — and that’s okay?”",
+
+  "startEmpathy25": "I’m capable of compassion — even toward my younger self.",
+  "taskEmpathy25": "Imagine yourself at age 10. What would you say to that child?",
+
+  "startEmpathy26": "Warmth doesn’t need a reason.",
+  "taskEmpathy26": "Say or write one thank-you for something that already exists.",
+
+  "startEmpathy27": "My vulnerability makes me real.",
+  "taskEmpathy27": "Think of something you’re scared to admit — and name it silently.",
+
+  "startEmpathy28": "I’m human. And that’s already enough.",
+  "taskEmpathy28": "Say out loud: “I’m not perfect. And still — I have worth.”",
+
+  "startEmpathy29": "My kindness begins with me.",
+  "taskEmpathy29": "Smile to yourself. This small act is already empathy."
+
 }
