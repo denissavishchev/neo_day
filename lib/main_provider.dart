@@ -11,6 +11,8 @@ import 'models/habit_history_model.dart';
 import 'models/habits_model.dart';
 import 'dart:math';
 
+import 'models/start_task_history_model.dart';
+
 class MainProvider extends ChangeNotifier {
 
   final habitTextController = TextEditingController();
@@ -96,8 +98,11 @@ class MainProvider extends ChangeNotifier {
       if(dayTaskCount < 29){
         dayTaskCount++;
       }else{
+        addStartTaskHistoryToBase();
         dayTaskCount = 0;
+        startTask = '';
         box.put('startTasksCount', '');
+        box.put('startTasks', '');
       }
       await box.put('dayTaskCount', dayTaskCount);
       await box.put('endTime', DateTime.now().toString());
@@ -187,6 +192,14 @@ class MainProvider extends ChangeNotifier {
     final box = Boxes.addHabitHistoryToBase();
     box.add(habitHistory);
     deleteHabit(boxDelete, index);
+  }
+
+  Future addStartTaskHistoryToBase() async {
+    final startTaskHistory = StartTaskHistoryModel()
+      ..name = box.get('startTask')
+      ..history = box.get('startTasksCount');
+    final startTaskBox = Boxes.addStartTaskHistoryToBase();
+    startTaskBox.add(startTaskHistory);
   }
 
   Future<void> deleteHabit(Box<HabitsModel> box, int index)async{
@@ -474,8 +487,8 @@ class MainProvider extends ChangeNotifier {
   Future switchIsStartTask() async{
     isStartTask = !isStartTask;
     await box.put('startTasksCount',
-        box.get('startTasksCount').replaceRange(dayTaskCount, dayTaskCount + 1, isStartTask
-            ? '1' : '0'));
+    box.get('startTasksCount').replaceRange(dayTaskCount, dayTaskCount + 1, isStartTask
+        ? '1' : '0'));
     box.put('isStartTask', isStartTask);
     startTasksCount = box.get('startTasksCount');
     notifyListeners();

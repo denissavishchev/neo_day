@@ -24,8 +24,24 @@ class StartTaskWidget extends StatelessWidget {
                 color: kWhite,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-              child: data.startTask != ''
-              ? Column(
+              child: data.startTask == ''
+              ? GestureDetector(
+                onTap: () => data.showToAddStartTask(context),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Row(
+                    children: [
+                      Expanded(
+                          child: Text(
+                            'chooseOneOfStartTasks'.tr(),
+                            style: kBlackTextStyle,
+                            textAlign: TextAlign.center,)),
+                      Icon(Icons.add, size: 40,)
+                    ],
+                  ),
+                ),
+              )
+              : Column(
                 children: [
                   Row(
                     children: [
@@ -102,22 +118,6 @@ class StartTaskWidget extends StatelessWidget {
                     ),
                   )
                 ],
-              )
-              : GestureDetector(
-                onTap: () => data.showToAddStartTask(context),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      Expanded(
-                          child: Text(
-                            'chooseOneOfStartTasks'.tr(),
-                            style: kBlackTextStyle,
-                            textAlign: TextAlign.center,)),
-                      Icon(Icons.add, size: 40,)
-                    ],
-                  ),
-                ),
               ),
             ),
           );
