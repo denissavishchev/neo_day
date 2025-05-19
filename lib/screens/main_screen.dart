@@ -24,6 +24,9 @@ class _MainScreenState extends State<MainScreen> {
   void initState() {
     final data = Provider.of<MainProvider>(context, listen: false);
     data.initDay();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      data.widgetSizes();
+    });
     super.initState();
   }
 
@@ -49,7 +52,7 @@ class _MainScreenState extends State<MainScreen> {
                         title: TopWidget(),
                         pinned: true,
                         expandedHeight: data.isDay
-                            ? size.height * 0.47
+                            ? data.widgetsHeight
                             : size.height * 0.22,
                         flexibleSpace: FlexibleSpaceBar(
                           background: Container(

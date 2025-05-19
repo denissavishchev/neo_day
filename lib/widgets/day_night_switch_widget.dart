@@ -45,7 +45,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
             children: [
               AnimatedContainer(
                 width: size.width,
-                height: 110,
+                // height: 110,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(60)),
@@ -105,7 +105,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                         child: Container(
                           width: 80,
                           height: 80,
-                          margin: const EdgeInsets.symmetric(horizontal: 20),
+                          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                           clipBehavior: Clip.hardEdge,
                           decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(Radius.circular(60)),

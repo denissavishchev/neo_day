@@ -16,6 +16,7 @@ class TodayTargetWidget extends StatelessWidget {
           return Visibility(
             visible: data.todayTarget != '' && data.isDay,
             child: Container(
+              key: data.key1,
               width: size.width,
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
               decoration: BoxDecoration(
