@@ -491,9 +491,10 @@ class MainProvider extends ChangeNotifier {
 
   Future switchIsStartTask() async{
     isStartTask = !isStartTask;
-    await box.put('startTasksCount',
-    box.get('startTasksCount').replaceRange(dayTaskCount, dayTaskCount + 1, isStartTask
-        ? '1' : '0'));
+    await box.put(
+        'startTasksCount',
+        box.get('startTasksCount').replaceRange(dayTaskCount, dayTaskCount + 1,
+        isStartTask ? '1' : '0'));
     box.put('isStartTask', isStartTask);
     startTasksCount = box.get('startTasksCount');
     notifyListeners();

@@ -4,7 +4,9 @@ import 'package:neo_day/widgets/day_widgets/day_button.dart';
 import '../constants.dart';
 import '../models/boxes.dart';
 import '../models/habit_history_model.dart';
+import '../models/start_task_history_model.dart';
 import '../widgets/history_widgets/habit_history_container_widget.dart';
+import '../widgets/history_widgets/start_task_history_container_widget.dart';
 import 'main_screen.dart';
 
 class HabitHistoryScreen extends StatelessWidget {
@@ -30,23 +32,13 @@ class HabitHistoryScreen extends StatelessWidget {
               SizedBox(
                 width: size.width,
                 height: size.height * 0.8,
-                child: ValueListenableBuilder<Box<HabitHistoryModel>>(
-                    valueListenable: Boxes.addHabitHistoryToBase().listenable(),
-                    builder: (context, box, _){
-                      final history = box.values.toList().cast<HabitHistoryModel>().reversed.toList();
-                      return ListView.builder(
-                          itemCount: history.length,
-                          itemBuilder: (context, index){
-                            return HabitHistoryContainerWidget(
-                              history: history,
-                              index: index,
-                              box: box,
-                            );
-                          }
-                      );
+                child: PageView.builder(
+                  itemCount: 2,
+                    itemBuilder: (context, i){
+                    return historyPages[i];
                     }
                 ),
-              ),
+              )
             ],
           ),
         ),
@@ -54,5 +46,40 @@ class HabitHistoryScreen extends StatelessWidget {
     );
   }
 }
+
+final historyPages = [
+  ValueListenableBuilder<Box<HabitHistoryModel>>(
+      valueListenable: Boxes.addHabitHistoryToBase().listenable(),
+      builder: (context, box, _){
+        final history = box.values.toList().cast<HabitHistoryModel>().reversed.toList();
+        return ListView.builder(
+            itemCount: history.length,
+            itemBuilder: (context, index){
+              return HabitHistoryContainerWidget(
+                history: history,
+                index: index,
+                box: box,
+              );
+            }
+        );
+      }
+  ),
+  ValueListenableBuilder<Box<StartTaskHistoryModel>>(
+      valueListenable: Boxes.addStartTaskHistoryToBase().listenable(),
+      builder: (context, box, _){
+        final history = box.values.toList().cast<StartTaskHistoryModel>().reversed.toList();
+        return ListView.builder(
+            itemCount: history.length,
+            itemBuilder: (context, index){
+              return StartTaskHistoryContainerWidget(
+                history: history,
+                index: index,
+                box: box,
+              );
+            }
+        );
+      }
+  ),
+];
 
 

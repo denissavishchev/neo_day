@@ -34,7 +34,7 @@ class HabitsListWidget extends StatelessWidget {
                       itemCount: habits.length,
                       itemBuilder: (context, index){
                         return GestureDetector(
-                          onLongPress: () => data.deleteHabit(box, index),
+                          // onLongPress: () => data.deleteHabit(box, index),
                           child: Container(
                             width: size.width,
                             margin: const EdgeInsets.only(bottom: 4),
