@@ -19,10 +19,7 @@ class HabitsListWidget extends StatelessWidget {
           return Container(
             width: size.width,
             padding: const EdgeInsets.symmetric(horizontal: 18),
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-              color: kBlack,
-            ),
+            color: kBlack,
             child: ValueListenableBuilder<Box<HabitsModel>>(
                 valueListenable: Boxes.addHabitToBase().listenable(),
                 builder: (context, box, _){

@@ -37,6 +37,7 @@ class _MainScreenState extends State<MainScreen> {
         builder: (context, data, _){
           return SafeArea(
             child: Scaffold(
+              backgroundColor: kBlack,
                 key: data.notesKey,
                 drawer: NotepadWidget(),
                 body: GestureDetector(
