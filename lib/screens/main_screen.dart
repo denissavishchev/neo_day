@@ -86,25 +86,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-// Container(
-// width: size.width,
-// height: size.height,
-// padding: const EdgeInsets.symmetric(horizontal: 18.0),
-// color: kBlack,
-// child: Column(
-// spacing: 12,
-// children: [
-// const SizedBox(height: 6,),
-// TopWidget(),
-// DaySwitchWidget(),
-// TodayTargetWidget(),
-// MotivationWidget(),
-// StartTaskWidget(),
-// Expanded(
-// child: data.isDay
-// ? HabitsListWidget()
-//     : NightWidget())
-// ]
-// ),
-// ),

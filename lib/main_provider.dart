@@ -390,7 +390,7 @@ class MainProvider extends ChangeNotifier {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Text('addTodayTarget'.tr()),
+                        Text('addTodayTarget'.tr(), style: kTextStyle,),
                         TextField(
                           controller: todayTargetTextController,
                           style: const TextStyle(color: kWhite),
@@ -400,12 +400,14 @@ class MainProvider extends ChangeNotifier {
                         ButtonWidget(
                           text: 'add',
                           onTap: () {
-                          box.put('todayTarget', todayTargetTextController.text);
-                          todayTarget = todayTargetTextController.text;
-                          todayTargetTextController.clear();
-                          isTodayTarget = false;
-                          notifyListeners();
-                          Navigator.of(context).pop();
+                          if(todayTargetTextController.text.isNotEmpty){
+                            box.put('todayTarget', todayTargetTextController.text);
+                            todayTarget = todayTargetTextController.text;
+                            todayTargetTextController.clear();
+                            isTodayTarget = false;
+                            notifyListeners();
+                            Navigator.of(context).pop();
+                          }
                         },),
                       ],
                     )
