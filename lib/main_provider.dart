@@ -355,7 +355,6 @@ class MainProvider extends ChangeNotifier {
                             text: 'add',
                             onTap: (){
                               createStartTask();
-                              notifyListeners();
                               Navigator.of(context).pop();
                             }
                         ),
