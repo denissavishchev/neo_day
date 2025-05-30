@@ -3,8 +3,10 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:neo_day/widgets/day_widgets/day_button.dart';
 import '../constants.dart';
 import '../models/boxes.dart';
+import '../models/day_history_model.dart';
 import '../models/habit_history_model.dart';
 import '../models/start_task_history_model.dart';
+import '../widgets/history_widgets/day_history_container_widget.dart';
 import '../widgets/history_widgets/habit_history_container_widget.dart';
 import '../widgets/history_widgets/start_task_history_container_widget.dart';
 import 'main_screen.dart';
@@ -48,6 +50,22 @@ class HabitHistoryScreen extends StatelessWidget {
 }
 
 final historyPages = [
+  ValueListenableBuilder<Box<DayHistoryModel>>(
+      valueListenable: Boxes.addDayHistoryToBase().listenable(),
+      builder: (context, box, _){
+        final history = box.values.toList().cast<DayHistoryModel>().reversed.toList();
+        return ListView.builder(
+            itemCount: history.length,
+            itemBuilder: (context, index){
+              return DayHistoryContainerWidget(
+                history: history,
+                index: index,
+                box: box,
+              );
+            }
+        );
+      }
+  ),
   ValueListenableBuilder<Box<HabitHistoryModel>>(
       valueListenable: Boxes.addHabitHistoryToBase().listenable(),
       builder: (context, box, _){

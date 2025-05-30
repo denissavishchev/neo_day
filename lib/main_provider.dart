@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
+import 'package:neo_day/models/day_history_model.dart';
 import 'package:neo_day/models/start_tasks_model.dart';
 import 'package:neo_day/widgets/button_widget.dart';
 import 'package:neo_day/widgets/languages/language.dart';
@@ -119,6 +120,7 @@ class MainProvider extends ChangeNotifier {
       await box.put('day', false);
       isStartTask = false;
       box.put('isStartTask', isStartTask);
+      addDayHistoryToBase();
       final nameHabitBox = [];
       final startHabitBox = [];
       final daysHabitBox = [];
@@ -169,6 +171,21 @@ class MainProvider extends ChangeNotifier {
       ..start = DateTime.now().toString();
     final box = Boxes.addHabitToBase();
     box.add(habit);
+    habitTextController.clear();
+    habitDaySlider = 10;
+    notifyListeners();
+  }
+
+  Future addDayHistoryToBase() async {
+    final day = DayHistoryModel()
+      ..startTime = box.get('startTime')
+      ..endTime = DateTime.now().toString()
+      ..target = box.get('isTodayTarget')
+      ..task = box.get('doneTasks')
+      ..tasks = box.get('totalTasks')
+      ..targetName = box.get('todayTarget');
+    final dayBox = Boxes.addDayHistoryToBase();
+    dayBox.add(day);
     habitTextController.clear();
     habitDaySlider = 10;
     notifyListeners();
