@@ -115,12 +115,9 @@ class MainProvider extends ChangeNotifier {
       endTime = DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       await box.put('previousDayDuration', dayDuration);
       previousDayDuration = box.get('previousDayDuration').toString();
-      await box.put('doneTasks', doneTasks);
-      await box.put('totalTasks', totalTasks);
       await box.put('day', false);
       isStartTask = false;
       box.put('isStartTask', isStartTask);
-      addDayHistoryToBase();
       final nameHabitBox = [];
       final startHabitBox = [];
       final daysHabitBox = [];
@@ -153,6 +150,9 @@ class MainProvider extends ChangeNotifier {
           doneTasks++;
         }
       }
+      await box.put('doneTasks', doneTasks);
+      await box.put('totalTasks', totalTasks);
+      addDayHistoryToBase();
     }
     notifyListeners();
   }
@@ -181,13 +181,11 @@ class MainProvider extends ChangeNotifier {
       ..startTime = box.get('startTime')
       ..endTime = DateTime.now().toString()
       ..target = box.get('isTodayTarget')
-      ..task = box.get('doneTasks')
-      ..tasks = box.get('totalTasks')
+      ..task = doneTasks
+      ..tasks = totalTasks
       ..targetName = box.get('todayTarget');
     final dayBox = Boxes.addDayHistoryToBase();
     dayBox.add(day);
-    habitTextController.clear();
-    habitDaySlider = 10;
     notifyListeners();
   }
 

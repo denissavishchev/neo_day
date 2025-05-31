@@ -35,7 +35,7 @@ class HabitHistoryScreen extends StatelessWidget {
                 width: size.width,
                 height: size.height * 0.8,
                 child: PageView.builder(
-                  itemCount: 2,
+                  itemCount: historyPages.length,
                     itemBuilder: (context, i){
                     return historyPages[i];
                     }
