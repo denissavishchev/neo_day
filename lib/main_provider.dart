@@ -11,7 +11,6 @@ import 'models/boxes.dart';
 import 'models/habit_history_model.dart';
 import 'models/habits_model.dart';
 import 'dart:math';
-
 import 'models/start_task_history_model.dart';
 
 class MainProvider extends ChangeNotifier {
@@ -56,6 +55,7 @@ class MainProvider extends ChangeNotifier {
   String startTask = '';
   String startTasksCount = '';
   double widgetsHeight = 430;
+  String sleepDuration = '';
 
   List<StartTasksModel> startTasks = [
     StartTasksModel(top: 'startEnergyTop', title: 'startEnergyTitle', description: 'startEnergyDescription'),
@@ -70,7 +70,7 @@ class MainProvider extends ChangeNotifier {
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
       endTime = box.get('endTime') == null
           ? ''
-          :DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
+          : DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day') ?? false;
       motivationText = box.get('motivationText') ?? 'quote';
@@ -81,7 +81,8 @@ class MainProvider extends ChangeNotifier {
       dayTaskCount = box.get('dayTaskCount') ?? 0;
       startTask = box.get('startTask') ?? '';
       startTasksCount = box.get('startTasksCount') ?? '';
-      isStartTask = box.get('isStartTask') ?? '';
+      isStartTask = box.get('isStartTask') ?? false;
+      sleepDuration = box.get('sleepDuration') ?? '';
     }
   }
 
@@ -91,6 +92,11 @@ class MainProvider extends ChangeNotifier {
       await box.put('day', true);
       await box.put('startTime', DateTime.now().toString());
       startTime = DateFormat('HH:mm').format(DateTime.parse(box.get('startTime').toString()));
+      if(box.get('endTime') != null){
+        await box.put('sleepDuration',
+            formatDuration(DateTime.parse(box.get('startTime')).difference(DateTime.parse(box.get('endTime')))));
+      }
+      sleepDuration = box.get('sleepDuration') ?? '';
       motivationText = 'quote';
       await box.put('motivationText', 'quote');
       isTodayTarget = false;
@@ -178,12 +184,13 @@ class MainProvider extends ChangeNotifier {
 
   Future addDayHistoryToBase() async {
     final day = DayHistoryModel()
-      ..startTime = box.get('startTime')
+      ..startTime = box.get('startTime') ?? ''
       ..endTime = DateTime.now().toString()
-      ..target = box.get('isTodayTarget')
+      ..target = box.get('isTodayTarget') ?? false
       ..task = doneTasks
       ..tasks = totalTasks
-      ..targetName = box.get('todayTarget');
+      ..targetName = box.get('todayTarget') ?? ''
+      ..sleepDuration = box.get('sleepDuration') ?? '';
     final dayBox = Boxes.addDayHistoryToBase();
     dayBox.add(day);
     notifyListeners();

@@ -8,7 +8,7 @@ part of 'day_history_model.dart';
 
 class DayHistoryModelAdapter extends TypeAdapter<DayHistoryModel> {
   @override
-  final int typeId = 46;
+  final int typeId = 47;
 
   @override
   DayHistoryModel read(BinaryReader reader) {
@@ -22,13 +22,14 @@ class DayHistoryModelAdapter extends TypeAdapter<DayHistoryModel> {
       ..target = fields[2] as bool
       ..tasks = fields[3] as int
       ..task = fields[4] as int
-      ..targetName = fields[5] as String;
+      ..targetName = fields[5] as String
+      ..sleepDuration = fields[6] as String;
   }
 
   @override
   void write(BinaryWriter writer, DayHistoryModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.startTime)
       ..writeByte(1)
@@ -40,7 +41,9 @@ class DayHistoryModelAdapter extends TypeAdapter<DayHistoryModel> {
       ..writeByte(4)
       ..write(obj.task)
       ..writeByte(5)
-      ..write(obj.targetName);
+      ..write(obj.targetName)
+      ..writeByte(6)
+      ..write(obj.sleepDuration);
   }
 
   @override

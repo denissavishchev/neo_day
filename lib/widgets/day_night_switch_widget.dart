@@ -88,6 +88,16 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                             child: Text('Your day started at ${data.startTime}',
                               style: kBlackTextStyle,))),
                     Positioned(
+                        top: 34,
+                        left: size.width * 0.3,
+                        child: AnimatedOpacity(
+                            opacity: data.isDay ? 1 : 0,
+                            duration: Duration(milliseconds: data.isDay ? 600 : 200),
+                            curve: Curves.easeInCubic,
+                            child: Text('Last night duration: ${data.sleepDuration == ''
+                                ? '--' : data.sleepDuration}',
+                              style: kBlackTextStyle,))),
+                    Positioned(
                         bottom: 14,
                         left: size.width * 0.3,
                         child:

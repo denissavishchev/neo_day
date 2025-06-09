@@ -80,21 +80,17 @@ class DayHistoryContainerWidget extends StatelessWidget {
                       ],
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text('Tasks: ', style: kBlackTextStyle,),
-                                Text('${history[index].task}', style: kBlackTextStyle,),
-                                Text(' / ', style: kBlackTextStyle,),
-                                Text('${history[index].tasks}', style: kBlackTextStyle,),
-                              ],
-                            ),
-                          ],
-                        ),
+                        Text('Tasks: ', style: kBlackTextStyle,),
+                        Text('${history[index].task}', style: kBlackTextStyle,),
+                        Text(' / ', style: kBlackTextStyle,),
+                        Text('${history[index].tasks}', style: kBlackTextStyle,),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Text('Last night duration: ', style: kBlackTextStyle,),
+                        Text(history[index].sleepDuration, style: kBlackTextStyle,),
                       ],
                     ),
                   ],
