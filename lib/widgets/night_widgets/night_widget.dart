@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:neo_day/main_provider.dart';
+import 'package:neo_day/widgets/night_widgets/rating_widget.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
 
@@ -39,7 +40,7 @@ class NightWidget extends StatelessWidget {
                 Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
                 Text('last day ended at: ${data.endTime}', style: kTextStyle,),
                 const SizedBox(height: 24,),
-                RatingWidget(),
+                RatingWidget(isActive: false,),
                 const SizedBox(height: 24,),
                 EndTextWidget(),
               ],
@@ -85,35 +86,3 @@ class EndTextWidget extends StatelessWidget {
   }
 }
 
-class RatingWidget extends StatelessWidget {
-  const RatingWidget({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Consumer<MainProvider>(
-        builder: (context, data, _){
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(5, (i){
-              return GestureDetector(
-                onTap: () => data.selectStars(i),
-                child: Icon(Icons.star,
-                    color: i < data.selectedStars ? kTangerine : kWhite,
-                    size: 50,
-                    shadows: [
-                      BoxShadow(
-                          color: i < data.selectedStars ? kWhite : kTangerine,
-                          blurRadius: 9,
-                          spreadRadius: 6,
-                          offset: Offset(1, 1)
-                      ),
-                    ]),
-              );
-            }),
-          );
-        }
-    );
-  }
-}

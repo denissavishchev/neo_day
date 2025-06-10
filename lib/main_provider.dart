@@ -6,6 +6,7 @@ import 'package:neo_day/models/day_history_model.dart';
 import 'package:neo_day/models/start_tasks_model.dart';
 import 'package:neo_day/widgets/button_widget.dart';
 import 'package:neo_day/widgets/languages/language.dart';
+import 'package:neo_day/widgets/night_widgets/rating_widget.dart';
 import 'constants.dart';
 import 'models/boxes.dart';
 import 'models/habit_history_model.dart';
@@ -83,6 +84,7 @@ class MainProvider extends ChangeNotifier {
       startTasksCount = box.get('startTasksCount') ?? '';
       isStartTask = box.get('isStartTask') ?? false;
       sleepDuration = box.get('sleepDuration') ?? '';
+      selectedStars = box.get('selectedStars') ?? 0;
     }
   }
 
@@ -158,7 +160,10 @@ class MainProvider extends ChangeNotifier {
       }
       await box.put('doneTasks', doneTasks);
       await box.put('totalTasks', totalTasks);
-      addDayHistoryToBase();
+      Future.delayed(Duration(milliseconds: 800), () async {
+        selectedStars = 0;
+        await showToAddDayRating(context);
+      });
     }
     notifyListeners();
   }
@@ -190,7 +195,8 @@ class MainProvider extends ChangeNotifier {
       ..task = doneTasks
       ..tasks = totalTasks
       ..targetName = box.get('todayTarget') ?? ''
-      ..sleepDuration = box.get('sleepDuration') ?? '';
+      ..sleepDuration = box.get('sleepDuration') ?? ''
+      ..selectedStars = box.get('selectedStars').toString();
     final dayBox = Boxes.addDayHistoryToBase();
     dayBox.add(day);
     notifyListeners();
@@ -438,6 +444,45 @@ class MainProvider extends ChangeNotifier {
         });
   }
 
+  Future<void>showToAddDayRating(context) async {
+    Size size = MediaQuery.sizeOf(context);
+    return showModalBottomSheet(
+        context: context,
+        isDismissible: false,
+        backgroundColor: Colors.transparent,
+        isScrollControlled: true,
+        builder: (context) {
+          return StatefulBuilder(
+              builder: (context, setState){
+                return Container(
+                    height: size.height * 0.2,
+                    width: size.width,
+                    padding: const EdgeInsets.symmetric(horizontal: 18),
+                    margin: const EdgeInsets.only(bottom: 450),
+                    decoration: const BoxDecoration(
+                      color: kBlack,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Text('rateThisDay', style: kTextStyle,),
+                        RatingWidget(isActive: true),
+                        ButtonWidget(
+                          text: 'rate',
+                          onTap: () {
+                              addDayHistoryToBase();
+                              notifyListeners();
+                              Navigator.of(context).pop();
+                          },),
+                      ],
+                    )
+                );
+              }
+          );
+        });
+  }
+
   void showMotivation(String text){
     motivationText = '$text${Random().nextInt(30)}';
     box.put('motivationText', motivationText);
@@ -497,12 +542,13 @@ class MainProvider extends ChangeNotifier {
   notifyListeners();
   }
 
-  void selectStars(int stars){
+  void selectStars(int stars) async{
     if (stars == 0 && selectedStars == stars + 1){
       selectedStars = 0;
     }else{
       selectedStars = stars + 1;
     }
+    await box.put('selectedStars', selectedStars);
     notifyListeners();
   }
 

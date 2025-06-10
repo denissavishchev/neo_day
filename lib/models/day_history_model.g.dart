@@ -23,13 +23,14 @@ class DayHistoryModelAdapter extends TypeAdapter<DayHistoryModel> {
       ..tasks = fields[3] as int
       ..task = fields[4] as int
       ..targetName = fields[5] as String
-      ..sleepDuration = fields[6] as String;
+      ..sleepDuration = fields[6] as String
+      ..selectedStars = fields[7] as String;
   }
 
   @override
   void write(BinaryWriter writer, DayHistoryModel obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.startTime)
       ..writeByte(1)
@@ -43,7 +44,9 @@ class DayHistoryModelAdapter extends TypeAdapter<DayHistoryModel> {
       ..writeByte(5)
       ..write(obj.targetName)
       ..writeByte(6)
-      ..write(obj.sleepDuration);
+      ..write(obj.sleepDuration)
+      ..writeByte(7)
+      ..write(obj.selectedStars);
   }
 
   @override

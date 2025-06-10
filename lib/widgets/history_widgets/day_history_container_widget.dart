@@ -93,6 +93,21 @@ class DayHistoryContainerWidget extends StatelessWidget {
                         Text(history[index].sleepDuration, style: kBlackTextStyle,),
                       ],
                     ),
+                    Row(
+                      children: List.generate(5, (i){
+                        return Icon(Icons.star,
+                            color: i < int.parse(history[index].selectedStars) ? kTangerine : kWhite,
+                            size: 20,
+                            shadows: [
+                              BoxShadow(
+                                  color: i < int.parse(history[index].selectedStars) ? kWhite : kTangerine,
+                                  blurRadius: 4,
+                                  spreadRadius: 2,
+                                  offset: Offset(0.5, 0.5)
+                              ),
+                            ]);
+                      }),
+                    )
                   ],
                 )
             ),

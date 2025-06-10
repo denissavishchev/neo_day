@@ -17,4 +17,6 @@ class DayHistoryModel extends HiveObject{
   late String targetName;
   @HiveField(6)
   late String sleepDuration;
+  @HiveField(7)
+  late String selectedStars;
 }
