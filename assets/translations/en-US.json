@@ -539,6 +539,78 @@
   "taskEmpathy28": "Say out loud: “I’m not perfect. And still — I have worth.”",
 
   "startEmpathy29": "My kindness begins with me.",
-  "taskEmpathy29": "Smile to yourself. This small act is already empathy."
+  "taskEmpathy29": "Smile to yourself. This small act is already empathy.",
+
+  "zeroStarText0_en": "Sometimes the day just doesn't want to happen. And that’s okay.",
+  "zeroStarText1_en": "Today goes to the bin. Tomorrow is a blank page.",
+  "zeroStarText2_en": "You made it to the end — that’s already something.",
+  "zeroStarText3_en": "Let the day dissolve in silence. You don't have to fix anything.",
+  "zeroStarText4_en": "Everything was hard today. Just rest. No lessons needed.",
+
+  "zeroStarQuestion0_en": "What was especially hard to accept today?",
+  "zeroStarQuestion1_en": "Where did you lack support — from others or yourself?",
+  "zeroStarQuestion2_en": "What can you leave behind for tomorrow?",
+  "zeroStarQuestion3_en": "What would you avoid if you could repeat the day?",
+  "zeroStarQuestion4_en": "How could you be kinder to yourself?",
+
+  "oneStarText0_en": "Yeah… this day wasn’t great. But it doesn’t define you.",
+  "oneStarText1_en": "Not everything worked out. But your worth remains.",
+  "oneStarText2_en": "Some days, just surviving is an achievement.",
+  "oneStarText3_en": "You’re allowed to be tired and imperfect.",
+  "oneStarText4_en": "Tomorrow you’ll thank yourself for resting today.",
+
+  "oneStarQuestion0_en": "What went wrong — and how would you do it differently?",
+  "oneStarQuestion1_en": "Where could you have been more gentle with yourself?",
+  "oneStarQuestion2_en": "What can support you tomorrow?",
+  "oneStarQuestion3_en": "What would you say to a friend after a day like this?",
+  "oneStarQuestion4_en": "What part of today can you leave behind?",
+
+  "twoStarText0_en": "Some things worked, others didn’t. Still — that’s something.",
+  "twoStarText1_en": "You acted, felt, and tried. That makes it a real day.",
+  "twoStarText2_en": "An average day is still part of the journey.",
+  "twoStarText3_en": "You’ve earned rest — even if not everything went well.",
+  "twoStarText4_en": "Not perfect, but with dignity. That counts.",
+
+  "twoStarQuestion0_en": "What didn’t go well — and why is that okay?",
+  "twoStarQuestion1_en": "What did you still do right today?",
+  "twoStarQuestion2_en": "What did you feel when the day ended?",
+  "twoStarQuestion3_en": "How would you like to begin tomorrow?",
+  "twoStarQuestion4_en": "Who or what would you thank today?",
+
+  "threeStarText0_en": "The day passed — that’s already a small win.",
+  "threeStarText1_en": "You kept the rhythm. That means you’re growing.",
+  "threeStarText2_en": "Not remarkable, but honest. These days matter too.",
+  "threeStarText3_en": "Every stable step is strength.",
+  "threeStarText4_en": "You did what you had to. And that’s enough.",
+
+  "threeStarQuestion0_en": "What did this day give you?",
+  "threeStarQuestion1_en": "What is worth repeating tomorrow?",
+  "threeStarQuestion2_en": "What thought followed you through the day?",
+  "threeStarQuestion3_en": "With whom did you feel (or not feel) connected today?",
+  "threeStarQuestion4_en": "What gave you peace, even for a moment?",
+
+  "fourStarText0_en": "There was light in this day. Let it stay inside you.",
+  "fourStarText1_en": "You did what you wanted — and even more.",
+  "fourStarText2_en": "You were present. That’s what matters.",
+  "fourStarText3_en": "You didn’t just live — you felt this day.",
+  "fourStarText4_en": "It was a good day. Thank yourself for that.",
+
+  "fourStarQuestion0_en": "What do you want to repeat tomorrow?",
+  "fourStarQuestion1_en": "What moment do you want to remember?",
+  "fourStarQuestion2_en": "Who or what brought you joy today?",
+  "fourStarQuestion3_en": "What did you do with love today?",
+  "fourStarQuestion4_en": "Where did you choose yourself over others’ expectations?",
+
+  "fiveStarText0_en": "This was your day. Keep it like a photo in your heart.",
+  "fiveStarText1_en": "You were in flow. You shined. You were yourself.",
+  "fiveStarText2_en": "Days like this are worth being grateful for — to yourself and life.",
+  "fiveStarText3_en": "You handled it — and more. Now it’s time to rest.",
+  "fiveStarText4_en": "This day is a warm dot on the calendar. Don’t forget it.",
+
+  "fiveStarQuestion0_en": "What made this day special?",
+  "fiveStarQuestion1_en": "Who would you like to say thank you to?",
+  "fiveStarQuestion2_en": "What did you discover about yourself today?",
+  "fiveStarQuestion3_en": "How do you want to begin tomorrow after a day like this?",
+  "fiveStarQuestion4_en": "What will you take from this day into the future?"
 
 }
