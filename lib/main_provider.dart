@@ -6,7 +6,7 @@ import 'package:neo_day/models/day_history_model.dart';
 import 'package:neo_day/models/start_tasks_model.dart';
 import 'package:neo_day/widgets/button_widget.dart';
 import 'package:neo_day/widgets/languages/language.dart';
-import 'package:neo_day/widgets/night_widgets/rating_widget.dart';
+import 'package:neo_day/widgets/night_widgets/rating_picker_widget.dart';
 import 'constants.dart';
 import 'models/boxes.dart';
 import 'models/habit_history_model.dart';
@@ -57,6 +57,8 @@ class MainProvider extends ChangeNotifier {
   String startTasksCount = '';
   double widgetsHeight = 430;
   String sleepDuration = '';
+  int randomNumber = 0;
+  bool isRatingWidget = false;
 
   List<StartTasksModel> startTasks = [
     StartTasksModel(top: 'startEnergyTop', title: 'startEnergyTitle', description: 'startEnergyDescription'),
@@ -85,6 +87,7 @@ class MainProvider extends ChangeNotifier {
       isStartTask = box.get('isStartTask') ?? false;
       sleepDuration = box.get('sleepDuration') ?? '';
       selectedStars = box.get('selectedStars') ?? 0;
+      randomNumber = box.get('randomNumber') ?? 0;
     }
   }
 
@@ -109,6 +112,7 @@ class MainProvider extends ChangeNotifier {
         await showToAddTodayTarget(context);
       });
     }else{
+      isRatingWidget = false;
       if(dayTaskCount < 29){
         dayTaskCount++;
       }else{
@@ -160,8 +164,9 @@ class MainProvider extends ChangeNotifier {
       }
       await box.put('doneTasks', doneTasks);
       await box.put('totalTasks', totalTasks);
+      getRandomNumber();
+      selectedStars = 0;
       Future.delayed(Duration(milliseconds: 800), () async {
-        selectedStars = 0;
         await showToAddDayRating(context);
       });
     }
@@ -467,11 +472,12 @@ class MainProvider extends ChangeNotifier {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Text('rateThisDay', style: kTextStyle,),
-                        RatingWidget(isActive: true),
+                        RatingPickerWidget(),
                         ButtonWidget(
-                          text: 'rate',
+                          text: 'rate'.tr(),
                           onTap: () {
                               addDayHistoryToBase();
+                              isRatingWidget = true;
                               notifyListeners();
                               Navigator.of(context).pop();
                           },),
@@ -582,6 +588,12 @@ class MainProvider extends ChangeNotifier {
       widgetsHeight = box1.size.height + box2.size.height + box3.size.height + 230;
     }
     notifyListeners();
+  }
+
+  void getRandomNumber() async{
+    Random random = Random();
+    randomNumber = random.nextInt(5);
+    await box.put('randomNumber', randomNumber);
   }
 
 }
