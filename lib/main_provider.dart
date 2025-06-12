@@ -58,7 +58,7 @@ class MainProvider extends ChangeNotifier {
   double widgetsHeight = 430;
   String sleepDuration = '';
   int randomNumber = 0;
-  bool isRatingWidget = false;
+  bool isRatingWidget = true;
 
   List<StartTasksModel> startTasks = [
     StartTasksModel(top: 'startEnergyTop', title: 'startEnergyTitle', description: 'startEnergyDescription'),
@@ -474,7 +474,7 @@ class MainProvider extends ChangeNotifier {
                         Text('rateThisDay', style: kTextStyle,),
                         RatingPickerWidget(),
                         ButtonWidget(
-                          text: 'rate'.tr(),
+                          text: 'rate',
                           onTap: () {
                               addDayHistoryToBase();
                               isRatingWidget = true;
