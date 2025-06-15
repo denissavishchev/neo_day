@@ -204,6 +204,7 @@ class MainProvider extends ChangeNotifier {
       ..selectedStars = box.get('selectedStars').toString();
     final dayBox = Boxes.addDayHistoryToBase();
     dayBox.add(day);
+    await box.put('selectedStars', selectedStars);
     notifyListeners();
   }
 
@@ -554,7 +555,6 @@ class MainProvider extends ChangeNotifier {
     }else{
       selectedStars = stars + 1;
     }
-    await box.put('selectedStars', selectedStars);
     notifyListeners();
   }
 
@@ -585,7 +585,7 @@ class MainProvider extends ChangeNotifier {
       final RenderBox box1 = key1.currentContext!.findRenderObject() as RenderBox;
       final RenderBox box2 = key2.currentContext!.findRenderObject() as RenderBox;
       final RenderBox box3 = key3.currentContext!.findRenderObject() as RenderBox;
-      widgetsHeight = box1.size.height + box2.size.height + box3.size.height + 230;
+      widgetsHeight = box1.size.height + box2.size.height + box3.size.height + 250;
     }
     notifyListeners();
   }
@@ -594,6 +594,13 @@ class MainProvider extends ChangeNotifier {
     Random random = Random();
     randomNumber = random.nextInt(5);
     await box.put('randomNumber', randomNumber);
+  }
+
+  int minutesSinceMidnight(String time) {
+    final parts = time.split(':');
+    final hours = int.parse(parts[0]);
+    final minutes = int.parse(parts[1]);
+    return hours * 60 + minutes;
   }
 
 }

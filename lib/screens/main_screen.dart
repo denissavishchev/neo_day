@@ -3,6 +3,7 @@ import 'package:neo_day/constants.dart';
 import 'package:neo_day/main_provider.dart';
 import 'package:provider/provider.dart';
 import '../widgets/day_night_switch_widget.dart';
+import '../widgets/day_widgets/goal_widget.dart';
 import '../widgets/day_widgets/habits_list_widget.dart';
 import '../widgets/night_widgets/night_widget.dart';
 import '../widgets/day_widgets/motivation_widget.dart';
@@ -60,13 +61,14 @@ class _MainScreenState extends State<MainScreen> {
                             padding: const EdgeInsets.symmetric(horizontal: 18.0),
                             color: kBlack,
                             child: Column(
-                              spacing: 12,
+                              spacing: 10,
                               children: [
                                 const SizedBox(height: 50,),
                                 DaySwitchWidget(),
                                 TodayTargetWidget(),
                                 MotivationWidget(),
                                 StartTaskWidget(),
+                                GoalWidget()
                               ],
                             ),
                           ),
@@ -86,3 +88,5 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
+
+
