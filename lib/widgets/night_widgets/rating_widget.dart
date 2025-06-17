@@ -59,7 +59,7 @@ class RatingWidget extends StatelessWidget {
                                 size: 20 + 30 * (i / 4),
                                 shadows: [
                                   BoxShadow(
-                                      color: i < data.selectedStars ? kBlack : kTangerine,
+                                      color: kTangerine,
                                       blurRadius: 9,
                                       spreadRadius: 6,
                                       offset: Offset(1, 1)
