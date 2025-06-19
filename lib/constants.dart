@@ -25,6 +25,13 @@ TextStyle kBlackTextStyle = TextStyle(
     fontWeight: FontWeight.bold
 );
 
+TextStyle kMediumTextStyle = TextStyle(
+    color: kBlack,
+    fontSize: 40.sp,
+    height: 1,
+    fontWeight: FontWeight.bold
+);
+
 TextStyle kBigTextStyle = TextStyle(
     color: kWhite,
     fontSize: 80.sp,

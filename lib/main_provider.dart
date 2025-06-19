@@ -27,10 +27,6 @@ class MainProvider extends ChangeNotifier {
 
   Box box = Hive.box('day');
 
-  final key1 = GlobalKey();
-  final key2 = GlobalKey();
-  final key3 = GlobalKey();
-
   bool isDay = true;
   bool isDayOnboarding = false;
   bool isAddTaskVisible = false;
@@ -55,7 +51,6 @@ class MainProvider extends ChangeNotifier {
   int selectedStartTask = 0;
   String startTask = '';
   String startTasksCount = '';
-  double widgetsHeight = 430;
   String sleepDuration = '';
   int randomNumber = 0;
   bool isRatingWidget = true;
@@ -577,16 +572,6 @@ class MainProvider extends ChangeNotifier {
 
   void switchDayOnboarding(context) async {
     isDayOnboarding = !isDayOnboarding;
-    notifyListeners();
-  }
-
-  void widgetSizes() {
-    if(key1.currentContext != null && key2.currentContext != null && key3.currentContext != null){
-      final RenderBox box1 = key1.currentContext!.findRenderObject() as RenderBox;
-      final RenderBox box2 = key2.currentContext!.findRenderObject() as RenderBox;
-      final RenderBox box3 = key3.currentContext!.findRenderObject() as RenderBox;
-      widgetsHeight = box1.size.height + box2.size.height + box3.size.height + 230;
-    }
     notifyListeners();
   }
 

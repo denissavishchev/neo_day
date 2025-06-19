@@ -15,7 +15,6 @@ class MotivationWidget extends StatelessWidget {
         return Visibility(
           visible: data.isDay,
           child: AnimatedCrossFade(
-            key: data.key2,
             duration: const Duration(milliseconds: 220),
             crossFadeState: data.motivationText == 'quote'
                 ? CrossFadeState.showFirst
@@ -32,7 +31,7 @@ class MotivationWidget extends StatelessWidget {
   Widget _buildFirstContainer(Size size, MainProvider data) {
     return Container(
       width: size.width,
-      height: 55,
+      height: 45,
       decoration: BoxDecoration(
         color: kBlack,
         borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -52,6 +51,7 @@ class MotivationWidget extends StatelessWidget {
   Widget _buildSecondContainer(Size size, MainProvider data) {
     return Container(
       width: size.width,
+      height: 45,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: kBlack,

@@ -18,8 +18,8 @@ class StartTaskWidget extends StatelessWidget {
           return Visibility(
             visible: data.isDay,
             child: Container(
-              key: data.key3,
               width: size.width,
+              height: size.height * 0.14,
               padding: const EdgeInsets.symmetric(vertical: 4),
               decoration: BoxDecoration(
                 color: kWhite,

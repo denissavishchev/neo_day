@@ -45,7 +45,6 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
             children: [
               AnimatedContainer(
                 width: size.width,
-                // height: 110,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   borderRadius: const BorderRadius.all(Radius.circular(60)),
@@ -79,7 +78,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                             child: Text('Start your new day',
                               style: kTangerineTextStyle,))),
                     Positioned(
-                        top: 14,
+                        top: 34,
                         left: size.width * 0.3,
                         child: AnimatedOpacity(
                             opacity: data.isDay ? 1 : 0,
@@ -88,24 +87,14 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                             child: Text('Your day started at ${data.startTime}',
                               style: kBlackTextStyle,))),
                     Positioned(
-                        top: 34,
+                        top: 14,
                         left: size.width * 0.3,
                         child: AnimatedOpacity(
                             opacity: data.isDay ? 1 : 0,
                             duration: Duration(milliseconds: data.isDay ? 600 : 200),
                             curve: Curves.easeInCubic,
                             child: Text('Last night duration: ${data.sleepDuration == ''
-                                ? '--' : data.sleepDuration}',
-                              style: kBlackTextStyle,))),
-                    Positioned(
-                        bottom: 14,
-                        left: size.width * 0.3,
-                        child:
-                        AnimatedOpacity(
-                            opacity: data.isDay ? 1 : 0,
-                            duration: Duration(milliseconds: data.isDay ? 600 : 200),
-                            curve: Curves.easeInCubic,
-                            child: Text('Day duration: ${data.dayDuration}',
+                                ? '--' : data.sleepDuration.substring(0, 5)}',
                               style: kBlackTextStyle,))),
                     AnimatedAlign(
                       duration: const Duration(milliseconds: 500),
@@ -128,7 +117,45 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                             ],
                           ),
                           child: AnimatedCrossFade(
-                            firstChild: Image.asset('assets/images/sun.png'),
+                            firstChild: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset('assets/images/sun.png'),
+                                SizedBox(
+                                    width: 55,
+                                    height: 55,
+                                    child: Stack(
+                                      children: [
+                                        Positioned(
+                                          top: 0,
+                                          right: 15,
+                                          child: Row(
+                                            children: [
+                                              Text(data.dayDuration.substring(0, 2),
+                                                style: kMediumTextStyle,),
+                                              Text('H', style: kBlackTextStyle.copyWith(
+                                                  color: kBlack.withValues(alpha: 0.7)),),
+                                            ],
+                                          ),
+                                        ),
+                                        Positioned(
+                                          top: 16,
+                                          right: 0,
+                                          child: Text(data.dayDuration.substring(3, 5),
+                                            style: kMediumTextStyle.copyWith(
+                                                color: kBlack.withValues(alpha: 0.6)),),
+                                        ),
+                                        Positioned(
+                                          top: 34,
+                                          right: 0,
+                                          child: Text(data.dayDuration.substring(6, 8),
+                                            style: kTangerineTextStyle,),
+                                        ),
+                                      ],
+                                    )
+                                )
+                              ],
+                            ),
                             secondChild: Image.asset('assets/images/moon.png'),
                             crossFadeState: data.isDay ? CrossFadeState.showFirst : CrossFadeState.showSecond,
                             duration: const Duration(milliseconds: 500),
