@@ -16,6 +16,7 @@ TextStyle kTextStyle = TextStyle(
 TextStyle kTangerineTextStyle = TextStyle(
     color: kTangerine,
     fontSize: 24.sp,
+    height: 0.8,
     fontWeight: FontWeight.bold
 );
 
