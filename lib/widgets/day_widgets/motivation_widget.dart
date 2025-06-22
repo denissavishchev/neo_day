@@ -31,7 +31,6 @@ class MotivationWidget extends StatelessWidget {
   Widget _buildFirstContainer(Size size, MainProvider data) {
     return Container(
       width: size.width,
-      height: 45,
       decoration: BoxDecoration(
         color: kBlack,
         borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -51,7 +50,7 @@ class MotivationWidget extends StatelessWidget {
   Widget _buildSecondContainer(Size size, MainProvider data) {
     return Container(
       width: size.width,
-      height: 45,
+      height: 40,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: kBlack,
@@ -82,7 +81,8 @@ class MotivationButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: size.width * 0.25,
-        height: 40,
+        height: 36,
+        margin: const EdgeInsets.symmetric(vertical: 4),
         decoration: BoxDecoration(
             color: kWhite,
             borderRadius: BorderRadius.all(Radius.circular(8))

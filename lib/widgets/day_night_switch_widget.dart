@@ -104,7 +104,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                         child: Container(
                           width: 80,
                           height: 80,
-                          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                           clipBehavior: Clip.hardEdge,
                           decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(Radius.circular(60)),

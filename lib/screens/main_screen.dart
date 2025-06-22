@@ -29,7 +29,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.sizeOf(context);
     return Consumer<MainProvider>(
         builder: (context, data, _){
           return SafeArea(
@@ -39,42 +38,23 @@ class _MainScreenState extends State<MainScreen> {
                 drawer: NotepadWidget(),
                 body: GestureDetector(
                   onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
-                  child: CustomScrollView(
-                    physics: data.isDay
-                      ? AlwaysScrollableScrollPhysics()
-                      : const NeverScrollableScrollPhysics(),
-                    slivers: [
-                      SliverAppBar(
-                        backgroundColor: kBlack,
-                        automaticallyImplyLeading: false,
-                        title: TopWidget(),
-                        pinned: true,
-                        expandedHeight: data.isDay
-                            ? 430
-                            : size.height * 0.22,
-                        flexibleSpace: FlexibleSpaceBar(
-                          background: Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 18.0),
-                            color: kBlack,
-                            child: Column(
-                              spacing: 10,
-                              children: [
-                                const SizedBox(height: 44,),
-                                DaySwitchWidget(),
-                                TodayTargetWidget(),
-                                MotivationWidget(),
-                                StartTaskWidget(),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      SliverToBoxAdapter(
-                        child: data.isDay
-                        ? HabitsListWidget()
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: Column(
+                      children: [
+                        TopWidget(),
+                        DaySwitchWidget(),
+                        TodayTargetWidget(),
+                        const SizedBox(height: 8,),
+                        MotivationWidget(),
+                        const SizedBox(height: 8,),
+                        StartTaskWidget(),
+                        const SizedBox(height: 8,),
+                        data.isDay
+                            ? HabitsListWidget()
                             : NightWidget(),
-                      )
-                    ],
+                      ],
+                    ),
                   )
                 )
             ),
@@ -83,5 +63,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
-

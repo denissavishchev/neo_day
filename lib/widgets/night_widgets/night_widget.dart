@@ -16,7 +16,7 @@ class NightWidget extends StatelessWidget {
     return Consumer<MainProvider>(
         builder: (context, data, _){
           return Container(
-            height: size.height * 0.78,
+            height: size.height * 0.7,
             color: kBlack,
             child: Column(
               children: [
