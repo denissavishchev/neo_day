@@ -20,20 +20,21 @@ class GoalWidget extends StatelessWidget {
           return Visibility(
             visible: data.isDay,
             child: Container(
-              width: size.width,
-              height: 16,
+              height: size.height * 0.5,
+              width: 16,
               padding: const EdgeInsets.symmetric(vertical: 2),
               decoration: BoxDecoration(
                 color: kGrey,
                 borderRadius: BorderRadius.all(Radius.circular(6)),
               ),
               child: ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 2),
                   itemCount: goals.length,
-                  scrollDirection: Axis.horizontal,
                   itemBuilder: (context, i){
                     return Container(
                       width: 12,
-                      margin: EdgeInsets.only(left: 4),
+                      height: 12,
+                      margin: EdgeInsets.only(bottom: 4),
                       decoration: BoxDecoration(
                           color: goals[i].status ? kTangerine : kWhite,
                           borderRadius: BorderRadius.all(Radius.circular(4)),

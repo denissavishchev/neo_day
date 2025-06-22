@@ -122,57 +122,40 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                               alignment: Alignment.center,
                               children: [
                                 Image.asset('assets/images/sun.png'),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 2.0),
-                                  child: SizedBox(
-                                      width: 70,
-                                      height: 55,
-                                      child: Stack(
-                                        children: [
-                                          Align(
-                                            alignment: Alignment.centerLeft,
-                                            child: Row(
-                                              children: [
-                                                Text(data.dayDuration.substring(0, 2),
-                                                  style: kMediumTextStyle,),
-                                              ],
+                                SizedBox(
+                                    width: 72,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text(data.dayDuration.substring(0, 2),
+                                          style: kMediumTextStyle,),
+                                        Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Container(
+                                              padding: const EdgeInsets.fromLTRB(2, 2, 2 ,1),
+                                              decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(width: 1, color: kTangerine.withValues(alpha: 0.5))
+                                              ),
+                                              child: Text(data.dayDuration.substring(6, 7),
+                                                style: kTangerineTextStyle.copyWith(fontSize: 18.sp),),
                                             ),
-                                          ),
-                                          Align(
-                                            alignment: Alignment.centerRight,
-                                            child: Text(data.dayDuration.substring(3, 5),
-                                              style: kMediumTextStyle.copyWith(
-                                                  color: kBlack.withValues(alpha: 0.6)),),
-                                          ),
-                                          Align(
-                                            alignment: Alignment.center,
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Container(
-                                                  padding: const EdgeInsets.fromLTRB(2, 2, 2 ,1),
-                                                  decoration: BoxDecoration(
-                                                    shape: BoxShape.circle,
-                                                    border: Border.all(width: 1, color: kTangerine.withValues(alpha: 0.5))
-                                                  ),
-                                                  child: Text(data.dayDuration.substring(6, 7),
-                                                    style: kTangerineTextStyle.copyWith(fontSize: 18.sp),),
-                                                ),
-                                                Container(
-                                                  padding: const EdgeInsets.fromLTRB(2, 2, 2 ,1),
-                                                  decoration: BoxDecoration(
-                                                      shape: BoxShape.circle,
-                                                      border: Border.all(width: 1, color: kTangerine.withValues(alpha: 0.5))
-                                                  ),
-                                                  child: Text(data.dayDuration.substring(7, 8),
-                                                    style: kTangerineTextStyle.copyWith(fontSize: 18.sp),),
-                                                ),
-                                              ],
+                                            Container(
+                                              padding: const EdgeInsets.fromLTRB(2, 2, 2 ,1),
+                                              decoration: BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  border: Border.all(width: 1, color: kTangerine.withValues(alpha: 0.5))
+                                              ),
+                                              child: Text(data.dayDuration.substring(7, 8),
+                                                style: kTangerineTextStyle.copyWith(fontSize: 18.sp),),
                                             ),
-                                          ),
-                                        ],
-                                      )
-                                  ),
+                                          ],
+                                        ),
+                                        Text(data.dayDuration.substring(3, 5),
+                                            style: kMediumTextStyle),
+                                      ],
+                                    )
                                 )
                               ],
                             ),

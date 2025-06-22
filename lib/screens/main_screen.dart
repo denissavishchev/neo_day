@@ -39,7 +39,7 @@ class _MainScreenState extends State<MainScreen> {
                 body: GestureDetector(
                   onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     child: Column(
                       children: [
                         TopWidget(),
