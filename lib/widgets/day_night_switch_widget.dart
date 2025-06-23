@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import '../main_provider.dart';
@@ -16,7 +15,6 @@ class DaySwitchWidget extends StatefulWidget {
 }
 
 class _DaySwitchWidgetState extends State<DaySwitchWidget> {
-
   Timer? timer;
 
   @override
@@ -139,7 +137,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                                                   border: Border.all(width: 1, color: kTangerine.withValues(alpha: 0.5))
                                               ),
                                               child: Text(data.dayDuration.substring(6, 7),
-                                                style: kTangerineTextStyle.copyWith(fontSize: 18.sp),),
+                                                style: kTangerineSmallTextStyle,),
                                             ),
                                             Container(
                                               padding: const EdgeInsets.fromLTRB(2, 2, 2 ,1),
@@ -148,7 +146,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                                                   border: Border.all(width: 1, color: kTangerine.withValues(alpha: 0.5))
                                               ),
                                               child: Text(data.dayDuration.substring(7, 8),
-                                                style: kTangerineTextStyle.copyWith(fontSize: 18.sp),),
+                                                style: kTangerineSmallTextStyle,),
                                             ),
                                           ],
                                         ),
