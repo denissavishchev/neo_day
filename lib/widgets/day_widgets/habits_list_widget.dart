@@ -34,7 +34,7 @@ class HabitsListWidget extends StatelessWidget {
                               borderRadius: BorderRadius.all(Radius.circular(8))
                           ),
                           child: ListView.builder(
-                            padding: const EdgeInsets.only(top: 2, bottom: 32),
+                            padding: const EdgeInsets.only(top: 2),
                               itemCount: habits.length,
                               itemBuilder: (context, index){
                                 return GestureDetector(

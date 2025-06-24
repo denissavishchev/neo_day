@@ -78,7 +78,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                               style: kTangerineTextStyle,))),
                     Positioned(
                         top: 34,
-                        left: size.width * 0.3,
+                        right: size.width * 0.1,
                         child: AnimatedOpacity(
                             opacity: data.isDay ? 1 : 0,
                             duration: Duration(milliseconds: data.isDay ? 600 : 200),
@@ -87,7 +87,7 @@ class _DaySwitchWidgetState extends State<DaySwitchWidget> {
                               style: kBlackTextStyle,))),
                     Positioned(
                         top: 14,
-                        left: size.width * 0.3,
+                        right: size.width * 0.1,
                         child: AnimatedOpacity(
                             opacity: data.isDay ? 1 : 0,
                             duration: Duration(milliseconds: data.isDay ? 600 : 200),
