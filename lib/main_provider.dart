@@ -54,6 +54,7 @@ class MainProvider extends ChangeNotifier {
   String sleepDuration = '';
   int randomNumber = 0;
   bool isRatingWidget = true;
+  bool isGratitude = false;
 
   List<StartTasksModel> startTasks = [
     StartTasksModel(top: 'startEnergyTop', title: 'startEnergyTitle', description: 'startEnergyDescription'),
@@ -581,11 +582,9 @@ class MainProvider extends ChangeNotifier {
     await box.put('randomNumber', randomNumber);
   }
 
-  int minutesSinceMidnight(String time) {
-    final parts = time.split(':');
-    final hours = int.parse(parts[0]);
-    final minutes = int.parse(parts[1]);
-    return hours * 60 + minutes;
+  void switchIsGratitude(){
+    isGratitude = !isGratitude;
+    notifyListeners();
   }
 
 }
