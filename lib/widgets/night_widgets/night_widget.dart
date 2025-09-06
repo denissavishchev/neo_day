@@ -4,7 +4,6 @@ import 'package:neo_day/widgets/night_widgets/rating_widget.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
 import 'end_text_widget.dart';
-import 'gratitude_widget.dart';
 
 class NightWidget extends StatelessWidget {
   const NightWidget({
@@ -21,27 +20,9 @@ class NightWidget extends StatelessWidget {
             color: kBlack,
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('last day target: ${data.todayTarget}', style: kTextStyle,),
-                    const SizedBox(width: 4,),
-                    Container(
-                      width: 18,
-                      height: 18,
-                      decoration: BoxDecoration(
-                          color: data.isTodayTarget ? kTangerine : kBlack.withValues(alpha: 0.8),
-                          borderRadius: BorderRadius.all(Radius.circular(7)),
-                          border: Border.all(color: data.isTodayTarget ? Colors.transparent : kTangerine, width: 2)
-                      ),
-                    )
-                  ],
-                ),
                 Text('last day tasks: ${data.doneTasks}/${data.totalTasks}', style: kTextStyle,),
                 Text('last day duration: ${data.previousDayDuration}', style: kTextStyle,),
                 Text('last day ended at: ${data.endTime}', style: kTextStyle,),
-                const SizedBox(height: 24,),
-                GratitudeWidget(),
                 const SizedBox(height: 24,),
                 Visibility(
                   visible: data.isRatingWidget,

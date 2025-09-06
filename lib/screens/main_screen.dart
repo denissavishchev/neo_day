@@ -5,10 +5,7 @@ import 'package:provider/provider.dart';
 import '../widgets/day_night_switch_widget.dart';
 import '../widgets/day_widgets/habits_list_widget.dart';
 import '../widgets/night_widgets/night_widget.dart';
-import '../widgets/day_widgets/motivation_widget.dart';
 import '../widgets/notepad_widget.dart';
-import '../widgets/day_widgets/start_task_widget.dart';
-import '../widgets/day_widgets/today_target_widget.dart';
 import '../widgets/day_widgets/top_widget.dart';
 
 class MainScreen extends StatefulWidget {
@@ -44,14 +41,10 @@ class _MainScreenState extends State<MainScreen> {
                       children: [
                         TopWidget(),
                         DaySwitchWidget(),
-                        TodayTargetWidget(),
-                        const SizedBox(height: 8,),
-                        MotivationWidget(),
-                        const SizedBox(height: 8,),
-                        StartTaskWidget(),
                         const SizedBox(height: 8,),
                         data.isDay
-                            ? HabitsListWidget()
+                            ? Expanded(
+                                child: HabitsListWidget())
                             : NightWidget(),
                       ],
                     ),

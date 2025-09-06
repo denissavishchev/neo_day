@@ -19,7 +19,6 @@ class HabitsListWidget extends StatelessWidget {
         builder: (context, data, _){
           return SizedBox(
             width: size.width,
-            height: size.height * 0.5,
             child: ValueListenableBuilder<Box<HabitsModel>>(
                 valueListenable: Boxes.addHabitToBase().listenable(),
                 builder: (context, box, _){

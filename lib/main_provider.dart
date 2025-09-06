@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
 import 'package:neo_day/models/day_history_model.dart';
 import 'package:neo_day/models/start_tasks_model.dart';
@@ -39,22 +38,14 @@ class MainProvider extends ChangeNotifier {
   int zeros = 0;
   int ones = 0;
   String selectedLanguage = 'English - UK';
-  String motivationText = 'quote';
   int totalTasks = 0;
   int doneTasks = 0;
   int selectedStars = 0;
   int selectedNote = 0;
-  String todayTarget = '';
-  bool isTodayTarget = false;
-  bool isStartTask = false;
   int dayTaskCount = 0;
-  int selectedStartTask = 0;
-  String startTask = '';
-  String startTasksCount = '';
   String sleepDuration = '';
   int randomNumber = 0;
   bool isRatingWidget = true;
-  bool isGratitude = false;
 
   List<StartTasksModel> startTasks = [
     StartTasksModel(top: 'startEnergyTop', title: 'startEnergyTitle', description: 'startEnergyDescription'),
@@ -72,15 +63,9 @@ class MainProvider extends ChangeNotifier {
           : DateFormat('HH:mm').format(DateTime.parse(box.get('endTime').toString()));
       previousDayDuration = box.get('previousDayDuration').toString();
       isDay = box.get('day') ?? false;
-      motivationText = box.get('motivationText') ?? 'quote';
-      isTodayTarget = box.get('isTodayTarget') ?? false;
-      todayTarget = box.get('todayTarget') ?? '';
       totalTasks = box.get('totalTasks') ?? 0;
       doneTasks = box.get('doneTasks') ?? 0;
       dayTaskCount = box.get('dayTaskCount') ?? 0;
-      startTask = box.get('startTask') ?? '';
-      startTasksCount = box.get('startTasksCount') ?? '';
-      isStartTask = box.get('isStartTask') ?? false;
       sleepDuration = box.get('sleepDuration') ?? '';
       selectedStars = box.get('selectedStars') ?? 0;
       randomNumber = box.get('randomNumber') ?? 0;
@@ -98,15 +83,7 @@ class MainProvider extends ChangeNotifier {
             formatDuration(DateTime.parse(box.get('startTime')).difference(DateTime.parse(box.get('endTime')))));
       }
       sleepDuration = box.get('sleepDuration') ?? '';
-      motivationText = 'quote';
       await box.put('motivationText', 'quote');
-      isTodayTarget = false;
-      todayTarget = '';
-      isTodayTarget = false;
-      await box.put('isTodayTarget', false);
-      Future.delayed(Duration(seconds: 1), () async {
-        await showToAddTodayTarget(context);
-      });
     }else{
       isRatingWidget = false;
       if(dayTaskCount < 29){
@@ -114,7 +91,6 @@ class MainProvider extends ChangeNotifier {
       }else{
         addStartTaskHistoryToBase();
         dayTaskCount = 0;
-        startTask = '';
         box.put('startTasksCount', '');
         box.put('startTasks', '');
       }
@@ -124,8 +100,6 @@ class MainProvider extends ChangeNotifier {
       await box.put('previousDayDuration', dayDuration);
       previousDayDuration = box.get('previousDayDuration').toString();
       await box.put('day', false);
-      isStartTask = false;
-      box.put('isStartTask', isStartTask);
       final nameHabitBox = [];
       final startHabitBox = [];
       final daysHabitBox = [];
@@ -319,133 +293,6 @@ class MainProvider extends ChangeNotifier {
         });
   }
 
-  Future<void>showToAddStartTask(context) async {
-    Size size = MediaQuery.sizeOf(context);
-    return showModalBottomSheet(
-        context: context,
-        backgroundColor: Colors.transparent,
-        isDismissible: false,
-        isScrollControlled: true,
-        builder: (context) {
-          return StatefulBuilder(
-              builder: (context, setState){
-                return Container(
-                    height: size.height * 0.9,
-                    width: size.width,
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
-                    decoration: const BoxDecoration(
-                      color: kBlack,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
-                    child: Column(
-                      spacing: 18,
-                      children: [
-                        const SizedBox(height: 4,),
-                        Text('chooseYourNextChallenge'.tr(), 
-                          style: kTextStyle.copyWith(fontSize: 40.sp),),
-                        SizedBox(
-                          height: size.height * 0.72,
-                          child: ListView.builder(
-                            itemCount: startTasks.length,
-                              itemBuilder: (context, i){
-                              return GestureDetector(
-                                onTap: () => setState(() => selectedStartTask = i),
-                                child: Container(
-                                  width: size.width,
-                                  margin: const EdgeInsets.only(bottom: 8),
-                                  padding: const EdgeInsets.all(12),
-                                  decoration: BoxDecoration(
-                                    color: selectedStartTask == i ? kWhite : kBlack,
-                                    borderRadius: BorderRadius.all(Radius.circular(8)),
-                                    border: Border.all(
-                                        color: selectedStartTask == i
-                                            ? Colors.transparent : kWhite,
-                                      width: 2
-                                    )
-                                  ),
-                                  child: Column(
-                                    spacing: 4,
-                                    children: [
-                                      Text(startTasks[i].title.tr(),
-                                        style: selectedStartTask == i
-                                            ? kBlackTextStyle.copyWith(fontSize: 32.sp)
-                                            : kTextStyle.copyWith(fontSize: 32.sp),),
-                                      Text(startTasks[i].description.tr(),
-                                        style: selectedStartTask == i
-                                        ? kBlackTextStyle
-                                        : kTextStyle,)
-                                    ],
-                                  ),
-                                ),
-                              );
-                              }
-                          ),
-                        ),
-                        ButtonWidget(
-                            text: 'add',
-                            onTap: (){
-                              createStartTask();
-                              Navigator.of(context).pop();
-                            }
-                        ),
-                        SizedBox(height: size.height * 0.015,)
-                      ],
-                    )
-                );
-              }
-          );
-        });
-  }
-
-  Future<void>showToAddTodayTarget(context) async {
-    Size size = MediaQuery.sizeOf(context);
-    return showModalBottomSheet(
-        context: context,
-        isDismissible: false,
-        backgroundColor: Colors.transparent,
-        isScrollControlled: true,
-        builder: (context) {
-          return StatefulBuilder(
-              builder: (context, setState){
-                return Container(
-                    height: size.height * 0.2,
-                    width: size.width,
-                    padding: const EdgeInsets.symmetric(horizontal: 18),
-                    margin: const EdgeInsets.only(bottom: 450),
-                    decoration: const BoxDecoration(
-                      color: kBlack,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text('addTodayTarget'.tr(), style: kTextStyle,),
-                        TextField(
-                          controller: todayTargetTextController,
-                          style: const TextStyle(color: kWhite),
-                          decoration: textFieldDecoration,
-                          cursorColor: kWhite,
-                        ),
-                        ButtonWidget(
-                          text: 'add',
-                          onTap: () {
-                          if(todayTargetTextController.text.isNotEmpty){
-                            box.put('todayTarget', todayTargetTextController.text);
-                            todayTarget = todayTargetTextController.text;
-                            todayTargetTextController.clear();
-                            isTodayTarget = false;
-                            notifyListeners();
-                            Navigator.of(context).pop();
-                          }
-                        },),
-                      ],
-                    )
-                );
-              }
-          );
-        });
-  }
-
   Future<void>showToAddDayRating(context) async {
     Size size = MediaQuery.sizeOf(context);
     return showModalBottomSheet(
@@ -486,18 +333,6 @@ class MainProvider extends ChangeNotifier {
         });
   }
 
-  void showMotivation(String text){
-    motivationText = '$text${Random().nextInt(30)}';
-    box.put('motivationText', motivationText);
-    notifyListeners();
-  }
-
-  void hideMotivation(){
-    motivationText = 'quote';
-    box.put('motivationText', 'quote');
-    notifyListeners();
-  }
-
   void setLanguage(Language value, context){
     selectedLanguage = value.toString();
     notifyListeners();
@@ -533,38 +368,12 @@ class MainProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future createStartTask() async{
-  await box.put('startTask', startTasks[selectedStartTask].top.substring(5, startTasks[selectedStartTask].top.length - 3));
-  startTask = box.get('startTask');
-  dayTaskCount = 0;
-  isStartTask = false;
-  await box.put('dayTaskCount', dayTaskCount);
-  await box.put('startTasksCount', '0' * 30);
-  startTasksCount = box.get('startTasksCount');
-  notifyListeners();
-  }
-
   void selectStars(int stars) async{
     if (stars == 0 && selectedStars == stars + 1){
       selectedStars = 0;
     }else{
       selectedStars = stars + 1;
     }
-    notifyListeners();
-  }
-
-  void switchIsTodayTarget(){
-    isTodayTarget = !isTodayTarget;
-    box.put('isTodayTarget', isTodayTarget);
-    notifyListeners();
-  }
-
-  Future switchIsStartTask() async{
-    isStartTask = !isStartTask;
-    await box.put('startTasksCount',
-        box.get('startTasksCount').replaceRange(dayTaskCount, dayTaskCount + 1, isStartTask ? '1' : '0'));
-    box.put('isStartTask', isStartTask);
-    startTasksCount = box.get('startTasksCount');
     notifyListeners();
   }
 
@@ -579,9 +388,5 @@ class MainProvider extends ChangeNotifier {
     await box.put('randomNumber', randomNumber);
   }
 
-  void switchIsGratitude(){
-    isGratitude = !isGratitude;
-    notifyListeners();
-  }
 
 }

@@ -20,7 +20,6 @@ class GoalWidget extends StatelessWidget {
           return Visibility(
             visible: data.isDay,
             child: Container(
-              height: size.height * 0.5,
               width: 16,
               padding: const EdgeInsets.symmetric(vertical: 2),
               decoration: BoxDecoration(
